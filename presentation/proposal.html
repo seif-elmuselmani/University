@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وثيقة المقترح التنفيذي الرسمي | مشروع المنظومة الرقمية الشاملة لجامعة لوسيل</title>
+    <title>وثيقة المقترح التنفيذي والمعمارية الشاملة (33 موديولاً) | جامعة لوسيل</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -14,35 +14,53 @@
     <style>
         body {
             font-family: 'Cairo', 'Tajawal', sans-serif;
-            background-color: #F8FAFC;
-            color: #0F172A;
+            background-color: #0F172A;
+            color: #1E293B;
         }
         @media print {
             .no-print { display: none !important; }
-            body { background: white !important; }
+            body { background: white !important; color: black !important; }
             .print-page { page-break-after: always; min-height: 100vh; box-shadow: none !important; border: none !important; }
+        }
+        .tree-node {
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        .tree-node::before {
+            content: '';
+            position: absolute;
+            right: 0.25rem;
+            top: 0.75rem;
+            width: 0.75rem;
+            height: 1px;
+            background-color: #CBD5E1;
         }
     </style>
 </head>
 <body class="py-8 px-4 sm:px-6">
 
     <!-- Top Action Bar (No-Print) -->
-    <div class="no-print max-w-4xl mx-auto mb-6 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+    <div class="no-print max-w-5xl mx-auto mb-6 bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-xl flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-3">
-            <a href="deck.html" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+            <a href="deck.html" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5">
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                <span>العودة للعرض التقديمي</span>
+                <span>العودة للشرائح</span>
             </a>
-            <span class="text-xs font-bold text-slate-500">وثيقة المقترح التنفيذي (Executive Dossier)</span>
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-bold text-slate-300">المعمارية التنفيذية الكاملة (33 موديولاً معتمداً)</span>
+            </div>
         </div>
-        <button onclick="window.print()" class="px-5 py-2 bg-[#6B001A] hover:bg-[#4A0012] text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center gap-2">
-            <i data-lucide="printer" class="w-4 h-4"></i>
-            <span>طباعة وتصدير PDF (A4)</span>
-        </button>
+        <div class="flex items-center gap-2">
+            <button onclick="window.print()" class="px-5 py-2.5 bg-gradient-to-r from-[#6B001A] to-[#990024] hover:from-[#500013] hover:to-[#77001C] text-white text-xs font-black rounded-xl shadow-lg transition flex items-center gap-2">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>تصدير وطباعة الوثيقة (PDF / A4)</span>
+            </button>
+        </div>
     </div>
 
     <!-- Printable Formal Document Container -->
-    <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-14 border border-slate-200 shadow-lg space-y-10 print-page">
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl p-8 sm:p-14 border border-slate-200 shadow-2xl space-y-12 print-page">
 
         <!-- Header with University Seal & Identification -->
         <div class="border-b-2 border-slate-900 pb-6 flex items-center justify-between">
@@ -51,145 +69,274 @@
                     LU
                 </div>
                 <div>
-                    <h1 class="text-xl sm:text-2xl font-black text-slate-900">جامعة لوسيل - دولة قطر</h1>
-                    <p class="text-xs font-bold text-[#6B001A]">Lusail University | Digital Transformation Directorate</p>
-                    <span class="text-[10px] text-slate-500 font-mono">وثيقة رقم: LU-EXEC-PROP-2026-V1</span>
+                    <h1 class="text-xl sm:text-2xl font-black text-slate-900">جامعة لوسيل - Lusail University</h1>
+                    <p class="text-xs font-bold text-[#6B001A]">إدارة التحول الرقمي والحلول المؤسسية | Digital Transformation</p>
+                    <span class="text-[10px] text-slate-500 font-mono">وثيقة رقم: LU-ARCH-33-MODULES-2026</span>
                 </div>
             </div>
 
             <div class="text-left text-xs font-bold text-slate-600 space-y-1">
-                <div>التاريخ: <span class="font-mono text-slate-900">17 سبتمبر 2026</span></div>
-                <div>الحالة: <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">مقترح معتمد للعرض</span></div>
-                <div>المستوى: <span class="text-[#6B001A]">سري وموجه للإدارة العليا</span></div>
+                <div>التاريخ: <span class="font-mono text-slate-900">سبتمبر 2026</span></div>
+                <div>الحالة: <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">معمارية معتمدة ومطابقة</span></div>
+                <div>التصنيف: <span class="text-[#6B001A]">وثيقة استراتيجية موجهة للعميل</span></div>
             </div>
         </div>
 
         <!-- Document Title -->
         <div class="space-y-3">
-            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-900 border border-amber-300">
-                وثيقة المقترح التنفيذي الشامل
-            </span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-900 border border-amber-300">
+                <i data-lucide="shield-check" class="w-4 h-4 text-amber-600"></i>
+                <span>المخطط المعماري الهندسي الشامل لجميع الأنظمة (33 موديولاً)</span>
+            </div>
             <h2 class="text-2xl sm:text-3xl font-black text-slate-900 leading-snug">
-                مشروع بناء البوابة والمنظومة الأكاديمية الرقمية الموحدة<br>
-                <span class="text-[#6B001A]">(Unified Academic Portal & Operating System)</span>
+                منظومة إدارة الجامعة والتحول الرقمي الموحد<br>
+                <span class="text-[#6B001A]">(Enterprise University Operating System - 33 Modules)</span>
             </h2>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                مقدم إلى: <strong>مجلس الأمناء الموقر ورئاسة جامعة لوسيل وعمداء الكليات</strong>
+                مقدم إلى: <strong>مجلس الإدارة واللجنة الفنية والمشرفين على مشروع التحول الرقمي</strong>
             </p>
         </div>
 
-        <!-- 1. Executive Summary -->
-        <div class="space-y-3">
+        <!-- 1. Executive Summary & Value Proposition -->
+        <div class="space-y-4">
             <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
-                <span>1. الملخص التنفيذي (Executive Summary)</span>
+                <span>1. الرؤية الهندسية والمعمارية (Enterprise Architecture Strategy)</span>
             </h3>
             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                يهدف هذا المشروع الاستراتيجي إلى نقل جامعة لوسيل إلى طليعة الجامعات الرقمية الذكية في دولة قطر والمنطقة، من خلال بناء منظومة رقمية مؤسسية موحدة تجمع بين: البوابة الأكاديمية الفاخرة، دليل الكليات والـ 14 برنامجاً المعتمدة، منظومة الـ 16 خدمة إلكترونية ذاتية، محرك القبول وحساب الرسوم الفورية، ونظام التشغيل الأكاديمي المكتبي (Desk OS) لإصدار الشهادات وكشوف الدرجات المشفرة بـ QR Code.
+                تم تصميم المنظومة بنظام <strong>المعمارية الهجينة عالية الأداء (Hybrid Enterprise Architecture)</strong> التي تضمن التغطية الكاملة لـ <strong>33 موديولاً أكاديمياً وإدارياً</strong> بدون جزر منعزلة. تعتمد المعمارية على محرك مركزي موحد (Frappe Core + ERPNext) لمعالجة البيانات الضخمة، مدعوماً بواجهات أمامية متطورة وفائقة السرعة تم تطويرها خصيصاً لتوفير تجربة مستخدم عالمية (UX/UI).
             </p>
-        </div>
 
-        <!-- 2. Core Pillars & Scope -->
-        <div class="space-y-3">
-            <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
-                <span>2. نطاق العمل والمخرجات الأساسية للمنظومة</span>
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                    <strong class="font-bold text-slate-900 block text-sm">أ. البوابة العامة ومنظومة الكليات (4 كليات - 14 برنامجاً)</strong>
-                    <p class="text-slate-600 leading-relaxed">عرض متكامل للبرامج الأكاديمية، والخطط الدراسية بالساعات المعتمدة، وبطاقات العمداء، والمختبرات المتطورة التابعة لكلية تكنولوجيا المعلومات، القانون، التجارة، والتربية.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <div class="font-bold text-[#6B001A] mb-1 flex items-center gap-1.5 text-sm">
+                        <i data-lucide="layers" class="w-4 h-4"></i>
+                        <span>تغطية وظيفية 100%</span>
+                    </div>
+                    <p class="text-slate-600">جميع الشجيرات الأكاديمية والمالية والخدمية الـ 33 ممثلة ومربوطة في قاعدة بيانات علائقية واحدة.</p>
                 </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                    <strong class="font-bold text-slate-900 block text-sm">ب. منظومة الـ 16 خدمة الإلكترونية الذاتية</strong>
-                    <p class="text-slate-600 leading-relaxed">أتمتة شاملة لعمليات التسجيل، الحذف والإضافة، كشوف الدرجات، الإرشاد الأكاديمي، سداد الرسوم عبر بوابة QPay، وحجز السكن والمواقف.</p>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <div class="font-bold text-emerald-700 mb-1 flex items-center gap-1.5 text-sm">
+                        <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                        <span>جاهزية مسبقة وتسليم فوري</span>
+                    </div>
+                    <p class="text-slate-600">الواجهات الأكاديمية ومحركات السجلات والبحث والتوظيف تم بناؤها بالفعل مما يقلص مدة التسليم للنصف.</p>
                 </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                    <strong class="font-bold text-slate-900 block text-sm">ج. محرك القبول وحاسبة الرسوم المعتمدة</strong>
-                    <p class="text-slate-600 leading-relaxed">حساب فوري للرسوم (1,500 ر.ق/ساعة) وتطبيق تلقائي لنسب المنح (50% تفوق، 100% رعاية) والخصومات، وتدقيق المستندات رقمياً.</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                    <strong class="font-bold text-slate-900 block text-sm">د. نظام Desk OS وكشوف الدرجات الموثقة بـ QR</strong>
-                    <p class="text-slate-600 leading-relaxed">لوحة تحكم إدارية للعمادات وشؤون الطلاب، محرك دقيق لاحتساب الـ GPA وفق سلم 4.00، ومنع التعارضات وإصدار شهادات مشفرة برمز QR.</p>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <div class="font-bold text-sky-700 mb-1 flex items-center gap-1.5 text-sm">
+                        <i data-lucide="lock" class="w-4 h-4"></i>
+                        <span>ملكية كاملة وأمان سيادي</span>
+                    </div>
+                    <p class="text-slate-600">المنظومة تعمل داخل خوادم المؤسسة بحرية تامة وبدون تكاليف تراخيص مستمرة لكل مستخدم.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 3. Implementation Roadmap -->
-        <div class="space-y-3">
+        <!-- 2. Detailed 33 Modules Tree (Full Breakdown) -->
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-r-4 border-[#6B001A] pr-3">
+                <h3 class="text-base font-black text-slate-900">
+                    <span>2. الشجرة التفصيلية الشاملة لجميع الموديولات الـ 33 (System Breakdown)</span>
+                </h3>
+                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                    33 موديولاً مبرمجاً ومطابقاً
+                </span>
+            </div>
+
+            <!-- Group A: Academic & SIS -->
+            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-4">
+                <div class="flex items-center gap-2 text-sm font-black text-[#6B001A] border-b border-slate-200 pb-2">
+                    <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    <span>القطاع الأول: شؤون الطلاب، الأكاديميات، والتعليم (SIS & LMS)</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">01. الهوية والبوابات (Identity & Portals)</strong>
+                        <p class="text-slate-600">تسجيل الدخول الموحد (SSO) مع Microsoft Entra ID و Google Workspace، والتحقق الثنائي (2FA)، وتوفير 7 بوابات مستقلة.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">مكتمل بالبوابات السبعة</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">02. الهيكل الأكاديمي (University Structure)</strong>
+                        <p class="text-slate-600">الكليات، الأقسام، البرامج (بكالوريوس، ماجستير)، السنوات والفصول الدراسية، سلم الدرجات 4.00، والساعات المعتمدة.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">مكتمل بقواعد البيانات</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">03. السجلات والتسجيل (Registration & SIS)</strong>
+                        <p class="text-slate-600">التسجيل، الحذف والإضافة والانسحاب (Add/Drop/Withdrawal)، حساب الـ GPA الفصلي والتراكمي، كشوف الدرجات، والحظر (Holds).</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">منجز بمحرك GPA المعتمد</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">04. القبول والتسجيل (Admissions)</strong>
+                        <p class="text-slate-600">بوابة التقديم، سداد الرسوم، تدقيق الوثائق، لجان القبول، خطابات القبول برمز QR، وامتحانات تحديد المستوى.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">منجز ومطور</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">05. الإدارة الأكاديمية (Academic Management)</strong>
+                        <p class="text-slate-600">الخطط الدراسية، المتطلبات السابقة، جداول المحاضرات والقاعات، نصاب التدريس، وجدول الامتحانات والتقويم.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">منجز ومطور</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">06. إدارة التعلم الإلكتروني (LMS)</strong>
+                        <p class="text-slate-600">المحاضرات (فيديو، صوت، PDF)، بنوك الأسئلة، الكويزات، فصول Teams و Zoom المباشرة، وتوليد الشهادات الرقمية.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-sky-800">تكامل Frappe LMS المعتمد</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">07. الاختبارات والتقييم (Exams & Assessment)</strong>
+                        <p class="text-slate-600">جداول الاختبارات، توزيع المقاعد، بنوك الأسئلة العشوائية، سجل الدرجات (Gradebook)، والتظلمات والطعون الأكاديمية.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-sky-800">تكامل Education Exams</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">08. الحضور والغياب (Attendance)</strong>
+                        <p class="text-slate-600">تسجيل الحضور برمز QR متغير لحظياً، ربط البصمة، الأعذار الطبية، وإرسال إنذارات الغياب التلقائية (5%, 10%, 15%).</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">مكتمل برمجياً</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group B: ERP, HR & Finance -->
+            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-4">
+                <div class="flex items-center gap-2 text-sm font-black text-[#6B001A] border-b border-slate-200 pb-2">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>القطاع الثاني: الإدارة المالية، الموارد البشرية، والأصول (ERP & HRMS)</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">09. هيئة التدريس والموظفون (Faculty & Staff)</strong>
+                        <p class="text-slate-600">الملف الأكاديمي، الرتب العلمية، الأعباء التدريسية، الساعات المكتبية، وتقييم الأداء والترقيات العلمية.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">مكتمل وجاهز</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">10. الموارد البشرية والرواتب (HRMS)</strong>
+                        <p class="text-slate-600">بوابة التوظيف (ATS)، الإجازات، مسيرات الرواتب، حساب المستحقات ومكافأة نهاية الخدمة، والخدمة الذاتية.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-sky-800">تطبيق Frappe HRMS الرسمي</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">11. الإدارة المالية والمحاسبة (ERP & Finance)</strong>
+                        <p class="text-slate-600">شجرة الحسابات، قيود اليومية، فواتير ورسوم الطلاب بالساعات، خطط التقسيط، المشتريات، وسجل الأصول الثابتة والإهلاك.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-sky-800">تطبيق ERPNext Accounting العالمي</span>
+                    </div>
+                    <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-bold block">12. المنح والمساعدات (Scholarships & Aid)</strong>
+                        <p class="text-slate-600">برامج المنح (تفوق، رعاية، أوقاف)، فحص الاستحقاق، تطبيق الخصومات على فواتير المقررات، ومتابعة شروط التجديد.</p>
+                        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">مكتمل برمجياً</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group C: Research, Library & Campus Operations -->
+            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-4">
+                <div class="flex items-center gap-2 text-sm font-black text-[#6B001A] border-b border-slate-200 pb-2">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    <span>القطاع الثالث: البحث العلمي، المكتبة، والتشغيل المؤسسي (13 - 33)</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">13. إدارة المكتبة (Library)</strong>
+                        <p class="text-slate-600 text-[11px]">الفهرس الآلي (OPAC)، الإعارة، الغرامات، والربط مع Scopus و IEEE Xplore.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">14. البحث العلمي (Research)</strong>
+                        <p class="text-slate-600 text-[11px]">المشاريع البحثية، المنح، بوابات الباحثين، وربط معرفات ORCID و Crossref.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">15. الخدمات الطلابية (Services)</strong>
+                        <p class="text-slate-600 text-[11px]">الشهادات الإلكترونية، الإفادات، إخلاء الطرف، والبطاقات الجامعية الرقمية.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">16. الإرشاد الأكاديمي (Advising)</strong>
+                        <p class="text-slate-600 text-[11px]">نظام الإنذار المبكر للطلاب المتعثرين وحجز مواعيد الإرشاد.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">17. التوظيف والتدريب (Career)</strong>
+                        <p class="text-slate-600 text-[11px]">بناء السيرة الذاتية، التدريب الميداني Co-op، ومعارض التوظيف.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">18. شؤون الخريجين (Alumni)</strong>
+                        <p class="text-slate-600 text-[11px]">دليل الخريجين، التواصل، التبرعات، وتتبع المسار المهني.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">19. الدعم الفني (Helpdesk)</strong>
+                        <p class="text-slate-600 text-[11px]">تذاكر الدعم، التصعيد، ومؤشرات الـ SLA لقياس جودة الخدمة.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">20. قاعدة المعرفة (Wiki)</strong>
+                        <p class="text-slate-600 text-[11px]">اللوائح الجامعية، دليل الطالب والموظف، والأسئلة الشائعة.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">21. إدارة القبول (CRM)</strong>
+                        <p class="text-slate-600 text-[11px]">استقطاب الطلاب الجدد، متابعة الحملات التسويقية، والمحادثات.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">22. الاتصالات (Communication)</strong>
+                        <p class="text-slate-600 text-[11px]">إرسال رسائل SMS، البريد الموحد، والإشعارات المباشرة للطوارئ.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">23 & 24. تكامل M365 و Google</strong>
+                        <p class="text-slate-600 text-[11px]">ربط حسابات Outlook, Teams, OneDrive, Meet, و Google Drive.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">25 & 26. الأرشفة وسير المعاملات</strong>
+                        <p class="text-slate-600 text-[11px]">التوقيع الإلكتروني ودورات الاعتماد متعددة المستويات (Workflows).</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">27, 28, 29. المرافق والنقل والسكن</strong>
+                        <p class="text-slate-600 text-[11px]">حجز القاعات والمعامل، تتبع الحافلات، وتسكين الغرف الجامعية.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">30, 31, 32. الفعاليات والأنشطة والرعاية</strong>
+                        <p class="text-slate-600 text-[11px]">المؤتمرات والتذاكر، النوادي الطلابية، والاستشارات النفسية السرية.</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 font-bold block">33. الجودة والاعتماد (Quality)</strong>
+                        <p class="text-slate-600 text-[11px]">مصفوفة مخرجات التعلم (CLOs/PLOs) واستبيانات الجودة المؤسسية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Infrastructure & DevOps -->
+        <div class="space-y-4">
             <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
-                <span>3. الجدول الزمني للتنفيذ (8 أسابيع واقعية ومضمونة)</span>
+                <span>3. البنية التحتية والأمان السيبراني (DevOps & Security)</span>
             </h3>
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-xs text-right border border-slate-200 rounded-xl overflow-hidden">
+            <div class="overflow-x-auto text-xs">
+                <table class="w-full text-right border border-slate-200 rounded-xl overflow-hidden">
                     <thead class="bg-slate-100 text-slate-800 font-black">
                         <tr>
-                            <th class="p-3 border-b border-slate-200">المرحلة</th>
-                            <th class="p-3 border-b border-slate-200">المدة</th>
-                            <th class="p-3 border-b border-slate-200">المخرجات ونقاط التسليم الرئيسية</th>
-                            <th class="p-3 border-b border-slate-200">مؤشر الإنجاز</th>
+                            <th class="p-3 border-b">المكون</th>
+                            <th class="p-3 border-b">التقنية المعتمدة</th>
+                            <th class="p-3 border-b">المعايير الأمنية والتشغيلية</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-200 text-slate-700">
                         <tr>
-                            <td class="p-3 font-bold text-[#6B001A]">المرحلة 1: التأسيس والبوابة العامة</td>
-                            <td class="p-3 font-mono">الأسابيع 1-3</td>
-                            <td class="p-3">إطلاق البوابة الرئيسية، صفحات الكليات الـ 4، وحاسبة الرسوم وشروط القبول.</td>
-                            <td class="p-3 text-emerald-700 font-bold">تسليم بوابة عامة حية</td>
+                            <td class="p-3 font-bold text-[#6B001A]">قواعد البيانات (DB)</td>
+                            <td class="p-3 font-mono">MariaDB 10.11 LTS (InnoDB)</td>
+                            <td class="p-3">دعم تام للغة العربية (UTF8MB4)، نسخ احتياطي آلي مشفر كل 6 ساعات.</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold text-[#6B001A]">المرحلة 2: الخدمات ولوحة Desk OS</td>
-                            <td class="p-3 font-mono">الأسابيع 4-6</td>
-                            <td class="p-3">تفعيل الـ 16 خدمة، ربط السجلات الأكاديمية والـ GPA وكشوف الـ QR.</td>
-                            <td class="p-3 text-emerald-700 font-bold">تشغيل لوحة الإدارة</td>
+                            <td class="p-3 font-bold text-[#6B001A]">طبقة الذاكرة والمهام</td>
+                            <td class="p-3 font-mono">Redis Cache & Queues</td>
+                            <td class="p-3">معالجة فورية للإشعارات والبريد دون التأثير على سرعة تصفح البوابة.</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold text-[#6B001A]">المرحلة 3: التدقيق الأمني والإطلاق</td>
-                            <td class="p-3 font-mono">الأسابيع 7-8</td>
-                            <td class="p-3">اختبارات الأمان السيبراني، تدريب الكوادر الإدارية، والإطلاق الرسمي المعتمد.</td>
-                            <td class="p-3 text-emerald-700 font-bold">التشغيل الإنتاجي النهائي</td>
+                            <td class="p-3 font-bold text-[#6B001A]">الأمان والتشفير</td>
+                            <td class="p-3 font-mono">TLS 1.3 / SSL + Fail2Ban</td>
+                            <td class="p-3">تشفير البيانات أثناء النقل والتخزين، عزل الصلاحيات، وحماية ضد هجمات DDoS.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- 4. Strategic Return on Investment (ROI) -->
-        <div class="space-y-3">
-            <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
-                <span>4. الجدوى الاقتصادية والعائد المؤسسي (Institutional ROI)</span>
-            </h3>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
-                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
-                    <strong class="text-xl font-black text-emerald-700 font-mono block">40%</strong>
-                    <span class="text-slate-700 font-bold">توفير تكاليف التشغيل</span>
-                </div>
-                <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 space-y-1">
-                    <strong class="text-xl font-black text-amber-800 font-mono block">85%</strong>
-                    <span class="text-slate-700 font-bold">تسريع زمن المعاملات</span>
-                </div>
-                <div class="p-4 rounded-xl bg-sky-50 border border-sky-200 space-y-1">
-                    <strong class="text-xl font-black text-sky-800 font-mono block">35%</strong>
-                    <span class="text-slate-700 font-bold">زيادة التحاق الطلاب الجدد</span>
-                </div>
-                <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 space-y-1">
-                    <strong class="text-xl font-black text-purple-800 font-mono block">100%</strong>
-                    <span class="text-slate-700 font-bold">ملكية فكرية وسيادية تامة</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5. Decision & Approval Sign-off Box -->
+        <!-- 4. Sign-off and Formal Signatures -->
         <div class="pt-6 border-t-2 border-slate-900 space-y-4">
-            <h3 class="text-sm font-black text-slate-900">5. قرار الاعتماد والتوقيع الرسمي</h3>
-            <div class="grid grid-cols-2 gap-8 text-xs pt-4">
+            <h3 class="text-sm font-black text-slate-900">4. قرار الاعتماد والتوقيع الرسمي</h3>
+            <div class="grid grid-cols-2 gap-8 text-xs pt-2">
                 <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-6">
                     <div class="space-y-1">
-                        <span class="text-slate-500 font-bold block">مقدم المقترح:</span>
-                        <strong class="text-slate-900 block text-sm">فريق التحول الرقمي والحلول المؤسسية</strong>
+                        <span class="text-slate-500 font-bold block">مقدم المخطط المعماري:</span>
+                        <strong class="text-slate-900 block text-sm">فريق هندسة النظم والتحول الرقمي</strong>
                     </div>
                     <div class="pt-4 border-t border-slate-200 text-slate-400">
                         التوقيع: .....................................................
@@ -198,8 +345,8 @@
 
                 <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-6">
                     <div class="space-y-1">
-                        <span class="text-slate-500 font-bold block">الجهة المعتمدة:</span>
-                        <strong class="text-slate-900 block text-sm">رئاسة جامعة لوسيل / مجلس الأمناء</strong>
+                        <span class="text-slate-500 font-bold block">الجهة المشرفة والمعتمدة:</span>
+                        <strong class="text-slate-900 block text-sm">مجلس الإدارة ورئاسة الجامعة</strong>
                     </div>
                     <div class="pt-4 border-t border-slate-200 text-slate-400">
                         الاعتماد والختم الرسمي: .................................
@@ -210,10 +357,13 @@
 
         <!-- Footer -->
         <div class="text-center text-[10px] text-slate-400 pt-4 border-t border-slate-100">
-            © 2026 جامعة لوسيل. جميع الحقوق محفوظة. وثيقة رسمية خاضعة لقوانين حماية الملكية والسرية المؤسسية.
+            © 2026 جامعة لوسيل. وثيقة معمارية رسمية ملزمة ومحمية بحقوق الملكية الفكرية.
         </div>
 
     </div>
 
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
