@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعمارية المؤسسية ومتطلبات التدشين الشامل | منظومة جامعة لوسيل OS</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lunavy: {
+                            DEFAULT: '#004876',
+                            light: '#005f9e',
+                            dark: '#002D4A'
+                        },
+                        lugold: {
+                            DEFAULT: '#be9c79',
+                            light: '#d4b595',
+                            dark: '#9a7b59',
+                            alpha: 'rgba(190, 156, 121, 0.12)'
+                        },
+                        colBiz: '#962D3F',
+                        colEdu: '#003b4d',
+                        colLaw: '#49AA76',
+                        colIT: '#5F1259'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --lu-navy: #004876;
+            --lu-gold: #be9c79;
+        }
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            line-height: 1.7;
+        }
+        .code-tree {
+            font-family: 'Fira Code', monospace;
+            direction: ltr;
+            text-align: left;
+            background: #00243C;
+            color: #E2E8F0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            border: 1px solid #004876;
+        }
+        .tree-comment { color: #be9c79; font-weight: bold; }
+        .tree-mod { color: #38BDF8; font-weight: bold; }
+        .tree-item { color: #F1F5F9; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; padding: 0; }
+            .page-break { page-break-before: always; }
+            .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 md:p-12 max-w-6xl mx-auto space-y-10">
+
+    <!-- Top Action Bar (No-Print) -->
+    <div class="no-print bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between sticky top-4 z-50">
+        <div class="flex items-center gap-3">
+            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-slate-700">وثيقة المعمارية الفنية والمتطلبات التشغيلية الرسمية | جامعة لوسيل</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="window.print()" class="px-4 py-2 bg-lunavy text-white text-xs font-bold rounded-xl flex items-center gap-2 hover:bg-lunavy-dark transition shadow">
+                <i data-lucide="printer" class="w-4 h-4 text-lugold"></i>
+                <span>طباعة / حفظ كـ PDF</span>
+            </button>
+            <a href="https://university-kohl-eight.vercel.app" target="_blank" class="px-4 py-2 bg-slate-100 text-slate-700 text-xs font-bold rounded-xl flex items-center gap-2 hover:bg-slate-200 transition border border-slate-200">
+                <i data-lucide="external-link" class="w-4 h-4 text-lunavy"></i>
+                <span>الموقع المباشر (Vercel)</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Document Header & Cover Card -->
+    <header class="bg-gradient-to-br from-[#002D4A] via-[#004876] to-[#001F35] text-white p-8 sm:p-12 rounded-3xl border-2 border-lugold shadow-xl space-y-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-6">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-white/10 border border-lugold flex items-center justify-center font-black text-2xl text-lugold backdrop-blur-md">
+                    LU
+                </div>
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-black text-white">جامعة لوسيل | Lusail University</h1>
+                    <span class="text-xs text-lugold font-bold block mt-0.5">منظومة التشغيل والأتمتة الأكاديمية الموحدة (Lusail OS)</span>
+                </div>
+            </div>
+            <div class="text-left font-mono text-xs text-slate-300">
+                <span class="px-3 py-1 bg-white/10 rounded-lg border border-white/20 text-lugold block mb-1">Doc Ref: LU-OS-ARCH-2026</span>
+                <span>Version: 2.0 (Executive Production Release)</span>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <h2 class="text-xl sm:text-2xl font-black text-lugold leading-tight">
+                المعمارية الشاملة للنظام وقائمة البيانات والمدخلات المطلوبة من الجامعة
+            </h2>
+            <p class="text-sm text-slate-200 max-w-4xl leading-relaxed">
+                توضح هذه الوثيقة الهيكل التقني والموديولات الـ 33 المعتمدة لمنظومة جامعة لوسيل الذكية، متبوعة بـ <strong>قائمة المتطلبات والبيانات التفصيلية (Data Intake Checklist)</strong> المطلوب تزويدنا بها من عمادات وإدارات الجامعة المختلفة لربط وتدشين النظام بالكامل.
+            </p>
+        </div>
+
+        <div class="p-4 bg-amber-500/15 border border-amber-400/40 rounded-2xl text-amber-200 text-xs flex items-start gap-3">
+            <i data-lucide="info" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+            <div>
+                <strong>تنويه تنفيذي:</strong> تم بناء وتشغيل الجزء الأكبر من واجهات النظام والخدمات (بوابة القبول، الكليات، بوابة الطالب، كشف الحضور، الخدمات الـ 16، ولوحة Desk OS) وهو متاح حياً عبر: 
+                <a href="https://university-kohl-eight.vercel.app" target="_blank" class="underline font-bold text-white mr-1">university-kohl-eight.vercel.app</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== SECTION 1: ARCHITECTURAL TREE ==================== -->
+    <section class="space-y-4">
+        <div class="flex items-center gap-3 border-b-2 border-lunavy pb-2">
+            <div class="w-8 h-8 rounded-lg bg-lunavy text-white flex items-center justify-center font-bold text-sm">1</div>
+            <h2 class="text-xl font-black text-lunavy">شجرة المعمارية البرمجية والأنظمة (Lusail University OS Architecture Tree)</h2>
+        </div>
+        <p class="text-xs text-slate-600">
+            الهيكل البرمجي المعياري لكافة قطاعات الجامعة مقسم إلى 33 موديول متكامل وقابل للتوسع والربط الفوري:
+        </p>
+
+        <div class="code-tree text-xs leading-relaxed">
+<span class="tree-comment">LUSAIL UNIVERSITY OS — منظومة التشغيل الأكاديمية الموحدة لجامعة لوسيل</span>
+│
+├── <span class="tree-mod">00. FOUNDATION — البنية الأساسية والتشغيل السحابي</span>
+│   ├── Microservices & API Gateway (REST API / JSON Endpoints)
+│   ├── Unified Navigation Hub (Single-Source Architecture Across All 21 Portals)
+│   ├── Database Layer (Relational SQLite/MariaDB with Secure Transactions)
+│   ├── Background Jobs & Automated Schedulers (Attendance Audit & Grade Processing)
+│   ├── Role-Based Access Control (RBAC: Student, Faculty, Registrar, Dean, Admin)
+│   ├── Digital Verification & QR Seal Generator Engine (SHA-256 Encrypted)
+│   └── Multi-Language & RTL Engine (Arabic Primary / English Secondary)
+│
+├── <span class="tree-mod">01. IDENTITY & ACCESS — الهوية والدخول الموحد</span>
+│   ├── University Single Sign-On (SSO / QID Integration)
+│   ├── Student Identity & Digital University Card (Apple & Google Wallet Integration)
+│   ├── Faculty & Academic Staff Authentication
+│   ├── Registrar & Administrative Desk OS Access
+│   └── 2FA & Session Security Logs
+│
+├── <span class="tree-mod">02. UNIVERSITY CORE — النواة واللوائح الأكاديمية</span>
+│   ├── 4 Main Colleges: IT, Law, Business & Commerce, Education & Arts
+│   ├── 17 Accredited Undergraduate & Postgraduate Programs
+│   ├── Academic Calendar 2026/2027 (Fall, Spring, Summer Semesters)
+│   ├── Course Catalog & Credit Hours Matrix (120 - 132 Credit Hours)
+│   └── Specialized Labs: Cyber SOC Lab, Moot Court, FinTech Trading Room, Microteaching
+│
+├── <span class="tree-mod">03. STUDENT INFORMATION SYSTEM — SIS (شؤون الطلاب)</span>
+│   ├── Student Profile & Academic Record Management
+│   ├── GPA 4.00 Calculation Engine (Term GPA & Cumulative GPA)
+│   ├── Course Registration & Prerequisite Validation Engine
+│   ├── Academic Standing & Holds Management (Academic, Financial, Library Holds)
+│   └── Automated Degree Audit & Graduation Eligibility Engine
+│
+├── <span class="tree-mod">04. ADMISSIONS & ENROLLMENT — القبول والتسجيل الذكي</span>
+│   ├── Online Admissions Portal (4-Step Frictionless Application)
+│   ├── High School Equivalency Checker (Qatari 65%/70%, British IGCSE, American IB)
+│   ├── Language Proficiency Verification (IELTS 5.5 / LU Placement Test)
+│   ├── Interactive Tuition Fee Calculator (Credits x Cost / College)
+│   ├── Academic Merit Scholarships (50% for 90%+, 100% for 95%+)
+│   └── Instant Provisional Offer & Student ID Generation
+│
+├── <span class="tree-mod">05. STUDENT SELF-SERVICE PORTAL — بوابة الطالب الذاتية</span>
+│   ├── Real-Time Weekly Lecture Schedule & Smart Room Locator
+│   ├── Live Attendance & Absence Tracking with Automated Warnings (10% & 15%)
+│   ├── Academic Transcript Viewer & Course History
+│   ├── Digital ID Card Display
+│   └── Request Status Tracking Center
+│
+├── <span class="tree-mod">06. 16 AUTOMATED E-SERVICES — منظومة الخدمات الذاتية بالـ QR</span>
+│   ├── 1. Official Enrollment Certificate (إفادة قيد رسمي معتمد)
+│   ├── 2. Official Academic Transcript (كشف درجات وسجل أكاديمي)
+│   ├── 3. Semester Deferral / Leave Request (طلب تأجيل الفصل الدراسي)
+│   ├── 4. Grade Re-check / Appeal Request (طلب إعادة رصد وتدقيق الدرجة)
+│   ├── 5. Major / Concentration Change (طلب تغيير التخصص الأكاديمي)
+│   ├── 6. Course Equivalency / Transfer Credits (طلب معادلة مساقات سابقة)
+│   ├── 7. Central Library Study Room Booking (حجز قاعات بحث المكتبة)
+│   ├── 8. Good Conduct Certificate (إفادة حسن سيرة وسلوك)
+│   ├── 9. Replacement Student ID Card (طلب بدل فاقد بطاقة جامعية)
+│   ├── 10. Overload Course Request (طلب تسجيل مساق إضافي)
+│   ├── 11. Official Embassy / To Whom It May Concern Letters (خطاب رسمي للسفارات)
+│   ├── 12. Graduation Clearance Form (طلب إخلاء طرف للتخرج)
+│   ├── 13. Merit Scholarship Application (طلب منحة التفوق الأكاديمي)
+│   ├── 14. Internship / Co-op Field Training Request (طلب تدريب ميداني مهني)
+│   ├── 15. Student Club Registration (الانضمام للأندية والأنشطة الطلابية)
+│   └── 16. Athletics & Fitness Club Membership (اشتراكات أندية اللياقة البدنية)
+│
+├── <span class="tree-mod">07. REGISTRAR & ADMIN DESK OS — لوحة تشغيل المسجل العام</span>
+│   ├── Centralized Grade Entry & Scaled Curve Conversion (A, B+, B, C+, D+, F)
+│   ├── Academic & Administrative Holds Enforcement Console
+│   ├── Automated Exam Ban List Generation for Attendance Violations
+│   ├── Official Sealed Document Verification Terminal
+│   └── Complete Audit Trail & Activity Logging
+│
+├── <span class="tree-mod">08. ATTENDANCE & WARNING ENGINE — محرك الحضور والإنذارات</span>
+│   ├── Real-Time Session Attendance Recording
+│   ├── Automated 10% Absence Warning Alert
+│   ├── Automated 15% Exam Deprivation (حرمان أكاديمي) Notice
+│   └── Medical & Approved Excuse Management Workflow
+│
+├── <span class="tree-mod">09. FACULTY & ACADEMIC STAFF — كادر التدريس والبحث</span>
+│   ├── Faculty Course Assignment & Teaching Load
+│   ├── Office Hours & Student Advising Scheduler
+│   ├── Grade Submission & Course Roster Management
+│   └── Grade Appeal & Dispute Resolution Interface
+│
+├── <span class="tree-mod">10. CAMPUS LIFE, LIBRARY & ATHLETICS — الحياة الجامعية</span>
+│   ├── 12 Active Student Clubs (Debate Club, AI Club, Moot Court Clinic, etc.)
+│   ├── Lusail Central Library & Digital Database Catalog (Medad, IEEE, Dar Al-Mandumah)
+│   ├── University Sports League & Tournaments Schedule
+│   └── Partner Fitness Club Memberships (Strive & Perf Up Gyms)
+│
+├── <span class="tree-mod">11. RESEARCH & ACCREDITATION — البحث العلمي والجودة</span>
+│   ├── Lusail Peer-Reviewed Journal (ISSN 2789-5544)
+│   ├── Student Research & Innovation Grant Fund (Up to 25,000 QAR)
+│   └── Institutional Accreditation & Learning Outcomes Mapping
+│
+└── <span class="tree-mod">12. SECURITY, GOVERNANCE & SOVEREIGNTY — الأمان والسيادة الرقمية</span>
+    ├── Qatar Personal Data Privacy Protection Law (PDPPL) Compliance
+    ├── Field-Level Encryption & Encrypted QR Signatures
+    ├── Zero-Vulnerability Clean Routing (0 Broken Links Verified)
+    └── Localized In-Country Deployment & Custom Domain (`lu.edu.qa`)
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: DATA REQUIREMENTS MATRIX ==================== -->
+    <section class="space-y-6 page-break pt-6">
+        <div class="flex items-center gap-3 border-b-2 border-lunavy pb-2">
+            <div class="w-8 h-8 rounded-lg bg-lunavy text-white flex items-center justify-center font-bold text-sm">2</div>
+            <h2 class="text-xl font-black text-lunavy">مصفوفة البيانات والمستندات الرسمية المطلوبة من الجامعة (Data Intake Checklist)</h2>
+        </div>
+        <p class="text-xs text-slate-600">
+            الجدول التالي يوضح بالتفصيل ما نطلبه من كل عمادة وإدارة داخل جامعة لوسيل لتغذية النظام بالبيانات الرسمية وتجهيزه للإطلاق النهائي:
+        </p>
+
+        <!-- Department 1: Admissions & Registration -->
+        <div class="glass-card p-6 space-y-4 border-r-4 border-r-lunavy">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-black text-lunavy flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-5 h-5 text-lugold"></i>
+                    <span>أولاً: عمادة القبول والتسجيل (Deanship of Admissions & Registration)</span>
+                </h3>
+                <span class="px-3 py-1 bg-blue-50 text-lunavy border border-blue-200 rounded-full text-xs font-bold font-mono">Department: REG-01</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
+                            <th class="p-2.5">#</th>
+                            <th class="p-2.5">المستند / البيان المطلوب</th>
+                            <th class="p-2.5">الوصف والتفاصيل المطلوبة</th>
+                            <th class="p-2.5">الصيغة المفضلة</th>
+                            <th class="p-2.5">الأهمية</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr>
+                            <td class="p-2.5 font-bold">1.1</td>
+                            <td class="p-2.5 font-bold text-lunavy">الخطط الدراسية التفصيلية للبرامج الـ 17</td>
+                            <td class="p-2.5">قائمة المقررات الإجبارية والاختيارية، المتطلبات السابقة، عدد الساعات، وتوزيعها على الفصول الدراسية لكل تخصص.</td>
+                            <td class="p-2.5 font-mono">Excel / PDF</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded font-bold">إلزامي فوري</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">1.2</td>
+                            <td class="p-2.5 font-bold text-lunavy">اللائحة الأكاديمية وسلم الدرجات الرسمي</td>
+                            <td class="p-2.5">جدول تحويل النسب المئوية إلى نقاط GPA (A=4.00, B+=3.50...)، وشروط الإنذار الأكاديمي ومراتب الشرف.</td>
+                            <td class="p-2.5 font-mono">PDF معتمد</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded font-bold">إلزامي فوري</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">1.3</td>
+                            <td class="p-2.5 font-bold text-lunavy">التقويم الأكاديمي المعتمد 2026/2027</td>
+                            <td class="p-2.5">تواريخ بدء ونهاية الفصول (خريف، ربيع، صيف)، فترات الحذف والإضافة، الاختبارات النصفية والنهائية، والإجازات.</td>
+                            <td class="p-2.5 font-mono">Word / PDF</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded font-bold">إلزامي فوري</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">1.4</td>
+                            <td class="p-2.5 font-bold text-lunavy">لائحة الرسوم الدراسية وشروط المنح</td>
+                            <td class="p-2.5">سعر الساعة المعتمدة لكل برنامج، ورسوم الخدمات الإضافية، وشروط منح التفوق الأكاديمي (50% و 100%).</td>
+                            <td class="p-2.5 font-mono">Excel / PDF</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold">مكتمل جزئياً</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">1.5</td>
+                            <td class="p-2.5 font-bold text-lunavy">نماذج الإفادات والشهادات الرسمية (Templates)</td>
+                            <td class="p-2.5">الترويسة والختم المعتمد لإفادة القيد وكشف الدرجات وإفادة حسن السيرة ليقوم النظام بتوليدها ومطابقتها.</td>
+                            <td class="p-2.5 font-mono">Word / PDF</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-bold">مهم جداً</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Department 2: Colleges & Faculty -->
+        <div class="glass-card p-6 space-y-4 border-r-4 border-r-colLaw">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-black text-colLaw flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 text-colLaw"></i>
+                    <span>ثانياً: الكليات الأكاديمية الأربعة (Academic Colleges & Departments)</span>
+                </h3>
+                <span class="px-3 py-1 bg-emerald-50 text-colLaw border border-emerald-200 rounded-full text-xs font-bold font-mono">Department: COL-02</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
+                            <th class="p-2.5">#</th>
+                            <th class="p-2.5">المستند / البيان المطلوب</th>
+                            <th class="p-2.5">الوصف والتفاصيل المطلوبة</th>
+                            <th class="p-2.5">الصيغة المفضلة</th>
+                            <th class="p-2.5">الأهمية</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr>
+                            <td class="p-2.5 font-bold">2.1</td>
+                            <td class="p-2.5 font-bold text-colLaw">دليل أعضاء هيئة التدريس (Faculty Directory)</td>
+                            <td class="p-2.5">الأسماء، الرتبة الأكاديمية (أستاذ، مشارك، مساعد)، التخصص الدقيق، البريد الإلكتروني الجامعي، والساعات المكتبية.</td>
+                            <td class="p-2.5 font-mono">Excel Sheet</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded font-bold">إلزامي</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">2.2</td>
+                            <td class="p-2.5 font-bold text-colLaw">بيانات وصور المرافق التخصصية</td>
+                            <td class="p-2.5">صور فوتوغرافية ومعلومات مفصلة عن: مختبر SOC للأمن السيبراني، قاعة المحكمة الصورية، غرفة التداول، ومختبر التدريس.</td>
+                            <td class="p-2.5 font-mono">JPG / PNG عالية الدقة</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-bold">مهم للمظهر</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">2.3</td>
+                            <td class="p-2.5 font-bold text-colLaw">البرامج المزدوجة والشراكات الدولية</td>
+                            <td class="p-2.5">بنود وشروط البرامج المشتركة مع جامعة السوربون (فرنسا)، جامعة ساسكس (بريطانيا)، ومعهد الأمم المتحدة UNITAR.</td>
+                            <td class="p-2.5 font-mono">PDF / Word</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold">للتوثيق</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Department 3: IT & Infrastructure -->
+        <div class="glass-card p-6 space-y-4 border-r-4 border-r-colIT">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-black text-colIT flex items-center gap-2">
+                    <i data-lucide="server" class="w-5 h-5 text-colIT"></i>
+                    <span>ثالثاً: إدارة تقنية المعلومات (IT & Infrastructure Department)</span>
+                </h3>
+                <span class="px-3 py-1 bg-purple-50 text-colIT border border-purple-200 rounded-full text-xs font-bold font-mono">Department: IT-03</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
+                            <th class="p-2.5">#</th>
+                            <th class="p-2.5">المستند / البيان المطلوب</th>
+                            <th class="p-2.5">الوصف والتفاصيل المطلوبة</th>
+                            <th class="p-2.5">الصيغة المفضلة</th>
+                            <th class="p-2.5">الأهمية</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr>
+                            <td class="p-2.5 font-bold">3.1</td>
+                            <td class="p-2.5 font-bold text-colIT">ربط وتوجيه النطاق الرسمي (DNS / Domain)</td>
+                            <td class="p-2.5">توجيه سجلات الـ CNAME / A Record للنطاق المعتمد (مثل: <code>portal.lu.edu.qa</code> أو <code>lu.edu.qa</code>).</td>
+                            <td class="p-2.5 font-mono">DNS Configuration</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded font-bold">إلزامي للتدشين</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">3.2</td>
+                            <td class="p-2.5 font-bold text-colIT">إعدادات البريد الجامعي (Microsoft 365 / SMTP)</td>
+                            <td class="p-2.5">إعدادات خادم البريد الرسمي لإرسال إشعارات القبول ورموز التحقق والإفادات للطلبة تلقائياً.</td>
+                            <td class="p-2.5 font-mono">SMTP Credentials</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-bold">مهم للأتمتة</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Department 4: Student Affairs & Media -->
+        <div class="glass-card p-6 space-y-4 border-r-4 border-r-lugold">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-black text-lugold-dark flex items-center gap-2">
+                    <i data-lucide="users" class="w-5 h-5 text-lugold"></i>
+                    <span>رابعاً: شؤون الطلاب والمكتبة والإعلام (Student Affairs & Media)</span>
+                </h3>
+                <span class="px-3 py-1 bg-amber-50 text-lugold-dark border border-amber-200 rounded-full text-xs font-bold font-mono">Department: SA-04</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
+                            <th class="p-2.5">#</th>
+                            <th class="p-2.5">المستند / البيان المطلوب</th>
+                            <th class="p-2.5">الوصف والتفاصيل المطلوبة</th>
+                            <th class="p-2.5">الصيغة المفضلة</th>
+                            <th class="p-2.5">الأهمية</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr>
+                            <td class="p-2.5 font-bold">4.1</td>
+                            <td class="p-2.5 font-bold text-lugold-dark">صور فوتوغرافية رسمية للحرم والقيادات</td>
+                            <td class="p-2.5">صور حديثة لمجلس الأمناء ورئاسة الجامعة وعمداء الكليات والمبنى الرئيسي بجبل ثعيلب بلوسيل.</td>
+                            <td class="p-2.5 font-mono">PNG / JPG 4K</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-bold">للإبهار البصري</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">4.2</td>
+                            <td class="p-2.5 font-bold text-lugold-dark">قائمة الأندية والأنشطة الطلابية المعتمدة</td>
+                            <td class="p-2.5">أسماء الأندية الـ 12 وشروط الانضمام، وأرقام هواتف مسؤولي الأنشطة وشراكات اللياقة البدنية.</td>
+                            <td class="p-2.5 font-mono">Word / Excel</td>
+                            <td class="p-2.5"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold">مكتمل مبدئياً</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: CUSTOMIZATION & FEATURE REQUESTS ==================== -->
+    <section class="glass-card p-8 space-y-4 border-2 border-slate-200">
+        <div class="flex items-center gap-3 border-b-2 border-lunavy pb-2">
+            <div class="w-8 h-8 rounded-lg bg-lunavy text-white flex items-center justify-center font-bold text-sm">3</div>
+            <h2 class="text-xl font-black text-lunavy">قسم طلبات التخصيص والميزات الإضافية للجامعة (Feature Requests & Customizations)</h2>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+            لضمان مرونة المنظومة بنسبة 100% لتلائم أي متطلبات خاصة بالجامعة، يرجى من مسؤولي الجامعة تدوين أي صفحات أو خدمات أو استمارات خاصة يرغبون في إضافتها:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                <div class="text-xs font-black text-lunavy">1. صفحات كليات أو مراكز جديدة</div>
+                <p class="text-[11px] text-slate-500">مثل: مراكز التدريب والاستشارات، مركز اللغات، أو مركز الابتكار وريادة الأعمال.</p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                <div class="text-xs font-black text-lunavy">2. نماذج وخدمات إلكترونية إضافية</div>
+                <p class="text-[11px] text-slate-500">أي خدمات طلابية أو أكاديمية غير مدرجة ضمن الـ 16 خدمة الحالية يمكن إضافتها خلال 48 ساعة.</p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                <div class="text-xs font-black text-lunavy">3. تقارير وإحصائيات مخصصة للرئاسة</div>
+                <p class="text-[11px] text-slate-500">تخصيص لوحة المؤشرات لقياس نسب قبول محددة أو مؤشرات أداء سنوية خاصة بالاعتماد.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Document Sign-off -->
+    <footer class="pt-6 border-t border-slate-300 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+            <span>منظومة تشغيل جامعة لوسيل الرقمية الموحدة (Lusail University OS 2026/2027)</span>
+            <span class="block text-[10px] text-slate-400">تم إعداد الوثيقة بواسطة الفريق الهندسي للتحول الرقمي</span>
+        </div>
+        <div class="text-left font-mono text-[10px]">
+            <span>Live Site: university-kohl-eight.vercel.app</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
