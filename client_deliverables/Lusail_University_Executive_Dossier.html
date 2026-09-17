@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف المؤسسي والبيانات الشاملة | جامعة لوسيل (Lusail University Data Sheet)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', 'Outfit', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; font-size: 11pt; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12 max-w-6xl mx-auto space-y-10">
+
+    <!-- Executive Action Bar (No-Print) -->
+    <div class="no-print bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-slate-700">شيت البيانات المعتمد لجامعة لوسيل - جاهز للطباعة والمشاركة مع العميل</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="window.print()" class="px-4 py-2 bg-[#004876] hover:bg-[#003354] text-white text-xs font-bold rounded-xl transition flex items-center gap-2 shadow-sm">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>طباعة / حفظ كـ PDF</span>
+            </button>
+            <a href="Lusail_University_Academic_Programs_Data.csv" download class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition flex items-center gap-2 shadow-sm">
+                <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                <span>تحميل شيت Excel (CSV)</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Header & Institutional Branding -->
+    <header class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-right">
+            <div class="flex items-center justify-center md:justify-start gap-2">
+                <span class="text-xs font-black text-[#004876]">صرح وطني للتعليم العالي</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-[#be9c79]/15 text-[#856545] border border-[#be9c79]/30">دولة قطر</span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-black text-[#004876]">وثيقة البيانات الرسمية الشاملة</h1>
+            <p class="text-xs sm:text-sm text-slate-500 font-medium">Lusail University Comprehensive Institutional Data Sheet (2026/2027)</p>
+        </div>
+        <div class="shrink-0 text-center">
+            <img src="https://lu.edu.qa/img/lu-logo.webp" alt="جامعة لوسيل" class="h-16 w-auto object-contain mx-auto">
+            <span class="text-[10px] text-slate-400 font-mono block mt-1">تأسست 2020 | مدينة لوسيل</span>
+        </div>
+    </header>
+
+    <!-- 1. Executive Summary & Leadership -->
+    <section class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <i data-lucide="shield" class="w-5 h-5 text-[#004876]"></i>
+            <h2 class="text-lg font-black text-slate-900">1. الهوية والقيادة المؤسسية</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                <span class="text-slate-400 font-bold block">رئيس مجلس الأمناء</span>
+                <strong class="text-slate-900 text-sm block">سعادة الدكتور علي بن فطيس المري</strong>
+                <span class="text-[11px] text-slate-500">H.E. Dr. Ali Bin Fetais Al-Marri</span>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                <span class="text-slate-400 font-bold block">رئيس جامعة لوسيل</span>
+                <strong class="text-[#004876] text-sm block">الأستاذ الدكتور نظام هندي</strong>
+                <span class="text-[11px] text-slate-500">Prof. Nitham Hindi</span>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                <span class="text-slate-400 font-bold block">الترخيص والاعتماد</span>
+                <strong class="text-emerald-700 text-sm block">وزارة التربية والتعليم والتعليم العالي</strong>
+                <span class="text-[11px] text-slate-500">أول جامعة وطنية خاصة في قطر</span>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                <span class="text-slate-400 font-bold block">الموقع الجغرافي</span>
+                <strong class="text-slate-900 text-sm block">مدينة لوسيل - جبل ثعيلب</strong>
+                <span class="text-[11px] text-slate-500">المنطقة 69، شارع 100، مبنى 333</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Academic Colleges & Degree Programs (Full Table) -->
+    <section class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-[#004876]"></i>
+                <h2 class="text-lg font-black text-slate-900">2. جدول الكليات والبرامج الأكاديمية (17 بكالوريوس + 5 ماجستير)</h2>
+            </div>
+            <span class="text-xs font-bold text-[#be9c79] bg-[#be9c79]/15 px-3 py-1 rounded-full border border-[#be9c79]/30">4 كليات معتمدة</span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-right text-xs border-collapse">
+                <thead>
+                    <tr class="bg-slate-100 text-slate-700 font-black border-b border-slate-200">
+                        <th class="p-3">الكلية</th>
+                        <th class="p-3">الدرجة</th>
+                        <th class="p-3">اسم البرنامج الأكاديمي</th>
+                        <th class="p-3">لغة التدريس</th>
+                        <th class="p-3">الساعات</th>
+                        <th class="p-3">سعر الساعة</th>
+                        <th class="p-3">الشراكة / الاعتماد</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 font-medium">
+                    <!-- IT -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 font-bold text-[#004876]" rowspan="4">كلية تكنولوجيا المعلومات</td>
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">الذكاء الاصطناعي (Artificial Intelligence)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">معتمد محلياً ودولياً</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">الأمن السيبراني (Cybersecurity)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">معتمد محلياً ودولياً</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">علوم البيانات (Data Science)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">معتمد محلياً ودولياً</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">تقنية المعلومات (Information Technology)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">معتمد محلياً ودولياً</td>
+                    </tr>
+
+                    <!-- Law -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 font-bold text-[#004876]" rowspan="5">كلية القانون</td>
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">القانون العام (Public Law)</td>
+                        <td class="p-3">العربية</td>
+                        <td class="p-3 font-mono font-bold">128</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">القانون الخاص (Private Law)</td>
+                        <td class="p-3">العربية</td>
+                        <td class="p-3 font-mono font-bold">128</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">القانون الدولي والمقارن</td>
+                        <td class="p-3">الإنجليزية / الفرنسية</td>
+                        <td class="p-3 font-mono font-bold">128</td>
+                        <td class="p-3 font-mono">1,800 ر.ق</td>
+                        <td class="p-3 text-[#004876] font-bold">جامعة السوربون (Sorbonne Paris 1)</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">ماجستير</td>
+                        <td class="p-3 font-bold text-slate-900">القانون الجنائي الدولي وحقوق الإنسان</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">36</td>
+                        <td class="p-3 font-mono">2,200 ر.ق</td>
+                        <td class="p-3 text-[#004876] font-bold">معهد الأمم المتحدة (UNITAR)</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">ماجستير</td>
+                        <td class="p-3 font-bold text-slate-900">القانون التجاري والتحكيم الدولي</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">36</td>
+                        <td class="p-3 font-mono">2,200 ر.ق</td>
+                        <td class="p-3 text-[#004876] font-bold">جامعة السوربون (Sorbonne)</td>
+                    </tr>
+
+                    <!-- Business -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 font-bold text-[#004876]" rowspan="6">كلية التجارة والأعمال</td>
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">إدارة الأعمال (Business Administration)</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">المحاسبة والمالية (Accounting & Finance)</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">التسويق الرقمي والتجارة الإلكترونية</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">إدارة سلاسل الإمداد واللوجستيات</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">إدارة الأعمال الدولية (International Business)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,800 ر.ق</td>
+                        <td class="p-3 text-[#004876] font-bold">جامعة ساسكس البريطانية (Sussex)</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">ماجستير</td>
+                        <td class="p-3 font-bold text-slate-900">إدارة الأعمال التنفيذي (EMBA)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">36</td>
+                        <td class="p-3 font-mono">2,200 ر.ق</td>
+                        <td class="p-3 text-[#004876] font-bold">جامعة ساسكس البريطانية (Sussex)</td>
+                    </tr>
+
+                    <!-- Education -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 font-bold text-[#004876]" rowspan="5">كلية التربية والآداب</td>
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">تدريس اللغة الإنجليزية (TESOL)</td>
+                        <td class="p-3">الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">اللغة العربية والإعلام الرقمي</td>
+                        <td class="p-3">العربية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">العلوم التربوية والقيادة المدرسية</td>
+                        <td class="p-3">العربية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">بكالوريوس</td>
+                        <td class="p-3 font-bold text-slate-900">الإرشاد والصحة النفسية المدرسية</td>
+                        <td class="p-3">العربية</td>
+                        <td class="p-3 font-mono font-bold">126</td>
+                        <td class="p-3 font-mono">1,500 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">ماجستير</td>
+                        <td class="p-3 font-bold text-slate-900">القيادة والابتكار التعليمي</td>
+                        <td class="p-3">العربية / الإنجليزية</td>
+                        <td class="p-3 font-mono font-bold">36</td>
+                        <td class="p-3 font-mono">2,000 ر.ق</td>
+                        <td class="p-3 text-slate-500">وزارة التربية والتعليم العالي</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 3. Admission Requirements & Scholarships -->
+    <section class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <i data-lucide="award" class="w-5 h-5 text-[#004876]"></i>
+            <h2 class="text-lg font-black text-slate-900">3. شروط القبول ومنظومة المنح والخصومات</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+            <div class="space-y-3">
+                <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#004876]"></span>
+                    <span>متطلبات الثانوية العامة (Admission Criteria)</span>
+                </h4>
+                <ul class="space-y-2 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-slate-700 leading-relaxed">
+                    <li><strong>الثانوية القطرية:</strong> معدل لا يقل عن <strong>65%</strong> كحد أدنى، أو <strong>70%</strong> في مادة اللغة العربية لكلية القانون.</li>
+                    <li><strong>الشهادات البريطانية (IGCSE / A-Level):</strong> اجتياز 5 مواد IGCSE بتقدير (C/4) كحد أدنى + مادتين بمستوى AS أو مادة بمستوى A-Level.</li>
+                    <li><strong>البكالوريا الدولية (IB / الأمريكية):</strong> دبلوم IB بمجموع 24 نقطة كحد أدنى، أو الثانوية الأمريكية بمعدل تراكمي 2.50 + اختبار SAT/ACT.</li>
+                    <li><strong>الكفاءة اللغوية للبرامج باللغة الإنجليزية:</strong> درجة <strong>5.5</strong> في اختبار IELTS الأكاديمي أو ما يعادلها في TOEFL iBT.</li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#be9c79]"></span>
+                    <span>منح التفوق والخصومات الرسمية (Scholarships & Discounts)</span>
+                </h4>
+                <ul class="space-y-2 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-slate-700 leading-relaxed">
+                    <li><strong>منحة التفوق الكاملة (100%):</strong> للطلبة الحاصلين على <strong>95% فأعلى</strong> في الثانوية العامة طوال سنوات الدراسة.</li>
+                    <li><strong>منحة التفوق الجزئية (50%):</strong> للطلبة الحاصلين على <strong>90% إلى 94.9%</strong> في الثانوية العامة.</li>
+                    <li><strong>خصم التفوق الرياضي (50%):</strong> للطلبة المتميزين رياضياً الذين يمثلون المنتخبات والأندية الوطنية القطرية.</li>
+                    <li><strong>خصم الأخوة والشركاء (10% - 20%):</strong> خصومات خاصة لتسجيل الإخوة ومنتسبي الجهات والوزارات الشريكة.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Research & Smart Cloud Systems -->
+    <section class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <i data-lucide="cpu" class="w-5 h-5 text-[#004876]"></i>
+            <h2 class="text-lg font-black text-slate-900">4. البحث العلمي والأنظمة الذكية والخدمات الإلكترونية</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                <strong class="text-slate-900 font-bold block text-sm">المراكز البحثية المتخصصة</strong>
+                <p class="text-slate-600 leading-relaxed">
+                    - مركز أبحاث الذكاء الاصطناعي والأمن السيبراني<br>
+                    - مركز الدراسات القانونية والتحكيم الدولي<br>
+                    - مركز بحوث الاقتصاد المعرفي واللوجستيات
+                </p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                <strong class="text-slate-900 font-bold block text-sm">مجلة لوسيل المحكمة والتمويل</strong>
+                <p class="text-slate-600 leading-relaxed">
+                    - مجلة لوسيل للدراسات المحكمة (ISSN 2789-5544)<br>
+                    - تحكيم أعمى مزدوج مفهرس دولياً<br>
+                    - صندوق تمويل البحوث الطلابية (حتى 25,000 ر.ق)
+                </p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                <strong class="text-slate-900 font-bold block text-sm">الأنظمة والبوابات الرقمية</strong>
+                <p class="text-slate-600 leading-relaxed">
+                    - بانر الخدمة الذاتية BANNER SIS<br>
+                    - نظام إدارة التعلم BLACKBOARD LMS<br>
+                    - الفهرس الرقمي لمكتبة لوسيل (مداد Medad)<br>
+                    - منظومة الـ 16 خدمة إلكترونية بالـ QR Code
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Official Contact & Verification Stamp -->
+    <footer class="bg-slate-900 text-white rounded-3xl p-8 space-y-4">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+                <h3 class="font-black text-base text-[#be9c79]">جامعة لوسيل - Lusail University</h3>
+                <p class="text-xs text-slate-300">المنطقة 69، شارع 100، مبنى 333، جبل ثعيلب، ص.ب 9717، لوسيل، دولة قطر</p>
+            </div>
+            <div class="text-left font-mono text-xs">
+                <span class="block">هاتف: +974 4401 1111</span>
+                <span class="block text-[#be9c79]">بريد: info@lu.edu.qa</span>
+                <span class="block">موقع: https://lu.edu.qa</span>
+            </div>
+        </div>
+        <div class="text-[10px] text-slate-400 flex flex-wrap items-center justify-between gap-2">
+            <span>© 2026/2027 جامعة لوسيل. جميع الحقوق محفوظة. تم التدقيق والتوثيق رسمياً.</span>
+            <span>بوابة التشغيل الأكاديمي المكتبي والإلكتروني (Lusail University OS)</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

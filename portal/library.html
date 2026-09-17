@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة لوسيل المركزية | جامعة لوسيل (Lusail Central Library)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <a href="campus-life.html" class="hover:text-[#004876]">الحياة الجامعية والمرافق</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">مكتبة لوسيل المركزية</span>
+        </div>
+    </div>
+
+    <!-- Hero Search Section -->
+    <section class="bg-gradient-to-br from-[#004876] to-[#002840] text-white py-14 px-4 sm:px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center space-y-6 relative z-10">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950 inline-block shadow-sm">
+                بوابة الفهرس الموحد والبحث الأكاديمي (OPAC)
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black">مكتبة لوسيل المركزية</h1>
+            <p class="text-slate-200 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                أكثر من 150,000 كتاب ومجلة علمية، مع إمكانية الوصول الشامل لقواعد البيانات العالمية (IEEE, Scopus, دار المنظومة, LexisNexis).
+            </p>
+
+            <!-- Search Input Box -->
+            <div class="bg-white p-2 rounded-2xl shadow-xl flex items-center gap-2 max-w-2xl mx-auto border-2 border-[#be9c79]">
+                <i data-lucide="search" class="w-5 h-5 text-slate-400 mr-2"></i>
+                <input type="text" x-model="searchQuery" placeholder="ابحث بعنوان الكتاب، المؤلف، الرقم المعياري ISBN، أو الموضوع..." class="flex-1 bg-transparent text-slate-900 text-xs sm:text-sm font-bold focus:outline-none placeholder:text-slate-400">
+                <button class="px-5 py-2.5 bg-[#004876] hover:bg-[#003b4d] text-white text-xs font-bold rounded-xl transition flex items-center gap-1">
+                    <span>بحث الفهرس</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sub Navigation Tabs -->
+    <div class="bg-white border-b border-slate-200 sticky top-[61px] z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-2 sm:gap-6 overflow-x-auto py-2">
+            <button @click="activeTab = 'databases'" :class="activeTab === 'databases' ? 'border-[#004876] text-[#004876] bg-amber-50/50' : 'border-transparent text-slate-600 hover:text-slate-900'" class="px-4 py-2 text-xs font-bold rounded-xl border-b-2 transition whitespace-nowrap flex items-center gap-1.5">
+                <i data-lucide="database" class="w-4 h-4"></i> قواعد البيانات الأكاديمية (E-Resources)
+            </button>
+            <button @click="activeTab = 'rooms'" :class="activeTab === 'rooms' ? 'border-[#004876] text-[#004876] bg-amber-50/50' : 'border-transparent text-slate-600 hover:text-slate-900'" class="px-4 py-2 text-xs font-bold rounded-xl border-b-2 transition whitespace-nowrap flex items-center gap-1.5">
+                <i data-lucide="layout" class="w-4 h-4"></i> قاعات البحث والمطالعة الذكية
+            </button>
+            <button @click="activeTab = 'borrowing'" :class="activeTab === 'borrowing' ? 'border-[#004876] text-[#004876] bg-amber-50/50' : 'border-transparent text-slate-600 hover:text-slate-900'" class="px-4 py-2 text-xs font-bold rounded-xl border-b-2 transition whitespace-nowrap flex items-center gap-1.5">
+                <i data-lucide="book-check" class="w-4 h-4"></i> سياسة الاستعارة والخدمات المرجعية
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-10">
+
+        <!-- Tab 1: Databases -->
+        <section x-show="activeTab === 'databases'" x-cloak class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- DB 1 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-900 flex items-center justify-center font-bold">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-base font-black text-slate-900">IEEE Xplore Digital Library</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        أبحاث تكنولوجيا المعلومات، الذكاء الاصطناعي، الأمن السيبراني، وهندسة البرمجيات.
+                    </p>
+                    <span class="text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 font-bold rounded-full border border-emerald-200 inline-block">وصول كامل مجاني للطلبة</span>
+                </div>
+
+                <!-- DB 2 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold">
+                        <i data-lucide="scale" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-base font-black text-slate-900">قاعدة دار المنظومة (EduSearch)</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        أضخم مرجع عربي للرسائل الجامعية والأبحاث القانونية، الاقتصادية، والتربوية المحكمة.
+                    </p>
+                    <span class="text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 font-bold rounded-full border border-emerald-200 inline-block">وصول كامل مجاني للطلبة</span>
+                </div>
+
+                <!-- DB 3 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-900 flex items-center justify-center font-bold">
+                        <i data-lucide="book-marked" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-base font-black text-slate-900">LexisNexis Legal Research</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        أحكام المحاكم، التشريعات الدولية والمقارنة، والمراجع القانونية المعتمدة لطلاب القانون.
+                    </p>
+                    <span class="text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 font-bold rounded-full border border-emerald-200 inline-block">وصول كامل مجاني للطلبة</span>
+                </div>
+
+                <!-- DB 4 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-900 flex items-center justify-center font-bold">
+                        <i data-lucide="line-chart" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-base font-black text-slate-900">Scopus & ScienceDirect</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        أوعية النشر والمجلات العلمية المصنفة ذات معامل التأثير العالي لدعم مشاريع التخرج.
+                    </p>
+                    <span class="text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 font-bold rounded-full border border-emerald-200 inline-block">وصول كامل مجاني للطلبة</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Study Rooms -->
+        <section x-show="activeTab === 'rooms'" x-cloak class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h3 class="text-xl font-black text-slate-900">قاعات الدراسة الفردية والجماعية الذكية</h3>
+                    <p class="text-xs text-slate-500 font-medium">مجهزة بشاشات عرض ذكية، سبورات تفاعلية، وعوازل صوتية متطورة</p>
+                </div>
+                <button @click="bookingModal = true" class="px-5 py-2.5 bg-[#004876] hover:bg-[#003b4d] text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2">
+                    <i data-lucide="calendar-plus" class="w-4 h-4 text-[#be9c79]"></i>
+                    <span>حجز قاعة الآن</span>
+                </button>
+            </div>
+
+            <div id="databases" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-xs font-bold text-[#004876] block">قاعات الدراسة الفردية الهادئة</span>
+                    <p class="text-sm font-black text-slate-900">40 كابينة بحث فردية</p>
+                    <p class="text-xs text-slate-500">مزودة بمآخذ طاقة وإنترنت فائق السرعة وإضاءة مخصصة للمطالعة المركزة.</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-xs font-bold text-[#004876] block">قاعات المجموعات البحثية</span>
+                    <p class="text-sm font-black text-slate-900">12 قاعة (4 إلى 8 طلاب)</p>
+                    <p class="text-xs text-slate-500">مجهزة بشاشات عرض لعروض مشاريع التخرج والعصف الذهني الجماعي.</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-xs font-bold text-[#004876] block">معمل الوسائط والطباعة</span>
+                    <p class="text-sm font-black text-slate-900">طابعات ليزر وماسحات ضوئية</p>
+                    <p class="text-xs text-slate-500">طباعة مجانية للأبحاث والواجبات الأكاديمية لكافة طلاب الجامعة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Borrowing Policies -->
+        <section x-show="activeTab === 'borrowing'" x-cloak class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-xl font-black text-slate-900">سياسة الإعارة والخدمات المرجعية</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-700 leading-relaxed">
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <h4 class="font-black text-slate-900 text-sm">إعارة الكتب لطلاب البكالوريوس</h4>
+                    <p>يحق للطالب استعارة حتى <strong>5 كتب</strong> في نفس الوقت لمدة <strong>14 يوماً</strong> قابلة للتجديد إلكترونياً لمرة واحدة عبر بوابة الطالب.</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <h4 class="font-black text-slate-900 text-sm">خدمة الإعارة التبادلية الوطنية (ILL)</h4>
+                    <p>بالشراكة مع <strong>مكتبة قطر الوطنية (QNL)</strong>، يمكن لمنتسبي جامعة لوسيل طلب أي كتاب أو مخطوطة غير متوفرة محلياً.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Room Booking Modal -->
+    <div x-show="bookingModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" @click.self="bookingModal = false">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-black text-slate-900">حجز قاعة دراسة بالمكتبة</h3>
+                <button @click="bookingModal = false" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">الرقم الجامعي للطالب</label>
+                    <input type="text" placeholder="مثال: 20261001" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">نوع القاعة</label>
+                    <select x-model="roomType" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                        <option value="group">قاعة دراسة جماعية (Room G-102)</option>
+                        <option value="solo">كابينة فردية هادئة (Pod S-05)</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">التاريخ</label>
+                        <input type="date" value="2026-09-20" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">الفترة الزمنية</label>
+                        <select class="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                            <option>10:00 ص - 12:00 م</option>
+                            <option>01:00 م - 03:00 م</option>
+                            <option>04:00 م - 06:00 م</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button @click="alert('تم استلام طلب حجز القاعة بنجاح، وتم إرسال تأكيد الحجز إلى بريدك الجامعي!'); bookingModal = false;" class="w-full py-2.5 bg-[#004876] hover:bg-[#003b4d] text-white font-bold text-xs rounded-xl shadow-md transition">
+                تأكيد الحجز الفوري
+            </button>
+        </div>
+    </div>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+</body>
+</html>

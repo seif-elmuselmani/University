@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية التجارة والأعمال | جامعة لوسيل (College of Commerce & Business)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumb Navigation Ribbon -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <a href="colleges.html" class="hover:text-[#004876]">الكليات الأكاديمية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">كلية التجارة والأعمال</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-[#004876] via-[#520014] to-[#2B000B] text-white py-14 px-4 sm:px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/30 text-[#be9c79] text-xs font-bold">
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+                    <span>الاعتماد الأكاديمي الكامل والشراكات الدولية</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                    كلية التجارة والأعمال
+                    <span class="block text-xl sm:text-2xl font-normal text-[#be9c79] font-outfit mt-1">College of Commerce & Business</span>
+                </h1>
+                <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-3xl">
+                    تهدف كلية التجارة والأعمال إلى تأهيل قادة ورواد أعمال المستقبل في قطاعات الاقتصاد الوطني والعالمي، من خلال برامج متطورة في المحاسبة، الإدارة، التسويق الرقمي، وسلاسل الإمداد، متوافقة مع متطلبات الاقتصاد المعرفي ورؤية قطر الوطنية 2030.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="admissions.html" class="px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs rounded-xl shadow-lg transition flex items-center gap-2">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>التقديم لخريف 2026</span>
+                    </a>
+                    <a href="tuition-fees.html" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center gap-2">
+                        <i data-lucide="calculator" class="w-4 h-4 text-[#be9c79]"></i>
+                        <span>حساب الرسوم والمنح</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- College Dean & Quick Stats Card -->
+            <div class="lg:col-span-4 bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 space-y-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
+                        د.ع
+                    </div>
+                    <div>
+                        <span class="text-xs text-[#be9c79] font-bold block">عميد الكلية</span>
+                        <h4 class="text-base font-black text-white">أ.د. عبد الله المري</h4>
+                        <p class="text-[11px] text-slate-300">أستاذ الاقتصاد المالي وإدارة الأعمال</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 pt-3 border-t border-white/10 text-center">
+                    <div class="bg-black/20 p-3 rounded-2xl">
+                        <span class="block text-2xl font-black text-[#be9c79] font-outfit">4</span>
+                        <span class="text-[10px] text-slate-300 font-bold">برامج بكالوريوس</span>
+                    </div>
+                    <div class="bg-black/20 p-3 rounded-2xl">
+                        <span class="block text-2xl font-black text-[#be9c79] font-outfit">132</span>
+                        <span class="text-[10px] text-slate-300 font-bold">ساعة معتمدة للتخرج</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sub-Navigation Navigation Tabs -->
+    <div class="bg-white border-b border-slate-200 sticky top-[61px] z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-2 sm:gap-6 overflow-x-auto py-2">
+            <button @click="activeTab = 'programs'" :class="activeTab === 'programs' ? 'border-[#004876] text-[#004876] bg-amber-50/50' : 'border-transparent text-slate-600 hover:text-slate-900'" class="px-4 py-2 text-xs font-bold rounded-xl border-b-2 transition whitespace-nowrap flex items-center gap-1.5">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i> البرامج والتخصصات (4)
+            </button>
+            <button @click="activeTab = 'labs'" :class="activeTab === 'labs' ? 'border-[#004876] text-[#004876] bg-amber-50/50' : 'border-transparent text-slate-600 hover:text-slate-900'" class="px-4 py-2 text-xs font-bold rounded-xl border-b-2 transition whitespace-nowrap flex items-center gap-1.5">
+                <i data-lucide="trending-up" class="w-4 h-4"></i> معمل المحاكاة المالية (FinTech Lab)
+            </button>
+            <button @click="activeTab = 'admission'" :class="activeTab === 'admission' ? 'border-[#004876] text-[#004876] bg-amber-50/50' : 'border-transparent text-slate-600 hover:text-slate-900'" class="px-4 py-2 text-xs font-bold rounded-xl border-b-2 transition whitespace-nowrap flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> شروط الالتحاق والتخرج
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-10">
+
+        <!-- Tab 1: Academic Programs -->
+        <section x-show="activeTab === 'programs'" x-cloak class="space-y-6">
+            <div>
+                <h3 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-5 h-5 text-[#004876]"></i>
+                    <span>البرامج الأكاديمية المعتمدة لدرجة البكالوريوس</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium">خطط دراسية معتمدة من وزارة التربية والتعليم والتعليم العالي بدولة قطر</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Program 1: Business Admin -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold">
+                            <i data-lucide="building" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-base font-black text-slate-900 leading-tight">بكالوريوس إدارة الأعمال</h4>
+                        <span class="text-[11px] text-slate-500 block font-outfit">B.Sc. in Business Administration</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            تأهيل القيادات التنفيذية في التخطيط الاستراتيجي، ريادة الأعمال، وحوكمة الشركات والمؤسسات الحكومية والخاصة.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 space-y-2">
+                        <div class="flex justify-between text-[11px] font-bold text-slate-600">
+                            <span>الساعات: <strong>132 ساعة</strong></span>
+                            <span>المدة: <strong>4 سنوات</strong></span>
+                        </div>
+                        <a href="admissions.html" class="w-full py-2 bg-slate-100 hover:bg-[#004876] hover:text-white text-slate-800 text-xs font-bold rounded-xl transition text-center block">
+                            تقديم للبرنامج ←
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 2: Accounting -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold">
+                            <i data-lucide="pie-chart" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-base font-black text-slate-900 leading-tight">بكالوريوس المحاسبة والمالية</h4>
+                        <span class="text-[11px] text-slate-500 block font-outfit">B.Sc. in Accounting & Finance</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            إعداد المحاسبين الماليين ومدققي الحسابات والمحللين الماليين المؤهلين للشهادات المهنية العالمية (CPA, CFA).
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 space-y-2">
+                        <div class="flex justify-between text-[11px] font-bold text-slate-600">
+                            <span>الساعات: <strong>132 ساعة</strong></span>
+                            <span>المدة: <strong>4 سنوات</strong></span>
+                        </div>
+                        <a href="admissions.html" class="w-full py-2 bg-slate-100 hover:bg-[#004876] hover:text-white text-slate-800 text-xs font-bold rounded-xl transition text-center block">
+                            تقديم للبرنامج ←
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 3: Digital Marketing -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-900 flex items-center justify-center font-bold">
+                            <i data-lucide="share-2" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-base font-black text-slate-900 leading-tight">بكالوريوس التسويق الرقمي</h4>
+                        <span class="text-[11px] text-slate-500 block font-outfit">B.Sc. in Digital Marketing</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            استراتيجيات التجارة الإلكترونية، تحليلات سلوك المستهلك الرقمي، وإدارة الحملات الإعلانية ومنصات التواصل.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 space-y-2">
+                        <div class="flex justify-between text-[11px] font-bold text-slate-600">
+                            <span>الساعات: <strong>132 ساعة</strong></span>
+                            <span>المدة: <strong>4 سنوات</strong></span>
+                        </div>
+                        <a href="admissions.html" class="w-full py-2 bg-slate-100 hover:bg-[#004876] hover:text-white text-slate-800 text-xs font-bold rounded-xl transition text-center block">
+                            تقديم للبرنامج ←
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 4: Supply Chain -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-[#be9c79] hover:shadow-md transition space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-900 flex items-center justify-center font-bold">
+                            <i data-lucide="truck" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-base font-black text-slate-900 leading-tight">إدارة سلاسل الإمداد واللوجستيات</h4>
+                        <span class="text-[11px] text-slate-500 block font-outfit">B.Sc. in Supply Chain Management</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            إدارة العمليات اللوجستية، الموانئ وسلاسل التوريد العالمية لدعم مكانة دولة قطر كمركز لوجستي إقليمي.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 space-y-2">
+                        <div class="flex justify-between text-[11px] font-bold text-slate-600">
+                            <span>الساعات: <strong>132 ساعة</strong></span>
+                            <span>المدة: <strong>4 سنوات</strong></span>
+                        </div>
+                        <a href="admissions.html" class="w-full py-2 bg-slate-100 hover:bg-[#004876] hover:text-white text-slate-800 text-xs font-bold rounded-xl transition text-center block">
+                            تقديم للبرنامج ←
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: FinTech & Business Labs -->
+        <section id="fintech" x-show="activeTab === 'labs'" x-cloak class="space-y-6">
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div id="supplychain" class="space-y-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 inline-block">
+                        بيئة المحاكاة التفاعلية
+                    </span>
+                    <h3 class="text-2xl font-black text-slate-900">معمل التداول والمحاكاة المالية (FinTech Trading Room)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        يحتوي المعمل على 40 محطة عمل متصلة ببيانات أسواق المال الحية وشاشات تداول بلومبرغ (Bloomberg Terminals) وبرمجيات إدارة المحافظ الاستثمارية، مما يمنح طلاب المحاسبة والمالية تجربة واقعية في تحليل الأسهم والعملات وتقييم المخاطر.
+                    </p>
+                    <ul class="space-y-2 text-xs font-bold text-slate-700">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> محاكاة أسواق المال وبورصة قطر العالمية</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> تطبيق نماذج الذكاء الاصطناعي في اتخاذ القرار المالي</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> حاضنة أعمال طلابية لدعم الشركات الناشئة (Startups)</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 space-y-4 text-center">
+                    <div class="w-16 h-16 rounded-3xl bg-[#004876] text-[#be9c79] flex items-center justify-center mx-auto text-2xl shadow-md">
+                        <i data-lucide="trending-up" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-slate-900">شراكات مهنية استراتيجية</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        تعاون وثيق مع مركز قطر للمال (QFC)، بنك قطر الوطني (QNB)، وغرفة تجارة وصناعة قطر لتدريب وتوظيف الطلاب.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Admission Requirements -->
+        <section x-show="activeTab === 'admission'" x-cloak class="space-y-6">
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+                <h3 class="text-xl font-black text-slate-900">شروط الالتحاق بكلية التجارة والأعمال لخريف 2026</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-xs font-bold text-[#004876] block">1. الثانوية العامة</span>
+                        <p class="text-sm font-black text-slate-900">نسبة لا تقل عن 65%</p>
+                        <p class="text-xs text-slate-500">في شهادة الثانوية العامة القطرية أو ما يعادلها في المسار العلمي أو الأدبي.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-xs font-bold text-[#004876] block">2. الكفاءة اللغوية</span>
+                        <p class="text-sm font-black text-slate-900">IELTS 5.0 أو اختبار الجامعة</p>
+                        <p class="text-xs text-slate-500">للبرامج التي تُدرّس باللغة الإنجليزية، أو اجتياز اختبار تحديد المستوى.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-xs font-bold text-[#004876] block">3. الرسوم الدراسية</span>
+                        <p class="text-sm font-black text-slate-900">1,500 ر.ق / الساعة</p>
+                        <p class="text-xs text-slate-500">مع إمكانية الاستفادة من منح التفوق الأكاديمي (50% إلى 100%).</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap gap-4 items-center justify-between border-t border-slate-100">
+                    <span class="text-xs font-bold text-slate-600">هل تحتاج لمعادلة شهادتك أو التحقق من المستندات؟</span>
+                    <div class="flex gap-3">
+                        <a href="admission-requirements.html" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl transition">
+                            دليل المعادلات والوثائق ←
+                        </a>
+                        <a href="admissions.html" class="px-4 py-2 bg-[#004876] hover:bg-[#003b4d] text-white text-xs font-bold rounded-xl shadow-md transition">
+                            تقديم طلب التحاق فوري
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+</body>
+</html>

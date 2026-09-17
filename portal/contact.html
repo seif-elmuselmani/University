@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا ودليل الحرم | جامعة لوسيل (Contact & Directory)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">تواصل معنا ودليل الحرم الجامعي</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="bg-gradient-to-br from-[#004876] to-[#002840] text-white py-12 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto space-y-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#be9c79] text-slate-950 inline-block">
+                يسعدنا الرد على استفساراتكم على مدار الساعة
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-black">تواصل مع جامعة لوسيل</h1>
+            <p class="text-slate-200 text-sm max-w-2xl leading-relaxed">
+                سواء كنت طالباً مستجداً، أو باحثاً، أو ترغب في زيارة مقر الجامعة بمدينة لوسيل، يسعد فريق خدمة العملاء بالتواصل معك وتقديم الدعم الكامل.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-10">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Contact Form -->
+            <div id="inquiry" class="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#004876]/10 text-[#004876] flex items-center justify-center font-bold">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900">نموذج الاستفسار والشكاوى والدعم الفني</h3>
+                        <p class="text-xs text-slate-500">يتم توجيه طلبك مباشرة إلى الإدارة المعنية مع رقم متابعة فوري</p>
+                    </div>
+                </div>
+
+                <form id="support" @submit.prevent="submitInquiry" class="space-y-4 text-xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+                            <input type="text" x-model="formData.name" required placeholder="مثال: جاسم محمد الكواري" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">البريد الإلكتروني *</label>
+                            <input type="email" x-model="formData.email" required placeholder="name@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">رقم الهاتف / الواتساب</label>
+                            <input type="tel" x-model="formData.phone" placeholder="+974 XXXX XXXX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">الجهة المعنية *</label>
+                            <select x-model="formData.department" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                                <option value="admissions">عمادة القبول والتسجيل</option>
+                                <option value="finance">الشؤون المالية والرسوم</option>
+                                <option value="colleges">الكليات والشؤون الأكاديمية</option>
+                                <option value="support">الدعم الفني والأنظمة الإلكترونية</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">موضوع الرسالة *</label>
+                        <input type="text" x-model="formData.subject" required placeholder="مثال: استفسار عن معادلة شهادة الثانوية البريطانية" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">نص الرسالة *</label>
+                        <textarea x-model="formData.message" rows="4" required placeholder="اكتب تفاصيل استفسارك هنا..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-[#004876]"></textarea>
+                    </div>
+
+                    <div x-show="successMsg" x-cloak class="p-3 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-xl font-bold text-xs flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        <span x-text="successMsg"></span>
+                    </div>
+
+                    <button type="submit" class="px-6 py-3 bg-[#004876] hover:bg-[#003354] text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4 text-[#be9c79]"></i>
+                        <span>إرسال الاستفسار الفوري</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Campus Directory & Map Info -->
+            <div class="lg:col-span-5 space-y-6">
+                <div id="map" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-[#004876]"></i>
+                        <span>المقر والعنوان الرسمي</span>
+                    </h3>
+                    <p class="text-xs text-slate-700 leading-relaxed font-medium">
+                        المنطقة 69، شارع 100، مبنى رقم 333، جبل ثعيلب، ص.ب 9717، لوسيل، دولة قطر.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-2">
+                        <div class="flex justify-between font-bold">
+                            <span class="text-slate-500">الهاتف والواتساب:</span>
+                            <a href="tel:44011111" class="text-[#004876] font-mono hover:underline">+974 4401 1111</a>
+                        </div>
+                        <div class="flex justify-between font-bold">
+                            <span class="text-slate-500">البريد الإلكتروني:</span>
+                            <a href="mailto:info@lu.edu.qa" class="text-[#004876] hover:underline">info@lu.edu.qa</a>
+                        </div>
+                        <div class="flex justify-between font-bold">
+                            <span class="text-slate-500">ترام لوسيل:</span>
+                            <span class="text-slate-800">محطة مارينا لوسيل</span>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/place/Lusail+University/@25.4022466,51.5103372,891m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3e45ddcbd9a4dbbd:0x1d552c835efa9c2d!8m2!3d25.4022418!4d51.5129121!16s%2Fg%2F11jb2c5h2c" target="_blank" class="block w-full text-center py-2.5 bg-[#be9c79]/15 hover:bg-[#be9c79]/30 text-[#004876] font-bold text-xs rounded-xl transition border border-[#be9c79]/30">
+                        فتح الموقع على خرائط Google Map ←
+                    </a>
+                </div>
+
+                <!-- Directory Numbers -->
+                <div id="directory" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#004876]"></i>
+                        <span>دليل الاتصال بالإدارات</span>
+                    </h3>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                            <span class="font-bold text-slate-700">مركز الاتصال العام</span>
+                            <span class="font-mono font-bold text-[#004876]">+974 4401 1111</span>
+                        </div>
+                        <div class="flex justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                            <span class="font-bold text-slate-700">عمادة القبول والتسجيل</span>
+                            <span class="font-mono font-bold text-[#004876]">4401 1110</span>
+                        </div>
+                        <div class="flex justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                            <span class="font-bold text-slate-700">الشؤون المالية ورعاية الطلاب</span>
+                            <span class="font-mono font-bold text-[#004876]">4401 1120</span>
+                        </div>
+                        <div class="flex justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                            <span class="font-bold text-slate-700">مكتبة لوسيل (مداد)</span>
+                            <span class="font-mono font-bold text-[#004876]">4401 1140</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+    <script>
+        function contactApp() {
+            return {
+                formData: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    department: 'admissions',
+                    subject: '',
+                    message: ''
+                },
+                successMsg: '',
+                async submitInquiry() {
+                    const ticketId = 'INQ-2026-' + Math.floor(1000 + Math.random() * 9000);
+                    this.successMsg = `تم استلام استفسارك بنجاح برقم تذكرة [${ticketId}]! سيتواصل معك موظف الإدارة المختصة خلال 24 ساعة.`;
+                    this.formData.subject = '';
+                    this.formData.message = '';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

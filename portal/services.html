@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>منظومة الخدمات الإلكترونية الشاملة | جامعة لوسيل (E-Services Command Hub)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo, Outfit & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        academic: {
+                            maroon: '#004876',
+                            maroonDark: '#003b4d',
+                            gold: '#D4AF37',
+                            slateBg: '#F8FAFC',
+                            cardBg: '#FFFFFF',
+                            border: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F1F5F9; }
+    </style>
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
+        
+        <!-- Breadcrumb Header -->
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+            <a href="index.html" class="hover:text-amber-800 font-bold">الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">منظومة الخدمات الرقمية الموحدة</span>
+        </div>
+
+        <!-- Section Hero Card & Readiness Metrics -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-300 w-max mb-2">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+                        <span>Next-Gen Smart University Command Hub</span>
+                    </div>
+                    <h1 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                        منظومة الخدمات الرقمية الذكية الموحدة (16 بوابة متكاملة)
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">بوابة شاملة مصممة وفق رحلة الطالب وأعضاء هيئة التدريس والباحثين والوافدين</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs">
+                    <div class="px-3.5 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span class="font-bold">جاهزية الأنظمة: <strong>99.9%</strong></span>
+                    </div>
+                    <div class="px-3.5 py-2 rounded-2xl bg-sky-50 border border-sky-200 text-sky-900 flex items-center gap-1.5 font-bold">
+                        <i data-lucide="timer" class="w-4 h-4 text-sky-600"></i>
+                        <span>زمن المعاملة: <strong>30 ثانية</strong></span>
+                    </div>
+                    <div class="px-3.5 py-2 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 flex items-center gap-1.5 font-bold">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600"></i>
+                        <span>المنجز اليوم: <strong>+14,890</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search & Filter Controls -->
+            <div class="space-y-4">
+                <div class="relative">
+                    <input type="text" x-model="searchQuery" 
+                           placeholder="ابحث فوراً في الـ 16 خدمة (مثال: سداد الرسوم، رصد الدرجات، السكن، الوافدون، التحقق بالـ QR)..." 
+                           class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pr-11 pl-4 text-xs sm:text-sm font-bold text-slate-800 outline-none focus:border-[#be9c79] focus:bg-white shadow-inner transition">
+                    <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2"></i>
+                    <button x-show="searchQuery" @click="searchQuery = ''" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold">مسح</button>
+                </div>
+
+                <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-bold custom-scrollbar">
+                    <button @click="activeFilter = 'all'" 
+                            :class="activeFilter === 'all' ? 'bg-[#004876] text-white shadow-sm font-bold' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'" 
+                            class="px-4 py-2 rounded-xl transition whitespace-nowrap">
+                        <span>كافة الخدمات (16)</span>
+                    </button>
+                    <button @click="activeFilter = 'admission'" 
+                            :class="activeFilter === 'admission' ? 'bg-sky-700 text-white shadow-sm' : 'bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200'" 
+                            class="px-4 py-2 rounded-xl transition whitespace-nowrap flex items-center gap-1.5">
+                        <i data-lucide="compass" class="w-3.5 h-3.5"></i> <span>مسار القبول والوافدين (4)</span>
+                    </button>
+                    <button @click="activeFilter = 'academic'" 
+                            :class="activeFilter === 'academic' ? 'bg-purple-700 text-white shadow-sm' : 'bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200'" 
+                            class="px-4 py-2 rounded-xl transition whitespace-nowrap flex items-center gap-1.5">
+                        <i data-lucide="book-open" class="w-3.5 h-3.5"></i> <span>مسار الحياة الأكاديمية (4)</span>
+                    </button>
+                    <button @click="activeFilter = 'campus'" 
+                            :class="activeFilter === 'campus' ? 'bg-emerald-700 text-white shadow-sm' : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200'" 
+                            class="px-4 py-2 rounded-xl transition whitespace-nowrap flex items-center gap-1.5">
+                        <i data-lucide="home" class="w-3.5 h-3.5"></i> <span>مسار الرعاية والخدمات (4)</span>
+                    </button>
+                    <button @click="activeFilter = 'alumni'" 
+                            :class="activeFilter === 'alumni' ? 'bg-amber-700 text-white shadow-sm' : 'bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300'" 
+                            class="px-4 py-2 rounded-xl transition whitespace-nowrap flex items-center gap-1.5">
+                        <i data-lucide="award" class="w-3.5 h-3.5"></i> <span>مسار التخرج والتوثيق (4)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 Major Flagship Portals -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div class="bg-white rounded-3xl p-5 border-2 border-sky-100 shadow-sm hover:shadow-md hover:border-sky-400 transition flex flex-col justify-between space-y-3 group relative overflow-hidden">
+                <div class="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-sky-400 to-sky-600"></div>
+                <div class="space-y-2.5">
+                    <div class="flex items-center justify-between pt-1">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center border border-sky-200 font-bold group-hover:scale-105 transition">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-300">Banner SIS</span>
+                    </div>
+                    <h3 class="font-black text-sm text-slate-900">بوابة الخدمات الطلابية (SIS)</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">التسجيل المباشر، الحذف والإضافة، الخطة الدراسية، والبطاقة الجامعية الذكية.</p>
+                </div>
+                <a href="desk.html" class="w-full py-2.5 bg-sky-700 hover:bg-sky-600 text-white font-bold rounded-xl transition text-center flex items-center justify-center gap-1.5">
+                    <span>دخول بوابة الطالب</span> <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border-2 border-purple-100 shadow-sm hover:shadow-md hover:border-purple-400 transition flex flex-col justify-between space-y-3 group relative overflow-hidden">
+                <div class="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-purple-400 to-purple-600"></div>
+                <div class="space-y-2.5">
+                    <div class="flex items-center justify-between pt-1">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-200 font-bold group-hover:scale-105 transition">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-300">هيئة التدريس</span>
+                    </div>
+                    <h3 class="font-black text-sm text-slate-900">بوابة الأستاذ ورصد الدرجات</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">رصد أعمال السنة والنهائي، سجل الحضور، وتوصيف الخطط الدراسية للمقررات.</p>
+                </div>
+                <a href="desk.html" class="w-full py-2.5 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-xl transition text-center flex items-center justify-center gap-1.5">
+                    <span>رصد درجات المقررات</span> <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border-2 border-emerald-100 shadow-sm hover:shadow-md hover:border-emerald-400 transition flex flex-col justify-between space-y-3 group relative overflow-hidden">
+                <div class="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
+                <div class="space-y-2.5">
+                    <div class="flex items-center justify-between pt-1">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200 font-bold group-hover:scale-105 transition">
+                            <i data-lucide="credit-card" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">سداد فوري QPay</span>
+                    </div>
+                    <h3 class="font-black text-sm text-slate-900">منصة الدفع والمالية الموحدة</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">سداد المصروفات بالريال القطري (QAR)، وإصدار سندات القبض المعتمدة آلياً.</p>
+                </div>
+                <a href="desk.html" class="w-full py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-xl transition text-center flex items-center justify-center gap-1.5">
+                    <span>إدارة الفواتير والمدفوعات</span> <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border-2 border-amber-100 shadow-sm hover:shadow-md hover:border-[#be9c79] transition flex flex-col justify-between space-y-3 group relative overflow-hidden">
+                <div class="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-amber-400 to-amber-600"></div>
+                <div class="space-y-2.5">
+                    <div class="flex items-center justify-between pt-1">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200 font-bold group-hover:scale-105 transition">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">Scopus & WoS Q1</span>
+                    </div>
+                    <h3 class="font-black text-sm text-slate-900">بنك المعرفة والمستودع الرقمي</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">الوصول للرسائل والأبحاث والمجلات العالمية، وصرف مكافآت النشر الدولي.</p>
+                </div>
+                <button @click="openServiceAction(servicesList[1])" class="w-full py-2.5 bg-amber-700 hover:bg-amber-600 text-white font-bold rounded-xl transition text-center flex items-center justify-center gap-1.5">
+                    <span>تصفح الأبحاث والمكتبة</span> <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 16 Specialized Services Grid -->
+        <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <h2 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+                    <i data-lucide="grid" class="w-5 h-5 text-amber-700"></i> مصفوفة الخدمات التخصصية المعتمدة
+                </h2>
+                <span class="text-xs text-slate-500 font-mono" x-text="'عرض ' + filteredServices.length + ' من أصل 16 خدمة'"></span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                <template x-for="service in filteredServices" :key="service.id">
+                    <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-soft hover:shadow-card hover:border-[#be9c79] transition-all duration-200 space-y-3 cursor-pointer group flex flex-col justify-between"
+                         @click="openServiceAction(service)">
+                        
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold shadow-sm transition group-hover:scale-105"
+                                     :class="service.iconBg">
+                                    <i :data-lucide="service.icon" class="w-5 h-5" :class="service.iconColor"></i>
+                                </div>
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border"
+                                      :class="service.tagClass"
+                                      x-text="service.category"></span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-amber-800 transition" x-text="service.title"></h3>
+                            <p class="text-[11px] text-slate-500 leading-relaxed" x-text="service.desc"></p>
+                        </div>
+
+                        <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                            <span class="font-bold text-amber-800 flex items-center gap-1">
+                                <span>تشغيل الخدمة</span>
+                                <i data-lucide="chevron-left" class="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform"></i>
+                            </span>
+                            <span class="text-slate-400 font-mono text-[9px]" x-text="service.badge"></span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (100% Light Academic) -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+    <!-- Service Action Modal -->
+    <div x-show="openDetailModal" class="fixed inset-0 z-50 bg-slate-900/20 backdrop-blur-sm flex items-center justify-center p-4" x-cloak>
+        <div class="bg-white text-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative space-y-5" @click.away="openDetailModal = false">
+            <button @click="openDetailModal = false" class="absolute left-4 top-4 text-slate-400 hover:text-slate-700 p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
+
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center font-bold shadow-sm" :class="selectedService?.iconBg">
+                    <i :data-lucide="selectedService?.icon" class="w-6 h-6" :class="selectedService?.iconColor"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border mb-1 inline-block" :class="selectedService?.tagClass" x-text="selectedService?.category"></span>
+                    <h3 class="text-base font-black text-slate-900" x-text="selectedService?.title"></h3>
+                </div>
+            </div>
+
+            <div class="space-y-3.5 text-xs">
+                <p class="text-slate-600 leading-relaxed" x-text="selectedService?.desc"></p>
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">الخدمات الفرعية المتاحة:</span>
+                    <ul class="space-y-1.5 text-[11px] text-slate-700 font-bold">
+                        <template x-for="(sub, sIdx) in selectedService?.subServices" :key="sIdx">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                <span x-text="sub"></span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-2.5">
+                <button @click="openDetailModal = false" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl font-bold text-slate-700 text-xs">إغلاق</button>
+                <a href="desk.html" class="px-5 py-2 text-white font-bold rounded-xl text-xs shadow-md transition flex items-center gap-2 bg-[#004876] hover:bg-[#003b4d]">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    <span>بدء تشغيل الخدمة عبر المنظومة</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div x-show="openLoginModal" class="fixed inset-0 z-50 bg-slate-900/20 backdrop-blur-sm flex items-center justify-center p-4" x-cloak>
+        <div class="bg-white text-slate-900 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative space-y-5" @click.away="openLoginModal = false">
+            <button @click="openLoginModal = false" class="absolute left-4 top-4 text-slate-400 hover:text-slate-700 p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
+            <div class="text-center space-y-2">
+                <div class="w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-white font-black text-2xl shadow-md border-2 border-[#be9c79] bg-[#004876]">LU</div>
+                <h3 class="text-base font-black text-slate-900">تسجيل الدخول الموحد (SSO)</h3>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-bold mb-1 text-slate-700">الرقم الجامعي / البريد الإلكتروني:</label>
+                    <input type="text" value="20261042@lusail.edu.qa" readonly class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 outline-none text-slate-800">
+                </div>
+                <a href="desk.html" class="block w-full py-2.5 rounded-xl font-bold text-white shadow-md text-center bg-[#004876] hover:bg-[#003b4d]">دخول المنظومة الآن</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Client Script -->
+    <script src="js/api-client.js"></script>
+
+    <!-- Hidden Anchors for Direct URL Navigation -->
+    <div id="service-enrollment" class="sr-only"></div>
+    <div id="service-defer" class="sr-only"></div>
+    <div id="service-regrade" class="sr-only"></div>
+
+    <script>
+        function servicesPageApp() {
+            return {
+                activeFilter: 'all',
+                searchQuery: '',
+                openDetailModal: false,
+                openLoginModal: false,
+                selectedService: null,
+                ticketSubmitted: false,
+                lastTicketId: '',
+
+                initHashService() {
+                    if (window.location.hash) {
+                        const hash = window.location.hash.substring(1);
+                        const match = this.servicesList.find(s => s.anchorId === hash || ('srv-' + s.id) === hash);
+                        if (match) {
+                            setTimeout(() => this.openServiceAction(match), 100);
+                        }
+                    }
+                },
+
+                servicesList: [
+                    { id: 1, code: 'SRV-01', anchorId: 'service-faculty', journey: 'academic', title: 'خدمات أعضاء هيئة التدريس', category: 'هيئة التدريس', desc: 'إدارة المقررات، رصد الدرجات، وتوصيف المناهج والملف الأكاديمي.', icon: 'graduation-cap', iconBg: 'bg-sky-50', iconColor: 'text-sky-700', tagClass: 'bg-sky-50 text-sky-800 border-sky-200', badge: 'SSO معتمد', subServices: ['رصد درجات المقررات وحساب الـ GPA', 'سجل الحضور والغياب الإلكتروني', 'اعتماد خطط التدريس'] },
+                    { id: 2, code: 'SRV-02', anchorId: 'service-library', journey: 'academic', title: 'بنك المعرفة والمستودع الرقمي', category: 'البحث العلمي', desc: 'الوصول للرسائل والأبحاث والمجلات العالمية وقواعد بيانات Scopus.', icon: 'book-open', iconBg: 'bg-emerald-50', iconColor: 'text-emerald-700', tagClass: 'bg-emerald-50 text-emerald-800 border-emerald-200', badge: 'Scopus Q1', subServices: ['الفهرس الآلي للمكتبة المركزية', 'تحميل الرسائل والأطروحات الجامعية', 'الربط مع Web of Science'] },
+                    { id: 3, code: 'SRV-03', anchorId: 'service-email', journey: 'admission', title: 'بريد الجامعة الرسمي (Office 365)', category: 'الدخول الموحد', desc: 'حساب البريد الجامعي الرسمي للطلاب والأساتذة وسعة 1TB سحابية.', icon: 'mail', iconBg: 'bg-blue-50', iconColor: 'text-blue-700', tagClass: 'bg-blue-50 text-blue-800 border-blue-200', badge: 'Microsoft 365', subServices: ['تفعيل البريد الجامعي', 'إعادة تعيين كلمة المرور', 'تحميل باقة برامج Office'] },
+                    { id: 4, code: 'SRV-04', anchorId: 'service-payment', journey: 'campus', title: 'منصة الدفع الإلكتروني الموحدة', category: 'المالية والرسوم', desc: 'سداد الرسوم الدراسية ومستحقات السكن والشهادات إلكترونياً.', icon: 'credit-card', iconBg: 'bg-amber-50', iconColor: 'text-amber-700', tagClass: 'bg-amber-50 text-amber-800 border-amber-200', badge: 'سداد فوري QPay', subServices: ['سداد الرسوم الدراسية بالريال القطري', 'طباعة سندات القبض والإيصالات', 'استعراض كشف الحساب'] },
+                    { id: 5, code: 'SRV-05', anchorId: 'service-international', journey: 'admission', title: 'إدارة الطلاب الدوليين والوافدين', category: 'الوافدون', desc: 'التقديم الدولي، متابعة الإقامات والتأشيرات الدراسية والسكن.', icon: 'globe', iconBg: 'bg-purple-50', iconColor: 'text-purple-700', tagClass: 'bg-purple-50 text-purple-800 border-purple-200', badge: 'دولي معتمد', subServices: ['إصدار كتاب التأشيرة الدراسية', 'التنسيق للإقامات مع وزارة الداخلية', 'حجز الاستقبال والسكن'] },
+                    { id: 6, code: 'SRV-06', anchorId: 'service-enrollment', journey: 'admission', title: 'بوابة إفادات القيد والسجل الأكاديمي', category: 'شؤون الطلاب', desc: 'استخراج الكود الجامعي، إفادات القيد، والبطاقة الذكية الرقمية.', icon: 'id-card', iconBg: 'bg-rose-50', iconColor: 'text-rose-700', tagClass: 'bg-rose-50 text-rose-800 border-rose-200', badge: 'رقمي فوري', subServices: ['استخراج الكود الجامعي للمستجدين', 'إصدار إفادة القيد الرسمية الموثقة', 'طلب البطاقة الجامعية الذكية'] },
+                    { id: 7, code: 'SRV-07', anchorId: 'service-regrade', journey: 'academic', title: 'نتائج الامتحانات وإعادة رصد الدرجة', category: 'الامتحانات والـ GPA', desc: 'الاطلاع الفوري على كشوف الدرجات والمعدل التراكمي (GPA) وطلب إعادة التدقيق.', icon: 'award', iconBg: 'bg-indigo-50', iconColor: 'text-indigo-700', tagClass: 'bg-indigo-50 text-indigo-800 border-indigo-200', badge: 'محدث لحظياً', subServices: ['درجات أعمال السنة والنهائي', 'كشف الدرجات التفصيلي', 'تقديم طلب إعادة تدقيق ورصد الدرجة'] },
+                    { id: 8, code: 'SRV-08', anchorId: 'service-defer', journey: 'academic', title: 'طلب تأجيل الفصل الدراسي أو الانسحاب', category: 'الحركات الأكاديمية', desc: 'تقديم طلبات تأجيل القيد، الانسحاب من الفصول، أو التحويل بين الكليات.', icon: 'clock', iconBg: 'bg-slate-100', iconColor: 'text-slate-700', tagClass: 'bg-slate-100 text-slate-800 border-slate-200', badge: 'Banner Core', subServices: ['طلب تأجيل فصل دراسي بعذر رسمي', 'طلب الانسحاب من مقرر دراسي', 'التحويل الداخلي بين البرامج'] },
+                    { id: 9, code: 'SRV-09', anchorId: 'service-quality', journey: 'campus', title: 'منصة استبيانات الجودة الأكاديمية', category: 'الجودة والاعتماد', desc: 'تقييم المقررات وأعضاء هيئة التدريس لضمان الجودة والاعتماد.', icon: 'check-square', iconBg: 'bg-teal-50', iconColor: 'text-teal-700', tagClass: 'bg-teal-50 text-teal-800 border-teal-200', badge: 'سري 100%', subServices: ['تقييم جودة المقررات', 'استبيان آراء الطلاب', 'تقارير الاعتماد المؤسسي'] },
+                    { id: 10, code: 'SRV-10', anchorId: 'service-lms', journey: 'academic', title: 'وحدة التعليم الإلكتروني والاختبارات', category: 'التعليم الذكي', desc: 'الفصول الافتراضية، المحاضرات المسجلة، وبنك الأسئلة.', icon: 'laptop', iconBg: 'bg-cyan-50', iconColor: 'text-cyan-700', tagClass: 'bg-cyan-50 text-cyan-800 border-cyan-200', badge: 'Blackboard LMS', subServices: ['دخول المحاضرات الافتراضية', 'تسليم الواجبات والتكليفات', 'بنك الأسئلة والاختبارات'] },
+                    { id: 11, code: 'SRV-11', anchorId: 'service-alumni', journey: 'alumni', title: 'منظومة شؤون الخريجين والتوظيف', category: 'الخريجون', desc: 'ملتقيات التوظيف، الشهادات الجدارية، والتواصل المهني.', icon: 'briefcase', iconBg: 'bg-orange-50', iconColor: 'text-orange-700', tagClass: 'bg-orange-50 text-orange-800 border-orange-200', badge: 'يوم المهنة', subServices: ['استخراج الشهادة الجدارية', 'التسجيل في ملتقى التوظيف', 'شبكة التواصل المهني'] },
+                    { id: 12, code: 'SRV-12', anchorId: 'service-grants', journey: 'alumni', title: 'مكافآت تشجيع النشر العلمي الدولي', category: 'الدراسات العليا', desc: 'التقدم لصرف حوافز ومكافآت الأبحاث المنشورة في Q1/Q2.', icon: 'sparkles', iconBg: 'bg-yellow-50', iconColor: 'text-yellow-700', tagClass: 'bg-yellow-50 text-yellow-800 border-yellow-200', badge: 'حوافز مالية', subServices: ['طلب صرف مكافأة بحث Scopus', 'فحص معامل التأثير Impact Factor', 'صرف المستحقات المالية'] },
+                    { id: 13, code: 'SRV-13', anchorId: 'service-housing', journey: 'campus', title: 'المدن الجامعية والسكن الطلابي', category: 'الرعاية والخدمات', desc: 'حجز الغرف، الوجبات الغذائية، والرعاية الاجتماعية.', icon: 'home', iconBg: 'bg-lime-50', iconColor: 'text-lime-700', tagClass: 'bg-lime-50 text-lime-800 border-lime-200', badge: 'سكن ذكي', subServices: ['تقديم طلب التسكين', 'سداد رسوم الإقامة', 'خدمات الصيانة والنظافة'] },
+                    { id: 14, code: 'SRV-14', anchorId: 'service-complaints', journey: 'campus', title: 'منصة الشكاوى والمقترحات الموحدة', category: 'خدمة المتعاملين', desc: 'تقديم ومتابعة الشكاوى مباشرة مع مكتب رئيس الجامعة.', icon: 'message-square', iconBg: 'bg-pink-50', iconColor: 'text-pink-700', tagClass: 'bg-pink-50 text-pink-800 border-pink-200', badge: 'مكتب الرئيس', subServices: ['تقديم تظلم أو مقترح للرئاسة', 'تتبع حالة التذكرة خلال 24 ساعة', 'استبيان قياس الرضا'] },
+                    { id: 15, code: 'SRV-15', anchorId: 'service-qr', journey: 'alumni', title: 'بوابة التحقق الإلكتروني من الوثائق بالـ QR', category: 'التوثيق والاعتماد', desc: 'التحقق اللحظي من صحة كشوف الدرجات والشهادات عبر رمز الاستجابة.', icon: 'qr-code', iconBg: 'bg-amber-100 text-amber-900', iconColor: 'text-amber-900', tagClass: 'bg-amber-100 text-amber-900 border-amber-300', badge: 'QR Verified', subServices: ['فحص كشف الدرجات للشركات', 'التحقق من الشهادات الجدارية', 'منع التزوير الأكاديمي'] },
+                    { id: 16, code: 'SRV-16', anchorId: 'service-transport', journey: 'admission', title: 'منظومة النقل والمواقف الذكية بالحرم', category: 'المرافق الذكية', desc: 'حجز تصاريح المواقف وتتبع حافلات النقل الترددي للجامعة.', icon: 'navigation', iconBg: 'bg-emerald-50', iconColor: 'text-emerald-700', tagClass: 'bg-emerald-50 text-emerald-800 border-emerald-200', badge: 'GPS Tracking', subServices: ['تصريح دخول المواقف الذكية', 'تتبع حافلات المترو والحرم', 'شحن بطاقة المواصلات'] }
+                ],
+
+                get filteredServices() {
+                    let list = this.servicesList;
+                    if (this.activeFilter !== 'all') {
+                        list = list.filter(s => s.journey === this.activeFilter);
+                    }
+                    if (this.searchQuery) {
+                        const q = this.searchQuery.toLowerCase();
+                        list = list.filter(s => s.title.includes(q) || s.desc.includes(q) || s.category.includes(q));
+                    }
+                    return list;
+                },
+
+                openServiceAction(service) {
+                    this.selectedService = service;
+                    this.openDetailModal = true;
+                    this.$nextTick(() => lucide.createIcons());
+                }
+            }
+        }
+    </script>
+</body>
+</html>

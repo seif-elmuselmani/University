@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الحرم الجامعي والحياة الطلابية | جامعة لوسيل (Campus Life & Facilities)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo, Outfit & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        academic: {
+                            maroon: '#004876',
+                            maroonDark: '#003b4d',
+                            gold: '#D4AF37',
+                            slateBg: '#F8FAFC',
+                            cardBg: '#FFFFFF',
+                            border: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F1F5F9; }
+    </style>
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
+        
+        <!-- Breadcrumb Header -->
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+            <a href="index.html" class="hover:text-amber-800 font-bold">الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">الحرم الجامعي والمرافق والحياة الطلابية</span>
+        </div>
+
+        <!-- Section Hero Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-300 w-max mb-2">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+                        <span>حرم جامعي عصري في قلب مدينة المستقبل</span>
+                    </div>
+                    <h1 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                        مرافق الحرم الجامعي والحياة الطلابية
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">معرض مصور تفاعلي للمختبرات والمرافق الأكاديمية والرياضية وحاضنات الابتكار بجامعة لوسيل</p>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-bold">
+                    <span class="px-3.5 py-1.5 bg-emerald-50 text-emerald-800 rounded-xl border border-emerald-200 flex items-center gap-1.5">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> 6 مرافق رئيسية متكاملة
+                    </span>
+                </div>
+            </div>
+
+            <!-- 6 Facilities High-Res Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+                <template x-for="(facility, idx) in facilities" :key="facility.id">
+                    <div @click="openLightbox(facility)" 
+                         class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#004876] hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+                        <div class="relative overflow-hidden aspect-[16/10] bg-slate-100">
+                            <img :src="facility.image" :alt="facility.title" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 text-[10px] font-bold font-mono px-2.5 py-1 rounded-lg bg-white/95 text-slate-900 shadow-sm border border-slate-200" x-text="facility.category"></span>
+                            <div class="absolute bottom-3 right-3 left-3 text-white">
+                                <h3 class="font-black text-sm" x-text="facility.title"></h3>
+                            </div>
+                        </div>
+
+                        <div class="p-4 space-y-2.5 text-xs">
+                            <p class="text-slate-600 line-clamp-2" x-text="facility.desc"></p>
+                            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500">
+                                <span class="flex items-center gap-1 font-bold text-[11px] text-[#004876]">
+                                    <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                                    <span>تكبير وعرض التفاصيل</span>
+                                </span>
+                                <span class="font-mono text-[10px] text-slate-500 font-bold" x-text="facility.capacity"></span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- University Leadership & Board of Trustees (Visual Photo Cards) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+                <div>
+                    <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200 uppercase">الهيكل القيادي</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1 flex items-center gap-2">
+                        <i data-lucide="users" class="w-6 h-6 text-[#004876]"></i>
+                        <span>مجلس الأمناء والقيادات الأكاديمية</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">نخبة من القيادات الوطنية والخبرات الأكاديمية ترسم الرؤية الاستراتيجية لجامعة لوسيل</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                <template x-for="leader in leadershipList" :key="leader.name">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#004876] hover:shadow-md transition space-y-3 group">
+                        <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-200 border-2 border-[#be9c79]/60 shadow-sm">
+                            <img :src="leader.avatar" :alt="leader.name" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm text-slate-900 group-hover:text-[#004876] transition" x-text="leader.name"></h4>
+                            <p class="text-[11px] font-bold text-amber-800 mt-0.5" x-text="leader.role"></p>
+                        </div>
+                        <p class="text-slate-600 text-[11px] leading-relaxed pt-2 border-t border-slate-200" x-text="leader.bio"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Student Life & 6 Campus Clubs Visual Grid -->
+        <div class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 uppercase">الحياة الطلابية والأنشطة</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1 flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-amber-600"></i>
+                        <span>الأندية والاتحادات الطلابية المعتمدة</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">بيئة طلابية تفاعلية تعزز الشغف والابتكار والقيادة خارج قاعات الدراسة</p>
+                </div>
+                <span class="text-xs font-bold text-slate-500">6 أندية رئيسية مفتوحة للتسجيل</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <template x-for="club in studentClubs" :key="club.title">
+                    <div class="bg-white rounded-2xl border border-slate-200 hover:border-[#004876] hover:shadow-lg transition-all overflow-hidden flex flex-col justify-between group">
+                        <div class="aspect-[16/9] overflow-hidden bg-slate-100 relative">
+                            <img :src="club.image" :alt="club.title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 text-[10px] font-bold px-2.5 py-1 rounded-lg bg-white/95 text-slate-900 shadow-sm" x-text="club.category"></span>
+                            <div class="absolute bottom-2.5 right-3 text-white">
+                                <h3 class="font-black text-sm drop-shadow" x-text="club.title"></h3>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-3 text-xs flex-1 flex flex-col justify-between">
+                            <p class="text-slate-600 leading-relaxed" x-text="club.desc"></p>
+                            <div class="pt-3 border-t border-slate-100 flex items-center justify-between font-bold text-[11px]">
+                                <span class="text-slate-500 flex items-center gap-1">
+                                    <i data-lucide="users" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    <span x-text="club.members + ' عضو نشط'"></span>
+                                </span>
+                                <span class="text-[#004876] group-hover:text-[#003b4d] flex items-center gap-1">
+                                    <span>انضم للنادي</span>
+                                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Interactive Campus Blueprint & Transportation Photo Showcase -->
+        <div class="bg-gradient-to-br from-slate-50 via-white to-amber-50/30 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                        الموقع والمواصلات الذكية
+                    </span>
+                    <h3 class="text-xl sm:text-2xl font-black text-slate-900">موقع استراتيجي في قلب مدينة لوسيل العصرية</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        يقع الحرم الجامعي لجامعة لوسيل في أرقى المواقع الحضرية بمدينة لوسيل، متصلاً مباشرة بشبكة ترام لوسيل ومترو الدوحة (الخط الأحمر)، مع توفير أسطول حافلات حديث ومواقف سيارات ذكية متعددة الطوابق ومزودة بمحطات شحن السيارات الكهربائية.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <strong class="text-[#004876] block font-black text-sm">محطة ترام لوسيل</strong>
+                            <span class="text-slate-500 text-[11px]">على بعد 2 دقيقة سيراً</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <strong class="text-emerald-700 block font-black text-sm">مواقف ذكية 1000+</strong>
+                            <span class="text-slate-500 text-[11px]">مع حساسات إشغال فورية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md aspect-[16/10] bg-slate-100">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=80" alt="مدينة لوسيل والحرم الجامعي" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-xs text-white font-bold drop-shadow">إطلالة بانورامية على مدينة لوسيل وأبراج المارينا</span>
+                    </div>
+                </div>
+            </div>
+        <!-- Student Athletics & Sports Life Section (Official Lusail Reality) -->
+        <div id="sports" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#be9c79]/15 text-[#856545] border border-[#be9c79]/30">
+                            الحياة الطلابية والنشاط البدني
+                        </span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-[#004876]">الأنشطة والبطولات الرياضية الطلابية</h3>
+                    <p class="text-xs text-slate-500 font-medium">دوري الجامعات القطرية، الفعاليات الرياضية المجتمعية، والشراكات الرياضية الحصرية</p>
+                </div>
+                <a href="student-clubs.html" class="px-4 py-2 bg-[#004876] hover:bg-[#003354] text-white text-xs font-bold rounded-xl transition flex items-center gap-2 shadow-sm self-start md:self-auto">
+                    <i data-lucide="users" class="w-4 h-4 text-[#be9c79]"></i>
+                    <span>الانضمام للنادي الرياضي الطلابي</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: University Leagues -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-[#004876] flex items-center justify-center">
+                        <i data-lucide="trophy" class="w-5 h-5 text-amber-700"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900">دوري الجامعات والبطولات الرسمية</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تشارك فرق جامعة لوسيل للطلاب والطالبات في منافسات دوري الجامعات القطرية في كرة القدم، البادل، كرة السلة، والكرة الطائرة بإشراف مدربين معتمدين.
+                    </p>
+                </div>
+
+                <!-- Card 2: Fitness Club Partnerships -->
+                <div id="fitness" class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                        <i data-lucide="activity" class="w-5 h-5 text-emerald-700"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900">شراكات وعضويات أندية اللياقة البدنية</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        توفر الجامعة لمنتسبيها من الطلاب والموظفين خصومات وعضويات خاصة في مراكز اللياقة الشريكة مثل <strong>Strive Fitness Club</strong> و <strong>Perf Up</strong>.
+                    </p>
+                </div>
+
+                <!-- Card 3: Sports Scholarship -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#004876] flex items-center justify-center">
+                        <i data-lucide="award" class="w-5 h-5 text-[#004876]"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-900">منحة التفوق الرياضي (خصم 50%)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تقدم جامعة لوسيل خصماً دراسياً رسمياً يصل إلى 50% للطلبة المتميزين رياضياً الذين يمثلون المنتخبات الوطنية والأندية الرياضية المعتمدة في دولة قطر.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Facility Lightbox Modal (100% Crisp Light Academic Theme) -->
+    <div x-show="lightboxModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/20 backdrop-blur-sm">
+        <div @click.away="lightboxModal = false" class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
+            <!-- Modal Header (Crisp White / Royal Maroon) -->
+            <div class="p-4 bg-white border-b border-slate-200 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-amber-100 text-amber-900 font-bold border border-amber-300" x-text="activeFacility?.category"></span>
+                    <h3 class="text-base font-black text-slate-900" x-text="activeFacility?.title"></h3>
+                </div>
+                <button @click="lightboxModal = false" class="text-slate-400 hover:text-slate-800 p-1.5 rounded-xl hover:bg-slate-100 transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Modal Image Preview (Clean Light Container) -->
+            <div class="relative bg-slate-50 aspect-[16/9] flex items-center justify-center overflow-hidden border-b border-slate-200">
+                <img :src="activeFacility?.image" :alt="activeFacility?.title" class="max-h-full max-w-full object-cover w-full">
+            </div>
+
+            <!-- Modal Content & Specs -->
+            <div class="p-6 space-y-3 text-xs bg-white">
+                <h4 class="font-black text-sm text-slate-900" x-text="activeFacility?.title"></h4>
+                <p class="text-slate-600 leading-relaxed" x-text="activeFacility?.desc"></p>
+                <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-4 text-slate-700 font-bold">
+                    <span class="flex items-center gap-1">
+                        <i data-lucide="users" class="w-3.5 h-3.5 text-[#004876]"></i>
+                        <span x-text="'السعة الاستيعابية: ' + activeFacility?.capacity"></span>
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600"></i>
+                        <span x-text="'المبنى: ' + activeFacility?.building"></span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                    <template x-if="activeFacility?.id === 'library'">
+                        <a href="library.html" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                            <i data-lucide="library" class="w-3.5 h-3.5"></i>
+                            <span>زيارة صفحة المكتبة والفهرس الرقمي ←</span>
+                        </a>
+                    </template>
+                    <a href="admissions.html" class="px-4 py-2 bg-[#004876] hover:bg-[#003b4d] text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="calendar" class="w-3.5 h-3.5 text-[#be9c79]"></i>
+                        <span>حجز جولة ميدانية في الحرم</span>
+                    </a>
+                </div>
+                <button @click="lightboxModal = false" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold rounded-xl transition">
+                    إغلاق المعرض
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Institutional Footer (100% Light Academic) -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+    <!-- Alpine App State Script -->
+    <script>
+        function campusLifePageApp() {
+            return {
+                lightboxModal: false,
+                activeFacility: null,
+                facilities: [
+                    {
+                        id: 'auditorium',
+                        title: 'مبنى الإدارة والمدرج الرئيسي الكبير',
+                        category: 'مبنى الفعاليات والمؤتمرات',
+                        capacity: '1,200 مقعد',
+                        building: 'المبنى الإداري A',
+                        image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80',
+                        desc: 'مدرج احتفالي مجهز بأحدث أنظمة الصوت والإضاءة المسرحية والترجمة الفورية لعقد المؤتمرات الدولية والملتقيات وحفلات التخرج.'
+                    },
+                    {
+                        id: 'library',
+                        title: 'المكتبة الأكاديمية المركزية والواحة الرقمية',
+                        category: 'المكتبة والبحث العلمي',
+                        capacity: '600 باحث',
+                        building: 'مجمع المعرفة B',
+                        image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80',
+                        desc: 'تضم أكثر من 150,000 مجلد علمي ورقمي، مع إمكانية الوصول لقواعد البيانات العالمية ومقصورات دراسة صامتة وغرف عمل جماعي.'
+                    },
+                    {
+                        id: 'ailab',
+                        title: 'مختبرات الذكاء الاصطناعي والحوسبة الفائقة',
+                        category: 'معامل الحوسبة والتقنية',
+                        capacity: '180 محطة عمل GPU',
+                        building: 'كلية تكنولوجيا المعلومات C',
+                        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+                        desc: 'مجهزة بأحدث معالجات الرسومات الفائقة (NVIDIA GPUs) لتدريب نماذج الذكاء الاصطناعي وأبحاث الروبوتات والواقع الافتراضي.'
+                    },
+                    {
+                        id: 'mootcourt',
+                        title: 'المحكمة الصورية والعيادة القانونية',
+                        category: 'المحاكاة المهنية',
+                        capacity: '80 متدرب',
+                        building: 'كلية القانون D',
+                        image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80',
+                        desc: 'قاعة محكمة متكاملة تحاكي دوائر القضاء القطري والدولي لتدريب طلبة القانون على فنون المرافعة وإجراءات التقاضي وصياغة الأحكام.'
+                    },
+                    {
+                        id: 'lounge',
+                        title: 'الاستراحة الطلابية وقاعات الأنشطة الحرة',
+                        category: 'الأنشطة والترفيه الطلابي',
+                        capacity: '300 طالب',
+                        building: 'مبنى الخدمات الطلابية',
+                        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+                        desc: 'مساحات اجتماعية وترفيهية مجهزة بشاشات تفاعلية، ألعاب الطاولة، وتنس الطاولة والبلياردو للاستراحة والتفاعل بين المحاضرات.'
+                    },
+                    {
+                        id: 'incubator',
+                        title: 'حاضنة لوسيل للابتكار وريادة الأعمال',
+                        category: 'الابتكار والشركات الناشئة',
+                        capacity: '40 فريق ريادي',
+                        building: 'مركز الابتكار F',
+                        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+                        desc: 'مساحات عمل مشتركة وتوجيه استثماري لتمكين طلاب الجامعة من تحويل مشاريع تخرجهم إلى شركات ناشئة واعدة ذات قيمة وطنية.'
+                    }
+                ],
+                leadershipList: [
+                    {
+                        name: 'سعادة أ.د. علي بن فطيس المري',
+                        role: 'رئيس مجلس أمناء جامعة لوسيل',
+                        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+                        bio: 'شخصية قانونية وأكاديمية دولية بارزة، قاد تأسيس جامعة لوسيل لتعزيز المنظومة التعليمية وبناء الكفاءات الوطنية القطرية.'
+                    },
+                    {
+                        name: 'أ.د. نظام هندي (Prof. Nitham Hindi)',
+                        role: 'رئيس جامعة لوسيل',
+                        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+                        bio: 'خبير أكاديمي دولي يتمتع بسجل حافل في قيادة الجامعات وتطوير برامج التعليم العالي والاعتمادات المؤسسية الدولية.'
+                    },
+                    {
+                        name: 'د. فاطمة بنت سالم الهاجري',
+                        role: 'نائب الرئيس للشؤون الأكاديمية',
+                        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+                        bio: 'تقود تطوير المناهج الدراسية، ضمان جودة التعليم الجامعي، وبرامج التدريب والبحث العلمي في كليات الجامعة.'
+                    },
+                    {
+                        name: 'م. راشد بن جاسم السليطي',
+                        role: 'نائب الرئيس للشؤون الإدارية والمالية',
+                        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+                        bio: 'يشرف على إدارة التحول الرقمي، البنية التحتية للحرم الجامعي، والمشاريع الاستراتيجية والتوسع المؤسسي.'
+                    }
+                ],
+                studentClubs: [
+                    {
+                        title: 'نادي الذكاء الاصطناعي والروبوتات',
+                        category: 'التقنية والابتكار',
+                        members: 140,
+                        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80',
+                        desc: 'تنظيم هاكاثونات البرمجة، بناء نماذج الذكاء الاصطناعي التوليدي، والمنافسة في مسابقات الروبوتات الإقليمية.'
+                    },
+                    {
+                        title: 'نادي المناظرات والخطابة باللغتين',
+                        category: 'القيادة والمناظرة',
+                        members: 95,
+                        image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80',
+                        desc: 'صقل مهارات الحوار الفكري والتفكير النقدي وتمثيل جامعة لوسيل في البطولات الوطنية للمناظرات.'
+                    },
+                    {
+                        title: 'الاتحاد الرياضي وبطولات الكليات',
+                        category: 'الرياضة والأنشطة',
+                        members: 220,
+                        image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80',
+                        desc: 'دوري كرة القدم، السباحة، التنس، والرياضات الإلكترونية (Esports) مع مدربين أولمبيين.'
+                    },
+                    {
+                        title: 'نادي الإعلام وصناع المحتوى البصري',
+                        category: 'الفنون والإعلام',
+                        members: 80,
+                        image: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=600&q=80',
+                        desc: 'التصوير الفوتوغرافي، الإنتاج الوثائقي، وتغطية فعاليات الحرم الجامعي وحفلات التخرج.'
+                    },
+                    {
+                        title: 'نموذج الأمم المتحدة (Lusail MUN)',
+                        category: 'الدبلوماسية والقانون',
+                        members: 65,
+                        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80',
+                        desc: 'محاكاة مؤتمرات الجمعية العامة للأمم المتحدة وصياغة القرارات الدولية والتحكيم الدبلوماسي.'
+                    },
+                    {
+                        title: 'نادي سواعد للتطوع والمسؤولية المجتمعية',
+                        category: 'الخدمة المجتمعية',
+                        members: 190,
+                        image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80',
+                        desc: 'مبادرات إنسانية وبيئية، حملات التشجير، وتنظيم الفعاليات الخيرية والوطنية الكبرى في قطر.'
+                    }
+                ],
+                openLightbox(fac) {
+                    this.activeFacility = fac;
+                    this.lightboxModal = true;
+                    this.$nextTick(() => { lucide.createIcons(); });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

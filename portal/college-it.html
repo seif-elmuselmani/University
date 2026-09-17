@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية تكنولوجيا المعلومات | جامعة لوسيل (College of IT)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo, Outfit & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] transition">الرئيسية</a>
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5 text-slate-400"></i>
+            <a href="colleges.html" class="hover:text-[#004876] transition">الكليات الأكاديمية</a>
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5 text-slate-400"></i>
+            <span class="text-slate-900 font-bold">كلية تكنولوجيا المعلومات</span>
+        </div>
+    </div>
+
+    <!-- College Hero Banner -->
+    <section class="bg-gradient-to-br from-[#004876] via-[#003b4d] to-slate-900 text-white py-12 px-4 sm:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            <div class="space-y-4 max-w-2xl text-right">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#be9c79] border border-white/20 text-xs font-bold">
+                    <i data-lucide="cpu" class="w-4 h-4"></i>
+                    <span>كلية تكنولوجيا المعلومات والذكاء الاصطناعي</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-black leading-tight">
+                    إعداد قادة الثورة الرقمية <br>
+                    <span class="text-amber-400">والأمن السيبراني والذكاء الاصطناعي</span>
+                </h1>
+                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    تقدم الكلية برامج بكالوريوس نوعية معتمدة دولياً تجمع بين العلوم النظرية الرصينة والتطبيقات المخبرية الحديثة لتلبية احتياجات رؤية قطر الوطنية 2030.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="admissions.html" class="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black text-xs rounded-xl shadow-lg transition">
+                        التقديم على برامج الكلية
+                    </a>
+                    <a href="tuition-fees.html" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-xl border border-white/20 transition">
+                        حاسبة رسوم الكلية
+                    </a>
+                </div>
+            </div>
+
+            <!-- College Dean Card -->
+            <div class="bg-white text-slate-900 rounded-3xl p-6 max-w-sm w-full border border-slate-200 shadow-2xl space-y-4">
+                <div class="flex items-center gap-4">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="عميد الكلية" class="w-16 h-16 rounded-2xl object-cover border-2 border-[#be9c79] shadow-md">
+                    <div>
+                        <h3 class="font-black text-slate-900 text-sm">د. سارة بنت عبد الله المنصوري</h3>
+                        <p class="text-[11px] text-[#004876] font-bold">عميد كلية تكنولوجيا المعلومات</p>
+                        <span class="text-[10px] text-slate-500 font-mono">Ph.D. Computer Science (MIT)</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    "نلتزم بتخريج كفاءات برمجية وهندسية قادرة على ابتكار الحلول التقنية وقيادة مسيرة التحول الرقمي بالدولة."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-4 text-xs font-bold">
+            <button @click="activeTab = 'programs'" class="py-3 px-3 transition border-b-2" :class="activeTab === 'programs' ? 'border-[#004876] text-[#004876] font-black' : 'border-transparent text-slate-600 hover:text-slate-900'">
+                البرامج الأكاديمية (3 برامج)
+            </button>
+            <button @click="activeTab = 'labs'" class="py-3 px-3 transition border-b-2" :class="activeTab === 'labs' ? 'border-[#004876] text-[#004876] font-black' : 'border-transparent text-slate-600 hover:text-slate-900'">
+                المختبرات والبيئة التعليمية
+            </button>
+            <button @click="activeTab = 'plan'" class="py-3 px-3 transition border-b-2" :class="activeTab === 'plan' ? 'border-[#004876] text-[#004876] font-black' : 'border-transparent text-slate-600 hover:text-slate-900'">
+                الخطة الدراسية ونظام الساعات
+            </button>
+        </div>
+    </div>
+
+    <!-- Tab Contents -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-8 flex-1 w-full space-y-8">
+        
+        <!-- Programs Tab -->
+        <div id="programs" x-show="activeTab === 'programs'" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Program 1 -->
+                <div id="ai" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#004876] flex items-center justify-center font-black border border-amber-200">
+                        <i data-lucide="bot" class="w-6 h-6"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">بكالوريوس معتمد</span>
+                        <h3 class="text-base font-black text-slate-900">الذكاء الاصطناعي وتعلم الآلة</h3>
+                        <p class="text-xs text-slate-500 font-mono">B.Sc. in Artificial Intelligence</p>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        يركز على النماذج التوليدية، الشبكات العصبية، الرؤية الحاسوبية، ومعالجة اللغات الطبيعية لدعم قطاعات الطاقة والطب والمال.
+                    </p>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                        <span class="font-bold text-slate-700">132 ساعة معتمدة</span>
+                        <a href="admissions.html" class="text-[#004876] font-bold hover:underline flex items-center gap-1">التقديم الآن <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div id="cyber" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-black border border-emerald-200">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">بكالوريوس معتمد</span>
+                        <h3 class="text-base font-black text-slate-900">الأمن السيبراني والتحقيق الرقمي</h3>
+                        <p class="text-xs text-slate-500 font-mono">B.Sc. in Cybersecurity & Forensics</p>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تأهيل الخبراء في حماية البنى التحتية الحساسة، الاستجابة للحوادث السيبرانية، واختبار الاختراق والدفاع الإلكتروني.
+                    </p>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                        <span class="font-bold text-slate-700">132 ساعة معتمدة</span>
+                        <a href="admissions.html" class="text-[#004876] font-bold hover:underline flex items-center gap-1">التقديم الآن <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center font-black border border-sky-200">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded-full">بكالوريوس معتمد</span>
+                        <h3 class="text-base font-black text-slate-900">علوم الحاسوب وهندسة البرمجيات</h3>
+                        <p class="text-xs text-slate-500 font-mono">B.Sc. in Computer Science</p>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تطوير الأنظمة السحابية المعقدة، معمارية البرمجيات الحديثة، وتحليل البيانات الضخمة (Big Data).
+                    </p>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                        <span class="font-bold text-slate-700">132 ساعة معتمدة</span>
+                        <a href="admissions.html" class="text-[#004876] font-bold hover:underline flex items-center gap-1">التقديم الآن <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Labs Tab -->
+        <div id="labs" x-show="activeTab === 'labs'" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="مختبر الحوسبة الفائقة" class="w-full h-48 rounded-2xl object-cover">
+                    <h3 class="font-black text-slate-900 text-sm">مختبر الحوسبة الفائقة والذكاء الاصطناعي (AI Lab)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">مجهز بمحطات عمل ذات معالجات GPU متقدمة من NVIDIA لتدريب نماذج التعلم العميق والبيانات الضخمة.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="مختبر العمليات السيبرانية" class="w-full h-48 rounded-2xl object-cover">
+                    <h3 class="font-black text-slate-900 text-sm">مركز العمليات الأمنية والتحقيق الجنائي الرقمي (SOC)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">بيئة محاكاة واقعية لهجمات الفدية واختراق الشبكات لتدريب الطلاب على التصدي للهجمات السيبرانية اللحظية.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan Tab -->
+        <div x-show="activeTab === 'plan'" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-base font-black text-slate-900">هيكل الخطة الدراسية (132 ساعة معتمدة)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center text-xs">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                    <span class="text-2xl font-black text-[#004876]">33</span>
+                    <span class="block font-bold text-slate-800">ساعة متطلبات جامعة</span>
+                    <span class="text-[10px] text-slate-500">اللغة الإنجليزية، الثقافة، والمهارات</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                    <span class="text-2xl font-black text-[#004876]">36</span>
+                    <span class="block font-bold text-slate-800">ساعة متطلبات كلية</span>
+                    <span class="text-[10px] text-slate-500">الرياضيات، الفيزياء، وأساسيات البرمجة</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                    <span class="text-2xl font-black text-[#004876]">51</span>
+                    <span class="block font-bold text-slate-800">ساعة متطلبات تخصص</span>
+                    <span class="text-[10px] text-slate-500">مقررات التخصص الإجبارية والمشاريع</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                    <span class="text-2xl font-black text-[#004876]">12</span>
+                    <span class="block font-bold text-slate-800">ساعة تدريب وتطبيقات</span>
+                    <span class="text-[10px] text-slate-500">التدريب الميداني ومشروع التخرج</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Institutional Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+    <script src="js/api-client.js"></script>
+</body>
+</html>

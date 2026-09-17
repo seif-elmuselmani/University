@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>شرائح العرض التقديمي الفاخر | جامعة لوسيل</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lunavy: {
+                            DEFAULT: '#004876',
+                            light: '#005f9e',
+                            dark: '#002D4A'
+                        },
+                        lugold: {
+                            DEFAULT: '#be9c79',
+                            light: '#d4b595',
+                            dark: '#9a7b59',
+                            alpha: 'rgba(190, 156, 121, 0.15)'
+                        },
+                        colBiz: '#962D3F',
+                        colEdu: '#003b4d',
+                        colLaw: '#49AA76',
+                        colIT: '#5F1259'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --lu-navy: #004876;
+            --lu-navy-dark: #002D4A;
+            --lu-gold: #be9c79;
+            --lu-gold-light: #d4b595;
+        }
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #0F172A;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-canvas {
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            position: relative;
+            background-color: #F8FAFC;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .browser-mockup {
+            border: 1px solid #E2E8F0;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #FFFFFF;
+            box-shadow: 0 20px 35px -10px rgba(0, 72, 118, 0.12), 0 10px 15px -5px rgba(0, 72, 118, 0.05);
+        }
+        .browser-topbar {
+            background: #F1F5F9;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px -8px rgba(0, 72, 118, 0.08);
+        }
+        .gold-border {
+            border-color: #be9c79;
+        }
+    </style>
+</head>
+<body class="space-y-12 p-8">
+
+    <!-- ==================== SLIDE 1: ULTRA-LUXURY EXECUTIVE COVER ==================== -->
+    <section id="slide-1" class="slide-canvas bg-gradient-to-br from-[#002D4A] via-[#004876] to-[#00243C] text-white p-20 relative select-none">
+        <!-- Decorative Ambient Lights -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#be9c79]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+
+        <!-- Top Row -->
+        <div class="flex items-center justify-between z-10">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-white/10 border-2 border-lugold text-white flex items-center justify-center font-black text-2xl shadow-lg backdrop-blur-md">
+                    LU
+                </div>
+                <div>
+                    <span class="text-xl font-black text-white block tracking-wide">جامعة لوسيل | Lusail University</span>
+                    <span class="text-sm font-bold text-lugold">صرح أكاديمي رائد في مدينة لوسيل - دولة قطر</span>
+                </div>
+            </div>
+            <div class="px-6 py-2.5 rounded-full bg-white/10 border border-lugold/40 text-lugold text-sm font-bold backdrop-blur-md shadow-sm">
+                المقترح المؤسسي المعتمد للتحول الرقمي الأكاديمي 2026/2027
+            </div>
+        </div>
+
+        <!-- Middle Content Grid -->
+        <div class="grid grid-cols-12 gap-12 items-center my-auto z-10">
+            <div class="col-span-7 space-y-6 text-right">
+                <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-lugold/20 border border-lugold/50 text-lugold-light text-sm font-black">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-lugold"></i>
+                    <span>بوابة مركزية موحدة تضم 21 صفحة تخصصية</span>
+                </div>
+
+                <h1 class="text-6xl font-black text-white leading-tight tracking-tight">
+                    منظومة تشغيل جامعة لوسيل الرقمية الموحدة
+                    <span class="block text-4xl font-extrabold text-lugold mt-4">
+                        (Lusail University OS 2026/2027)
+                    </span>
+                </h1>
+
+                <p class="text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
+                    منصة أكاديمية سيادية موحدة تدمج كافة الخدمات الأكاديمية وشؤون الطلاب للكليات الـ 4 والبرامج الـ 17 المعتمدة، مع أتمتة 16 خدمة ذاتية بالـ QR Code ولوحة تحكم مركزية للمسجل العام.
+                </p>
+
+                <div class="grid grid-cols-3 gap-4 pt-4">
+                    <div class="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
+                        <div class="text-4xl font-black text-white font-mono">21</div>
+                        <div class="text-xs font-bold text-slate-300 mt-1">صفحة تخصصية موحدة</div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
+                        <div class="text-4xl font-black text-lugold font-mono">16</div>
+                        <div class="text-xs font-bold text-slate-300 mt-1">خدمة ذاتية بالـ QR</div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-center">
+                        <div class="text-4xl font-black text-emerald-400 font-mono">100%</div>
+                        <div class="text-xs font-bold text-slate-300 mt-1">هوية لوسيل الرسمية</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real Live Screenshot Mockup -->
+            <div class="col-span-5">
+                <div class="browser-mockup shadow-2xl border-2 border-white/20">
+                    <div class="browser-topbar bg-slate-900 border-b border-slate-700">
+                        <span class="dot bg-rose-500"></span>
+                        <span class="dot bg-amber-500"></span>
+                        <span class="dot bg-emerald-500"></span>
+                        <span class="text-xs text-slate-400 font-mono mr-3">🔒 https://lu.edu.qa</span>
+                    </div>
+                    <img src="img/screen_home.png" alt="بوابة جامعة لوسيل" class="w-full h-[440px] object-cover object-top">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Row -->
+        <div class="pt-6 border-t border-white/15 flex items-center justify-between text-sm text-slate-300 z-10">
+            <span>رئيس مجلس الأمناء: سعادة الدكتور علي بن فطيس المري</span>
+            <span class="text-lugold font-bold">رؤية قطر الوطنية 2030 - ركيزة التنمية البشرية</span>
+            <span>رئيس الجامعة: الأستاذ الدكتور نظام هندي</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 2: 4-PILLAR STRATEGIC DASHBOARD ==================== -->
+    <section id="slide-2" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الهيكل التشغيلي الشامل للمنظومة</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">الركائز الاستراتيجية الـ 4 لمنظومة جامعة لوسيل</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                02 / 14
+            </div>
+        </div>
+
+        <!-- 4 Pillars Cards Grid -->
+        <div class="grid grid-cols-4 gap-6 my-auto">
+            <!-- Pillar 1 -->
+            <div class="glass-card p-6 border-t-4 border-t-lunavy space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-lunavy/10 text-lunavy flex items-center justify-center">
+                    <i data-lucide="layout" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-black text-lunavy">1. البوابة الرسمية الموحدة</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    21 صفحة تخصصية متصلة بهوية واحدة متكاملة دون أي روابط مكسورة، مع قائمة ملاحة ذكية وتوافق تام مع الهواتف.
+                </p>
+                <div class="pt-2 text-xs font-black text-lunavy flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>21 صفحة نشطة وجاهزة</span>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="glass-card p-6 border-t-4 border-t-colLaw space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-colLaw/10 text-colLaw flex items-center justify-center">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-black text-colLaw">2. الكليات والبرامج الـ 17</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    تغطية شاملة لـ 4 كليات أكاديمية (القانون، تكنولوجيا المعلومات، التجارة، التربية) ومرافق تطبيقية كالمحكمة الصورية ومختبر SOC.
+                </p>
+                <div class="pt-2 text-xs font-black text-colLaw flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-colLaw"></span>
+                    <span>17 برنامج معتمد ومفهرس</span>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="glass-card p-6 border-t-4 border-t-lugold space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-lugold/10 text-lugold-dark flex items-center justify-center">
+                    <i data-lucide="qr-code" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-black text-lugold-dark">3. الخدمات الـ 16 بالـ QR</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    أتمتة كاملة لإصدار إفادات القيد، كشوف الدرجات، وتأجيل الفصول بالختم الرقمي والتحقق الفوري المشفر.
+                </p>
+                <div class="pt-2 text-xs font-black text-lugold-dark flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-lugold"></span>
+                    <span>30 ثانية لاستخراج الوثيقة</span>
+                </div>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="glass-card p-6 border-t-4 border-t-colIT space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-colIT/10 text-colIT flex items-center justify-center">
+                    <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-black text-colIT">4. لوحة المسجل Desk OS</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    نظام تشغيل مركزي لإدارة القيود الأكاديمية (Holds)، رصد الدرجات، كشوف الحرمان، ومحرك احتساب الـ GPA 4.00.
+                </p>
+                <div class="pt-2 text-xs font-black text-colIT flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-colIT"></span>
+                    <span>Zero Discrepancy Engine</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Stat Highlights -->
+        <div class="grid grid-cols-4 gap-6 pt-4 border-t border-slate-200">
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+                <div class="text-3xl font-black text-lunavy font-mono">21 / 21</div>
+                <div class="text-xs font-bold text-slate-500 mt-0.5">صفحة متصلة بنجاح</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+                <div class="text-3xl font-black text-colLaw font-mono">4 كليات</div>
+                <div class="text-xs font-bold text-slate-500 mt-0.5">17 برنامجاً أكاديمياً</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+                <div class="text-3xl font-black text-lugold font-mono">16 خدمة</div>
+                <div class="text-xs font-bold text-slate-500 mt-0.5">ذاتية بالختم والـ QR</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+                <div class="text-3xl font-black text-emerald-600 font-mono">100%</div>
+                <div class="text-xs font-bold text-slate-500 mt-0.5">دقة واكتمال تشغيلي</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="pt-4 flex items-center justify-between text-xs text-slate-500">
+            <span>جامعة لوسيل - المقترح التنفيذي الرسمي للتحول الرقمي 2026/2027</span>
+            <span>وثيقة سرية موجهة لمجلس الأمناء والرئاسة</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 3: UNIFIED PORTAL SHOWCASE ==================== -->
+    <section id="slide-3" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">استعراض البوابة الرئيسية الحية</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">البوابة الرسمية الموحدة: تجربة رقمية ترتقي بمكانة جامعة لوسيل</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                03 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span>
+                        <span class="dot bg-amber-400"></span>
+                        <span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/index.html</span>
+                    </div>
+                    <img src="img/screen_home.png" alt="الرئيسية" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-4 text-right">
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lunavy">
+                    <div class="text-sm font-black text-lunavy flex items-center gap-2">
+                        <i data-lucide="palette" class="w-4 h-4 text-lugold"></i>
+                        <span>هوية بصرية موحدة 100%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        الكحلي الملكي (#004876) والذهبي (#be9c79) مع خطوط عربية فائقة الوضوح (Cairo & Tajawal) تطبق لأول مرة بتناسق كامل.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-colLaw">
+                    <div class="text-sm font-black text-colLaw flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-colLaw"></i>
+                        <span>صفر روابط مكسورة أو معطلة</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تدقيق شامل لكافة المسارات وقائمة ملاحة ذكية موحدة (Navigation Hub) تضمن انتقال سلس وبلا انقطاع.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lugold">
+                    <div class="text-sm font-black text-lugold-dark flex items-center gap-2">
+                        <i data-lucide="smartphone" class="w-4 h-4 text-lugold"></i>
+                        <span>جاهزية كاملة للهواتف والشاشات الذكية</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تصميم متجاوب بالكامل يتكيف مع الهواتف الذكية والأجهزة اللوحية وشاشات العرض الكبيرة.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>جامعة لوسيل - المقترح التنفيذي الرسمي للتحول الرقمي 2026/2027</span>
+            <span>بوابة موحدة معتمدة</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 4: 4 COLLEGES & 17 PROGRAMS ==================== -->
+    <section id="slide-4" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">البرامج الأكاديمية والخطط الدراسية</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">دليل الكليات الأكاديمية الـ 4 والبرامج الـ 17 المعتمدة</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                04 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/colleges.html</span>
+                    </div>
+                    <img src="img/screen_colleges.png" alt="الكليات" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-3 text-right">
+                <div class="p-4 bg-[#5F1259]/5 border-2 border-[#5F1259]/20 rounded-2xl">
+                    <div class="text-sm font-black text-[#5F1259] flex items-center justify-between">
+                        <span>كلية تكنولوجيا المعلومات</span>
+                        <i data-lucide="cpu" class="w-4 h-4"></i>
+                    </div>
+                    <div class="text-xs text-slate-600 mt-1">الذكاء الاصطناعي، الأمن السيبراني، علوم البيانات، تقنية المعلومات</div>
+                </div>
+
+                <div class="p-4 bg-[#49AA76]/5 border-2 border-[#49AA76]/20 rounded-2xl">
+                    <div class="text-sm font-black text-[#49AA76] flex items-center justify-between">
+                        <span>كلية القانون</span>
+                        <i data-lucide="scale" class="w-4 h-4"></i>
+                    </div>
+                    <div class="text-xs text-slate-600 mt-1">القانون العام، القانون الخاص، الدراسات المقارنة، وماجستير القانون الدولي</div>
+                </div>
+
+                <div class="p-4 bg-[#962D3F]/5 border-2 border-[#962D3F]/20 rounded-2xl">
+                    <div class="text-sm font-black text-[#962D3F] flex items-center justify-between">
+                        <span>كلية التجارة والأعمال</span>
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    </div>
+                    <div class="text-xs text-slate-600 mt-1">إدارة الأعمال، المحاسبة والمالية، التسويق الرقمي، سلاسل الإمداد</div>
+                </div>
+
+                <div class="p-4 bg-[#003B4D]/5 border-2 border-[#003B4D]/20 rounded-2xl">
+                    <div class="text-sm font-black text-[#003B4D] flex items-center justify-between">
+                        <span>كلية التربية والآداب</span>
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                    </div>
+                    <div class="text-xs text-slate-600 mt-1">تدريس اللغة الإنجليزية، اللغة العربية والإعلام، العلوم التربوية</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>كافة البرامج معتمدة من وزارة التربية والتعليم العالي بدولة قطر</span>
+            <span>17 برنامج بكالوريوس + 5 برامج ماجستير</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 5: IT & LAW SPOTLIGHTS ==================== -->
+    <section id="slide-5" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">المرافق والمختبرات التطبيقية</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">تخصيص كامل لصفحات الكليات والمرافق الذكية</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                05 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 my-auto">
+            <div class="space-y-3">
+                <div class="browser-mockup shadow-xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-2">college-it.html</span>
+                    </div>
+                    <img src="img/screen_college_it.png" alt="كلية IT" class="w-full h-[360px] object-cover object-top">
+                </div>
+                <div class="p-3 bg-[#5F1259]/10 rounded-xl text-center text-xs font-black text-[#5F1259]">
+                    كلية تكنولوجيا المعلومات | مختبر العمليات السيبرانية SOC ومسار الذكاء الاصطناعي
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <div class="browser-mockup shadow-xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-2">college-law.html</span>
+                    </div>
+                    <img src="img/screen_college_law.png" alt="كلية القانون" class="w-full h-[360px] object-cover object-top">
+                </div>
+                <div class="p-3 bg-[#49AA76]/10 rounded-xl text-center text-xs font-black text-[#49AA76]">
+                    كلية القانون | المحكمة الصورية المطابقة للمحاكم القطرية والعيادة القانونية
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 bg-slate-100 rounded-2xl border border-slate-200 flex items-center justify-between text-xs text-slate-700">
+            <span><strong>مرافق تطبيقية حديثة:</strong> تشمل غرفة التداول المالي (FinTech Lab) ومعمل التدريس المصغر واستوديوهات الصوتيات.</span>
+            <span class="font-bold text-lunavy">Smart Campus Ready</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 6: PROSPECTIVE STUDENT JOURNEY ==================== -->
+    <section id="slide-6" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (1/4) | القبول واستقطاب المواهب</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">رحلة الطالب المتقدم: شروط القبول وحاسبة الرسوم التفاعلية</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                06 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/tuition-fees.html</span>
+                    </div>
+                    <img src="img/screen_tuition.png" alt="حاسبة الرسوم" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-3.5 text-right">
+                <div class="glass-card p-4 space-y-1.5 border-r-4 border-r-lunavy">
+                    <div class="text-xs font-black text-lunavy">1. وضوح الشروط والمتطلبات</div>
+                    <p class="text-xs text-slate-600">
+                        عرض متطلبات الثانوية القطرية (65%/70%) والبريطانية IGCSE واختبارات اللغة (IELTS 5.5).
+                    </p>
+                </div>
+
+                <div class="glass-card p-4 space-y-1.5 border-r-4 border-r-lugold">
+                    <div class="text-xs font-black text-lugold-dark">2. حاسبة تفاعلية للرسوم والمنح</div>
+                    <p class="text-xs text-slate-600">
+                        حساب فوري لتكلفة الساعات بحسب الكلية وتطبيق منح التفوق الأكاديمي (50% و 100%).
+                    </p>
+                </div>
+
+                <div class="glass-card p-4 space-y-1.5 border-r-4 border-r-colLaw">
+                    <div class="text-xs font-black text-colLaw">3. استمارة التقديم الرقمية في 4 خطوات</div>
+                    <p class="text-xs text-slate-600">
+                        نموذج تقديم ميسر مع رفع البطاقة الشخصية والشهادات الرسمية إلكترونياً.
+                    </p>
+                </div>
+
+                <div class="glass-card p-4 space-y-1.5 border-r-4 border-r-emerald-600">
+                    <div class="text-xs font-black text-emerald-700">4. إشعار القبول والرقم الجامعي المؤقت</div>
+                    <p class="text-xs text-slate-600">
+                        تدقيق آلي للمستندات والتوجيه لوسائل السداد الرسمية المعتمدة بالحرم الجامعي.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>تجربة تقديم ميسرة تقلص وقت القبول بنسبة 80%</span>
+            <span>Lusail Admissions 2026</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 7: CURRENT STUDENT PORTAL ==================== -->
+    <section id="slide-7" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (2/4) | الخدمات الأكاديمية اليومية للطالب</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">بوابة الطالب الذاتية: الجدول، كشف الحضور، والمعدل التراكمي</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                07 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/student-portal.html</span>
+                    </div>
+                    <img src="img/screen_student_portal.png" alt="بوابة الطالب" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-4 text-right">
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lunavy">
+                    <div class="text-sm font-black text-lunavy flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4 text-lugold"></i>
+                        <span>الجدول الدراسي التفاعلي</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        متابعة مواعيد المحاضرات، أسماء الأساتذة، والقاعات الذكية مع تحديثات مستمرة.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-colLaw">
+                    <div class="text-sm font-black text-colLaw flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-colLaw"></i>
+                        <span>كشف الحضور وتنبيهات الغياب اللحظية</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        رصد دقيق لنسب الحضور مع تنبيه تلقائي عند بلوغ نسبة الغياب 10% قبل الحرمان الأكاديمي.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lugold">
+                    <div class="text-sm font-black text-lugold-dark flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4 text-lugold"></i>
+                        <span>السجل الأكاديمي والـ GPA 4.00</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        استعراض الدرجات الفصلية والتراكمية وحساب المعدل التراكمي بدقة 4.00 والبطاقة الجامعية.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>إدارة أكاديمية ذاتية ومستمرة على مدار الساعة (24/7 Availability)</span>
+            <span>بوابة الطالب الذاتية المعتمدة</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 8: 16 E-SERVICES MATRIX ==================== -->
+    <section id="slide-8" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">أتمتة المعاملات والتوثيق الرقمي المباشر</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">منظومة الـ 16 خدمة إلكترونية بالختم والـ QR المعتمد</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                08 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/services.html</span>
+                    </div>
+                    <img src="img/screen_services.png" alt="الخدمات" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 grid grid-cols-2 gap-2.5 text-xs text-right font-bold text-slate-800">
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lunavy text-white flex items-center justify-center text-[10px]">1</span>
+                    <span>إفادة قيد رسمي معتمد</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lunavy text-white flex items-center justify-center text-[10px]">2</span>
+                    <span>كشف درجات وسجل أكاديمي</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lunavy text-white flex items-center justify-center text-[10px]">3</span>
+                    <span>تأجيل الفصل الدراسي</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lunavy text-white flex items-center justify-center text-[10px]">4</span>
+                    <span>إعادة رصد وتدقيق الدرجة</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lugold text-white flex items-center justify-center text-[10px]">5</span>
+                    <span>تغيير التخصص الأكاديمي</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lugold text-white flex items-center justify-center text-[10px]">6</span>
+                    <span>معادلة المساقات السابقة</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lugold text-white flex items-center justify-center text-[10px]">7</span>
+                    <span>حجز قاعات بحث المكتبة</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lugold text-white flex items-center justify-center text-[10px]">8</span>
+                    <span>إفادة حسن سيرة وسلوك</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lunavy text-white flex items-center justify-center text-[10px]">9</span>
+                    <span>طلب بدل فاقد بطاقة</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-lunavy text-white flex items-center justify-center text-[10px]">10</span>
+                    <span>طلب إخلاء طرف للتخرج</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between text-xs text-emerald-800">
+            <span>كافة الوثائق تصدر بختم رقمي مشفر ورمز QR للتحقق المباشر من الجهات الرسمية بدون مراجعة الجامعة.</span>
+            <span class="font-bold">Instant 100% Verification</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 9: DESK OS FOR REGISTRAR ==================== -->
+    <section id="slide-9" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (3/4) | الرقابة والتشغيل الأكاديمي</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">لوحة تحكم المسجل العام (Desk OS): إدارة العمليات والقيود</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                09 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/desk.html</span>
+                    </div>
+                    <img src="img/screen_desk.png" alt="لوحة المسجل" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-4 text-right">
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lunavy">
+                    <div class="text-sm font-black text-lunavy">إدارة القيود الأكاديمية (Holds Management)</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تطبيق ورفع الحظر الأكاديمي والإداري فورياً وحجب التسجيل أو إخراج السجل الأكاديمي بدقة.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lugold">
+                    <div class="text-sm font-black text-lugold-dark">محرك احتساب المعدل GPA 4.00</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        معالجة التقديرات والدرجات النهائية واحتساب مراتب الشرف وقواعد الإعادة تلقائياً.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-colLaw">
+                    <div class="text-sm font-black text-colLaw">تدقيق شروط التخرج (Graduation Audit)</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        فحص استيفاء الخطة الدراسية (120-132 ساعة) واعتماد السجلات المصدقة.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>لوحة تحكم إدارية مركزية للعمداء ومسؤولي التسجيل</span>
+            <span>Desk OS Registrar Console</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 10: CAMPUS LIFE ==================== -->
+    <section id="slide-10" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">البيئة الجامعية في مدينة لوسيل</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">الحياة الجامعية والمرافق: الأندية، المكتبة، والأنشطة الرياضية</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                10 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/campus-life.html</span>
+                    </div>
+                    <img src="img/screen_campus_life.png" alt="الحياة الجامعية" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-4 text-right">
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lunavy">
+                    <div class="text-sm font-black text-lunavy">12 نادياً طلابياً فاعلاً</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        نادي المناظرات، نادي الذكاء الاصطناعي، العيادة القانونية، وأندية الفنون والبيئة.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-colLaw">
+                    <div class="text-sm font-black text-colLaw">مكتبة لوسيل المركزية وقواعد البيانات</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        فهرس رقمي متطور (مداد)، قواعد بيانات عالمية (IEEE ودار المنظومة)، وحجز قاعات البحث.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lugold">
+                    <div class="text-sm font-black text-lugold-dark">الأنشطة وشراكات اللياقة البدنية</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        دوري الجامعات القطرية وبطولات رياضية وشراكات خصومات خاصة للياقة البدنية (Strive & Perf Up).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>بيئة تعليمية وتربوية متوازنة في قلب مدينة لوسيل</span>
+            <span>Campus Life & Athletics</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 11: INSTITUTIONAL VISION ==================== -->
+    <section id="slide-11" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (4/4) | القيادة والرؤية الوطنية</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">القيادة المؤسسية والرؤية الأكاديمية: مجلس الأمناء والرئاسة</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                11 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8 items-center my-auto">
+            <div class="col-span-7">
+                <div class="browser-mockup shadow-2xl">
+                    <div class="browser-topbar">
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/about.html</span>
+                    </div>
+                    <img src="img/screen_about.png" alt="عن الجامعة" class="w-full h-[460px] object-cover object-top">
+                </div>
+            </div>
+
+            <div class="col-span-5 space-y-4 text-right">
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lunavy">
+                    <div class="text-sm font-black text-lunavy">مجلس الأمناء برئاسة سعادة د. علي بن فطيس المري</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        توجيه استراتيجي لدعم ركيزة التنمية البشرية وفق رؤية قطر الوطنية 2030 وتوفير أفضل بيئة تعليمية.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-colLaw">
+                    <div class="text-sm font-black text-colLaw">رئاسة الجامعة بإشراف أ.د. نظام هندي</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تطبيق أعلى معايير الجودة والاعتماد الأكاديمي وشراكات دولية مع جامعة السوربون، ساسكس، و UNITAR.
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 space-y-2 border-r-4 border-r-lugold">
+                    <div class="text-sm font-black text-lugold-dark">عمادة البحث العلمي والدراسات العليا</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        إصدار مجلة لوسيل للدراسات المحكمة وصندوق دعم البحوث والابتكارات الطلابية.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <span>التزام راسخ بالجودة الأكاديمية والاعتماد المؤسسي الدولي</span>
+            <span>Lusail Governance 2026</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 12: REALISTIC TECHNICAL ARCHITECTURE ==================== -->
+    <section id="slide-12" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الهيكل البرمجي والتشغيلي المعتمد</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">المعمارية التقنية الواقعية: استقرار، أمان، وأداء فائق</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                12 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-6 my-auto">
+            <div class="glass-card p-6 space-y-3 text-center border-t-4 border-t-lunavy">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-lunavy text-white flex items-center justify-center font-bold">1</div>
+                <h3 class="text-base font-black text-lunavy">واجهات المستخدم الذكية</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    بوابة الطالب، لوحة Desk OS، وصفحات الكليات التخصصية (HTML5 / Modern JS / Tailwind / Fully Responsive).
+                </p>
+            </div>
+
+            <div class="glass-card p-6 space-y-3 text-center border-t-4 border-t-lugold">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-lugold text-white flex items-center justify-center font-bold">2</div>
+                <h3 class="text-base font-black text-lunavy">محرك التحقق بالـ QR</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    توليد فوري للوثائق الأكاديمية مع ختم رقمي مشفر غير قابل للتزوير للتحقق المباشر بدون تدخل بشري.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 space-y-3 text-center border-t-4 border-t-colLaw">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-colLaw text-white flex items-center justify-center font-bold">3</div>
+                <h3 class="text-base font-black text-lunavy">محرك القواعد الأكاديمية</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    احتساب الـ GPA بدقة 4.00 ومعالجة الساعات المعتمدة وتطبيق قيود الحرمان والإنذارات الأكاديمية آلياً.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 space-y-3 text-center border-t-4 border-t-colIT">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-colIT text-white flex items-center justify-center font-bold">4</div>
+                <h3 class="text-base font-black text-lunavy">حماية البيانات والامتثال</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    صلاحيات وصول محددة (RBAC)، استضافة محلية آمنة، والتوافق التام مع تشريعات خصوصية البيانات القطرية (PDPPL).
+                </p>
+            </div>
+        </div>
+
+        <div class="p-4 bg-slate-900 text-white rounded-2xl flex items-center justify-between text-xs">
+            <span>بنية برمجية خفيفة وسريعة لا تتطلب تكاليف صيانة ضخمة، مع استقلالية تشغيلية كاملة للجامعة.</span>
+            <span class="text-emerald-400 font-bold font-mono">100% Sovereign Architecture</span>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 13: REAL-WORLD IMPACT ==================== -->
+    <section id="slide-13" class="slide-canvas p-16 relative select-none">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+            <div>
+                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الكفاءة التشغيلية الملموسة</span>
+                <h2 class="text-4xl font-black text-lunavy mt-1">الأثر التشغيلي الواقعي للمنظومة الجديدة على الجامعة</h2>
+            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
+                13 / 14
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8 my-auto">
+            <div class="glass-card p-8 text-center space-y-3 border-t-4 border-t-lunavy">
+                <div class="text-5xl font-black text-lunavy font-mono">30 ثانية</div>
+                <div class="text-base font-bold text-slate-800">زمن استخراج الإفادات الرسمية</div>
+                <p class="text-xs text-slate-500">بدلاً من 3 إلى 4 أيام عمل ومراجعات ورقية سابقة</p>
+            </div>
+
+            <div class="glass-card p-8 text-center space-y-3 border-t-4 border-t-lugold">
+                <div class="text-5xl font-black text-lugold font-mono">100%</div>
+                <div class="text-base font-bold text-slate-800">دقة احتساب المعدل والغياب</div>
+                <p class="text-xs text-slate-500">محرك برمجي يلغي الخطأ البشري تماماً</p>
+            </div>
+
+            <div class="glass-card p-8 text-center space-y-3 border-t-4 border-t-emerald-600">
+                <div class="text-5xl font-black text-emerald-600 font-mono">21 / 21</div>
+                <div class="text-base font-bold text-slate-800">جاهزية الصفحات والروابط</div>
+                <p class="text-xs text-slate-500">صفر روابط مكسورة أو معطلة في المنظومة</p>
+            </div>
+        </div>
+
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 text-right text-xs text-slate-700">
+            <div class="font-black text-lunavy text-sm">مكاسب تشغيلية مباشرة لإدارة جامعة لوسيل:</div>
+            <div class="grid grid-cols-2 gap-4 pt-1">
+                <div>• توفير مئات الساعات الإدارية سنوياً لكادر القبول والتسجيل.</div>
+                <div>• إتاحة الخدمات الأكاديمية للطلبة على مدار الساعة (24/7 Availability).</div>
+                <div>• حماية الوثائق الرسمية للجامعة من التزوير عبر الختم الرقمي والتحقق بالـ QR.</div>
+                <div>• واجهة عصرية تعكس المكانة الحقيقية لجامعة لوسيل كصرح أكاديمي رائد في دولة قطر.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SLIDE 14: EXECUTIVE SUMMARY & CALL TO ACTION ==================== -->
+    <section id="slide-14" class="slide-canvas bg-gradient-to-br from-[#002D4A] via-[#004876] to-[#00243C] text-white p-20 relative select-none flex flex-col justify-between">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#be9c79]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
+
+        <!-- Header -->
+        <div class="flex items-center justify-between z-10">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-white/10 border border-lugold text-white flex items-center justify-center font-black text-xl">
+                    LU
+                </div>
+                <span class="text-lg font-black text-white">جامعة لوسيل | Lusail University</span>
+            </div>
+            <span class="text-lugold text-sm font-bold">الخاتمة والتوصيات التنفيذية</span>
+        </div>
+
+        <!-- Center Content Box -->
+        <div class="max-w-4xl mx-auto text-center space-y-8 my-auto z-10">
+            <div class="w-20 h-20 mx-auto rounded-3xl bg-white/10 border-2 border-lugold text-lugold flex items-center justify-center shadow-2xl backdrop-blur-md">
+                <i data-lucide="check-circle" class="w-10 h-10"></i>
+            </div>
+
+            <h2 class="text-5xl font-black text-white leading-tight">
+                جامعة لوسيل: منصة أكاديمية ذكية جاهزة للتشغيل الفوري
+            </h2>
+
+            <p class="text-base text-slate-200 leading-relaxed max-w-2xl mx-auto">
+                إن اعتماد هذه المنظومة يضع جامعة لوسيل في طليعة الجامعات الذكية، ويضمن تجربة استثنائية لكافة الطلبة وأعضاء هيئة التدريس والإدارة.
+            </p>
+
+            <div class="p-6 bg-white/10 border border-white/20 rounded-2xl text-right space-y-3 backdrop-blur-md max-w-3xl mx-auto text-sm">
+                <div class="font-black text-lugold">الخطوات التنفيذية المقترحة لمجلس الأمناء والرئاسة:</div>
+                <div class="space-y-2 text-slate-200 text-xs leading-relaxed">
+                    <div class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">1</span>
+                        <span>اعتماد التصميم والهوية البصرية الموحدة وتدشين البوابة الإلكترونية رسمياً.</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">2</span>
+                        <span>تفعيل منظومة الخدمات الذاتية الـ 16 بالـ QR Code للطلبة للفصل الدراسي القادم.</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">3</span>
+                        <span>بدء استقبال طلبات الالتحاق الإلكترونية عبر صفحة القبول وحاسبة الرسوم التفاعلية.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="pt-6 border-t border-white/15 flex items-center justify-between text-xs text-slate-300 z-10">
+            <span>جامعة لوسيل - صرح أكاديمي رائد في دولة قطر</span>
+            <span class="text-lugold font-bold">شكراً لكم | Thank You</span>
+            <span>2026/2027</span>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الطالب الذاتية | جامعة لوسيل (Student Self-Service Portal)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="js/api-client.js"></script>
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">بوابة الطالب الذاتية</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
+
+        <!-- Student Profile Card Header -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6" x-show="student">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#004876] to-[#3B000E] text-[#be9c79] flex items-center justify-center font-black text-2xl shadow-md">
+                    <i data-lucide="user-check" class="w-8 h-8"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900" x-text="student.name"></h2>
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">طالب منتظم</span>
+                    </div>
+                    <p class="text-xs text-slate-500 font-mono font-bold mt-1">
+                        الرقم الجامعي: <span class="text-slate-800" x-text="student.id"></span> | <span x-text="student.college"></span> - <span x-text="student.major"></span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Academic Metrics -->
+            <div class="flex flex-wrap gap-3">
+                <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-center min-w-[90px]">
+                    <span class="text-[10px] text-slate-500 font-bold block">المعدل التراكمي</span>
+                    <span class="text-xl font-black text-[#004876] font-outfit" x-text="student.gpa.toFixed(2)"></span>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-center min-w-[90px]">
+                    <span class="text-[10px] text-slate-500 font-bold block">الساعات المنجزة</span>
+                    <span class="text-xl font-black text-slate-900 font-outfit" x-text="student.completedCredits + ' / 132'"></span>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-center min-w-[90px]">
+                    <span class="text-[10px] text-slate-500 font-bold block">الرصيد المالي</span>
+                    <span class="text-xl font-black text-emerald-700 font-outfit" x-text="student.balance + ' ر.ق'"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Sub-Tabs -->
+        <div class="flex gap-2 border-b border-slate-200 pb-3">
+            <button @click="activeTab = 'courses'" :class="activeTab === 'courses' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4"></i> المقررات والدرجات الحية
+            </button>
+            <button @click="activeTab = 'attendance'" :class="activeTab === 'attendance' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                <i data-lucide="user-x" class="w-4 h-4"></i> سجل الحضور ونسب الغياب
+            </button>
+            <button @click="activeTab = 'schedule'" :class="activeTab === 'schedule' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4"></i> الجدول الدراسي الأسبوعي
+            </button>
+        </div>
+
+        <!-- Tab 1: Live Enrolled Courses & Grades -->
+        <div id="courses" x-show="activeTab === 'courses'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex justify-between items-center">
+                <h3 class="text-base font-black text-slate-900">المقررات المسجلة للفصل الدراسي الحالي (خريف 2026)</h3>
+                <span class="text-xs text-slate-500 font-bold">موصول بـ GPA Engine & SQLite Backend</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-right text-xs">
+                    <thead class="bg-slate-50 text-slate-500 font-bold border-b border-slate-200">
+                        <tr>
+                            <th class="p-3">رمز المقرر</th>
+                            <th class="p-3">اسم المقرر الأكاديمي</th>
+                            <th class="p-3">الساعات</th>
+                            <th class="p-3">المحاضر</th>
+                            <th class="p-3">الدرجة المئوية</th>
+                            <th class="p-3">التقدير الحرفي</th>
+                            <th class="p-3">النقاط</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium text-slate-800">
+                        <template x-for="c in studentCourses" :key="c.code">
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="p-3 font-mono font-bold text-[#004876]" x-text="c.code"></td>
+                                <td class="p-3 font-bold text-slate-900" x-text="c.title"></td>
+                                <td class="p-3 font-mono" x-text="c.credits + ' ساعات'"></td>
+                                <td class="p-3 text-slate-600" x-text="c.instructor"></td>
+                                <td class="p-3 font-mono font-bold" x-text="c.grade ? c.grade + '%' : 'قيد الرصد'"></td>
+                                <td class="p-3">
+                                    <span class="px-2 py-0.5 rounded-lg text-xs font-bold font-mono"
+                                          :class="c.letter === 'A' ? 'bg-emerald-100 text-emerald-800' : (c.letter === 'B+' || c.letter === 'B' ? 'bg-sky-100 text-sky-800' : 'bg-slate-100 text-slate-800')"
+                                          x-text="c.letter || '-'"></span>
+                                </td>
+                                <td class="p-3 font-mono font-bold text-slate-700" x-text="c.points ? c.points.toFixed(2) : '-'"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 2: Attendance Tracker -->
+        <div id="attendance" x-show="activeTab === 'attendance'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div>
+                <h3 class="text-base font-black text-slate-900">سجل الحضور والغياب (Attendance Engine Tracker)</h3>
+                <p class="text-xs text-slate-500">وفق لائحة الجامعة: إنذار 1 عند 10%، إنذار 2 عند 15%، حرمان من الامتحان النهائي عند 20%</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <template x-for="c in studentCourses" :key="c.code">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-mono font-bold text-[#004876]" x-text="c.code"></span>
+                                <h4 class="text-xs font-bold text-slate-900" x-text="c.title"></h4>
+                            </div>
+                            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold"
+                                  :class="c.absenceRate < 10 ? 'bg-emerald-100 text-emerald-800' : (c.absenceRate < 15 ? 'bg-amber-100 text-amber-800' : 'bg-rose-100 text-rose-800')"
+                                  x-text="c.absenceRate < 10 ? 'منتظم' : (c.absenceRate < 20 ? 'إنذار غياب' : 'حرمان')"></span>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[11px] font-mono">
+                                <span class="text-slate-500">نسبة الغياب:</span>
+                                <span class="font-bold text-slate-800" x-text="c.absenceRate + '%'"></span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                <div class="h-full transition-all"
+                                     :class="c.absenceRate < 10 ? 'bg-emerald-500' : (c.absenceRate < 15 ? 'bg-amber-500' : 'bg-rose-500')"
+                                     :style="`width: ${c.absenceRate * 5}%`"></div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Tab 3: Weekly Schedule -->
+        <div id="schedule" x-show="activeTab === 'schedule'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-base font-black text-slate-900">الجدول الدراسي الأسبوعي (خريف 2026)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-[#004876]">الأحد والثلاثاء والخميس</span>
+                        <span class="text-xs font-mono font-bold text-slate-700">08:00 ص - 09:30 ص</span>
+                    </div>
+                    <p class="text-xs font-bold text-slate-900">IT-101: مقدمة في الذكاء الاصطناعي</p>
+                    <p class="text-[11px] text-slate-500">القاعة: مبنى تكنولوجيا المعلومات - Lab 204</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-sky-800">الأحد والثلاثاء والخميس</span>
+                        <span class="text-xs font-mono font-bold text-slate-700">10:00 ص - 11:30 ص</span>
+                    </div>
+                    <p class="text-xs font-bold text-slate-900">CS-201: هياكل البيانات والخوارزميات</p>
+                    <p class="text-[11px] text-slate-500">القاعة: مبنى تكنولوجيا المعلومات - Hall A</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+    <script>
+        function studentPortalApp() {
+            return {
+                selectedStudentId: '20261001',
+                activeTab: 'courses',
+                student: null,
+                studentCourses: [],
+                async initPortal() {
+                    if (window.location.hash) {
+                        const h = window.location.hash.substring(1);
+                        if (['courses', 'attendance', 'schedule', 'grades'].includes(h)) {
+                            this.activeTab = (h === 'grades' ? 'courses' : h);
+                        }
+                    }
+                    await this.loadStudentData();
+                },
+                async loadStudentData() {
+                    const studentsMap = {
+                        '20261001': {
+                            id: '20261001',
+                            name: 'محمد عبد الله المري',
+                            college: 'كلية تكنولوجيا المعلومات',
+                            major: 'الذكاء الاصطناعي',
+                            gpa: 3.85,
+                            completedCredits: 48,
+                            balance: 0,
+                            courses: [
+                                { code: 'IT-101', title: 'مقدمة في الذكاء الاصطناعي', credits: 3, instructor: 'د. أحمد الكواري', grade: 94, letter: 'A', points: 4.0, absenceRate: 4 },
+                                { code: 'CS-201', title: 'هياكل البيانات والخوارزميات', credits: 3, instructor: 'د. سارة المنصوري', grade: 88, letter: 'B+', points: 3.5, absenceRate: 8 },
+                                { code: 'CY-301', title: 'أساسيات الأمن السيبراني', credits: 3, instructor: 'د. عبد الله الهاجري', grade: 92, letter: 'A', points: 4.0, absenceRate: 0 }
+                            ]
+                        },
+                        '20261002': {
+                            id: '20261002',
+                            name: 'فاطمة ناصر الكعبي',
+                            college: 'كلية القانون',
+                            major: 'القانون العام',
+                            gpa: 3.65,
+                            completedCredits: 36,
+                            balance: 1500,
+                            courses: [
+                                { code: 'LAW-101', title: 'المدخل للعلوم القانونية', credits: 3, instructor: 'أ.د. عبد العزيز المحمود', grade: 89, letter: 'B+', points: 3.5, absenceRate: 6 },
+                                { code: 'LAW-202', title: 'القانون الدستوري القطري', credits: 3, instructor: 'د. مريم الخاطر', grade: 91, letter: 'A', points: 4.0, absenceRate: 3 }
+                            ]
+                        },
+                        '20261003': {
+                            id: '20261003',
+                            name: 'خالد جاسم السليطي',
+                            college: 'كلية التجارة والأعمال',
+                            major: 'إدارة الأعمال',
+                            gpa: 3.40,
+                            completedCredits: 24,
+                            balance: 0,
+                            courses: [
+                                { code: 'BUS-101', title: 'مبادئ إدارة الأعمال والتنظيم', credits: 3, instructor: 'د. عبد الله المري', grade: 85, letter: 'B', points: 3.0, absenceRate: 11 },
+                                { code: 'ACC-101', title: 'مبادئ المحاسبة المالية', credits: 3, instructor: 'د. جاسم الفخرو', grade: 82, letter: 'B', points: 3.0, absenceRate: 7 }
+                            ]
+                        }
+                    };
+
+                    this.student = studentsMap[this.selectedStudentId] || studentsMap['20261001'];
+                    this.studentCourses = this.student.courses;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

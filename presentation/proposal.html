@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وثيقة المقترح التنفيذي الرسمي | مشروع المنظومة الرقمية الشاملة لجامعة لوسيل</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; }
+            .print-page { page-break-after: always; min-height: 100vh; box-shadow: none !important; border: none !important; }
+        }
+    </style>
+</head>
+<body class="py-8 px-4 sm:px-6">
+
+    <!-- Top Action Bar (No-Print) -->
+    <div class="no-print max-w-4xl mx-auto mb-6 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <a href="deck.html" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <span>العودة للعرض التقديمي</span>
+            </a>
+            <span class="text-xs font-bold text-slate-500">وثيقة المقترح التنفيذي (Executive Dossier)</span>
+        </div>
+        <button onclick="window.print()" class="px-5 py-2 bg-[#6B001A] hover:bg-[#4A0012] text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>طباعة وتصدير PDF (A4)</span>
+        </button>
+    </div>
+
+    <!-- Printable Formal Document Container -->
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-14 border border-slate-200 shadow-lg space-y-10 print-page">
+
+        <!-- Header with University Seal & Identification -->
+        <div class="border-b-2 border-slate-900 pb-6 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6B001A] to-[#30000B] text-white flex items-center justify-center font-black text-2xl border-2 border-amber-400 shadow-md">
+                    LU
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black text-slate-900">جامعة لوسيل - دولة قطر</h1>
+                    <p class="text-xs font-bold text-[#6B001A]">Lusail University | Digital Transformation Directorate</p>
+                    <span class="text-[10px] text-slate-500 font-mono">وثيقة رقم: LU-EXEC-PROP-2026-V1</span>
+                </div>
+            </div>
+
+            <div class="text-left text-xs font-bold text-slate-600 space-y-1">
+                <div>التاريخ: <span class="font-mono text-slate-900">17 سبتمبر 2026</span></div>
+                <div>الحالة: <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">مقترح معتمد للعرض</span></div>
+                <div>المستوى: <span class="text-[#6B001A]">سري وموجه للإدارة العليا</span></div>
+            </div>
+        </div>
+
+        <!-- Document Title -->
+        <div class="space-y-3">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-900 border border-amber-300">
+                وثيقة المقترح التنفيذي الشامل
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 leading-snug">
+                مشروع بناء البوابة والمنظومة الأكاديمية الرقمية الموحدة<br>
+                <span class="text-[#6B001A]">(Unified Academic Portal & Operating System)</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                مقدم إلى: <strong>مجلس الأمناء الموقر ورئاسة جامعة لوسيل وعمداء الكليات</strong>
+            </p>
+        </div>
+
+        <!-- 1. Executive Summary -->
+        <div class="space-y-3">
+            <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
+                <span>1. الملخص التنفيذي (Executive Summary)</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                يهدف هذا المشروع الاستراتيجي إلى نقل جامعة لوسيل إلى طليعة الجامعات الرقمية الذكية في دولة قطر والمنطقة، من خلال بناء منظومة رقمية مؤسسية موحدة تجمع بين: البوابة الأكاديمية الفاخرة، دليل الكليات والـ 14 برنامجاً المعتمدة، منظومة الـ 16 خدمة إلكترونية ذاتية، محرك القبول وحساب الرسوم الفورية، ونظام التشغيل الأكاديمي المكتبي (Desk OS) لإصدار الشهادات وكشوف الدرجات المشفرة بـ QR Code.
+            </p>
+        </div>
+
+        <!-- 2. Core Pillars & Scope -->
+        <div class="space-y-3">
+            <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
+                <span>2. نطاق العمل والمخرجات الأساسية للمنظومة</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <strong class="font-bold text-slate-900 block text-sm">أ. البوابة العامة ومنظومة الكليات (4 كليات - 14 برنامجاً)</strong>
+                    <p class="text-slate-600 leading-relaxed">عرض متكامل للبرامج الأكاديمية، والخطط الدراسية بالساعات المعتمدة، وبطاقات العمداء، والمختبرات المتطورة التابعة لكلية تكنولوجيا المعلومات، القانون، التجارة، والتربية.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <strong class="font-bold text-slate-900 block text-sm">ب. منظومة الـ 16 خدمة الإلكترونية الذاتية</strong>
+                    <p class="text-slate-600 leading-relaxed">أتمتة شاملة لعمليات التسجيل، الحذف والإضافة، كشوف الدرجات، الإرشاد الأكاديمي، سداد الرسوم عبر بوابة QPay، وحجز السكن والمواقف.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <strong class="font-bold text-slate-900 block text-sm">ج. محرك القبول وحاسبة الرسوم المعتمدة</strong>
+                    <p class="text-slate-600 leading-relaxed">حساب فوري للرسوم (1,500 ر.ق/ساعة) وتطبيق تلقائي لنسب المنح (50% تفوق، 100% رعاية) والخصومات، وتدقيق المستندات رقمياً.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <strong class="font-bold text-slate-900 block text-sm">د. نظام Desk OS وكشوف الدرجات الموثقة بـ QR</strong>
+                    <p class="text-slate-600 leading-relaxed">لوحة تحكم إدارية للعمادات وشؤون الطلاب، محرك دقيق لاحتساب الـ GPA وفق سلم 4.00، ومنع التعارضات وإصدار شهادات مشفرة برمز QR.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Implementation Roadmap -->
+        <div class="space-y-3">
+            <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
+                <span>3. الجدول الزمني للتنفيذ (8 أسابيع واقعية ومضمونة)</span>
+            </h3>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-right border border-slate-200 rounded-xl overflow-hidden">
+                    <thead class="bg-slate-100 text-slate-800 font-black">
+                        <tr>
+                            <th class="p-3 border-b border-slate-200">المرحلة</th>
+                            <th class="p-3 border-b border-slate-200">المدة</th>
+                            <th class="p-3 border-b border-slate-200">المخرجات ونقاط التسليم الرئيسية</th>
+                            <th class="p-3 border-b border-slate-200">مؤشر الإنجاز</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr>
+                            <td class="p-3 font-bold text-[#6B001A]">المرحلة 1: التأسيس والبوابة العامة</td>
+                            <td class="p-3 font-mono">الأسابيع 1-3</td>
+                            <td class="p-3">إطلاق البوابة الرئيسية، صفحات الكليات الـ 4، وحاسبة الرسوم وشروط القبول.</td>
+                            <td class="p-3 text-emerald-700 font-bold">تسليم بوابة عامة حية</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-[#6B001A]">المرحلة 2: الخدمات ولوحة Desk OS</td>
+                            <td class="p-3 font-mono">الأسابيع 4-6</td>
+                            <td class="p-3">تفعيل الـ 16 خدمة، ربط السجلات الأكاديمية والـ GPA وكشوف الـ QR.</td>
+                            <td class="p-3 text-emerald-700 font-bold">تشغيل لوحة الإدارة</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-[#6B001A]">المرحلة 3: التدقيق الأمني والإطلاق</td>
+                            <td class="p-3 font-mono">الأسابيع 7-8</td>
+                            <td class="p-3">اختبارات الأمان السيبراني، تدريب الكوادر الإدارية، والإطلاق الرسمي المعتمد.</td>
+                            <td class="p-3 text-emerald-700 font-bold">التشغيل الإنتاجي النهائي</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4. Strategic Return on Investment (ROI) -->
+        <div class="space-y-3">
+            <h3 class="text-base font-black text-slate-900 flex items-center gap-2 border-r-4 border-[#6B001A] pr-3">
+                <span>4. الجدوى الاقتصادية والعائد المؤسسي (Institutional ROI)</span>
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
+                    <strong class="text-xl font-black text-emerald-700 font-mono block">40%</strong>
+                    <span class="text-slate-700 font-bold">توفير تكاليف التشغيل</span>
+                </div>
+                <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 space-y-1">
+                    <strong class="text-xl font-black text-amber-800 font-mono block">85%</strong>
+                    <span class="text-slate-700 font-bold">تسريع زمن المعاملات</span>
+                </div>
+                <div class="p-4 rounded-xl bg-sky-50 border border-sky-200 space-y-1">
+                    <strong class="text-xl font-black text-sky-800 font-mono block">35%</strong>
+                    <span class="text-slate-700 font-bold">زيادة التحاق الطلاب الجدد</span>
+                </div>
+                <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 space-y-1">
+                    <strong class="text-xl font-black text-purple-800 font-mono block">100%</strong>
+                    <span class="text-slate-700 font-bold">ملكية فكرية وسيادية تامة</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Decision & Approval Sign-off Box -->
+        <div class="pt-6 border-t-2 border-slate-900 space-y-4">
+            <h3 class="text-sm font-black text-slate-900">5. قرار الاعتماد والتوقيع الرسمي</h3>
+            <div class="grid grid-cols-2 gap-8 text-xs pt-4">
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-6">
+                    <div class="space-y-1">
+                        <span class="text-slate-500 font-bold block">مقدم المقترح:</span>
+                        <strong class="text-slate-900 block text-sm">فريق التحول الرقمي والحلول المؤسسية</strong>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 text-slate-400">
+                        التوقيع: .....................................................
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-6">
+                    <div class="space-y-1">
+                        <span class="text-slate-500 font-bold block">الجهة المعتمدة:</span>
+                        <strong class="text-slate-900 block text-sm">رئاسة جامعة لوسيل / مجلس الأمناء</strong>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 text-slate-400">
+                        الاعتماد والختم الرسمي: .................................
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-[10px] text-slate-400 pt-4 border-t border-slate-100">
+            © 2026 جامعة لوسيل. جميع الحقوق محفوظة. وثيقة رسمية خاضعة لقوانين حماية الملكية والسرية المؤسسية.
+        </div>
+
+    </div>
+
+</body>
+</html>

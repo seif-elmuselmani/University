@@ -1,0 +1,136 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    container_name: lusail_mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-LusailRoot@2026}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-lusail_db}
+      MYSQL_USER: ${MYSQL_USER:-lusail_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-LusailPass@2026}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --innodb-file-format=Barracuda
+      - --innodb-large-prefix=1
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - lusail_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-LusailRoot@2026}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: lusail_redis_cache
+    restart: always
+    volumes:
+      - redis_cache_data:/data
+    networks:
+      - lusail_network
+
+  redis-queue:
+    image: redis:7-alpine
+    container_name: lusail_redis_queue
+    restart: always
+    volumes:
+      - redis_queue_data:/data
+    networks:
+      - lusail_network
+
+  frappe-backend:
+    image: frappe/erpnext:v15.0.0
+    container_name: lusail_backend
+    restart: always
+    environment:
+      - FRAPPE_SITE_NAME_HEADER=lusail.edu.qa
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - REDIS_CACHE=redis://redis-cache:6379
+      - REDIS_QUEUE=redis://redis-queue:6379
+      - SITES=lusail.edu.qa
+    volumes:
+      - sites_data:/home/frappe/frappe-bench/sites
+      - logs_data:/home/frappe/frappe-bench/logs
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis-cache:
+        condition: service_started
+      redis-queue:
+        condition: service_started
+    networks:
+      - lusail_network
+
+  frappe-worker-default:
+    image: frappe/erpnext:v15.0.0
+    container_name: lusail_worker_default
+    restart: always
+    command: bench worker --queue default
+    volumes:
+      - sites_data:/home/frappe/frappe-bench/sites
+      - logs_data:/home/frappe/frappe-bench/logs
+    depends_on:
+      - frappe-backend
+    networks:
+      - lusail_network
+
+  frappe-worker-short:
+    image: frappe/erpnext:v15.0.0
+    container_name: lusail_worker_short
+    restart: always
+    command: bench worker --queue short
+    volumes:
+      - sites_data:/home/frappe/frappe-bench/sites
+      - logs_data:/home/frappe/frappe-bench/logs
+    depends_on:
+      - frappe-backend
+    networks:
+      - lusail_network
+
+  frappe-schedule:
+    image: frappe/erpnext:v15.0.0
+    container_name: lusail_schedule
+    restart: always
+    command: bench schedule
+    volumes:
+      - sites_data:/home/frappe/frappe-bench/sites
+      - logs_data:/home/frappe/frappe-bench/logs
+    depends_on:
+      - frappe-backend
+    networks:
+      - lusail_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: lusail_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - sites_data:/var/www/html/sites:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+    depends_on:
+      - frappe-backend
+    networks:
+      - lusail_network
+
+volumes:
+  mariadb_data:
+  redis_cache_data:
+  redis_queue_data:
+  sites_data:
+  logs_data:
+
+networks:
+  lusail_network:
+    driver: bridge

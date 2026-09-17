@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث العلمي والابتكار | جامعة لوسيل (Research & Innovation)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">البحث العلمي والابتكار</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="bg-gradient-to-br from-[#004876] to-[#002840] text-white py-14 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950 inline-block">
+                مراكز التميز البحثي والإنتاج المعرفي
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black">البحث العلمي والابتكار</h1>
+            <p class="text-slate-200 text-sm max-w-2xl leading-relaxed">
+                ترسيخ ثقافة البحث التطبيقي لدعم الأولويات الوطنية لدولة قطر في مجالات الأمن السيبراني، الذكاء الاصطناعي، التشريعات القانونية المقارنة، والحلول الاقتصادية المستدامة.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-10">
+
+        <!-- Research Centers Grid -->
+        <div id="centers" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div id="ai-center" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold">
+                    <i data-lucide="shield" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-black text-slate-900">مركز لوسيل للأمن السيبراني والذكاء الاصطناعي</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    إجراء أبحاث متقدمة في حماية البنى التحتية الحيوية، خوارزميات التعلم العميق، وتطبيقات المدن الذكية في مدينة لوسيل.
+                </p>
+            </div>
+
+            <div id="law-center" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold">
+                    <i data-lucide="scale" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-black text-slate-900">مركز الدراسات القانونية والتحكيم الدولي</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    أبحاث التشريعات التجارية، التحكيم في منازعات الاستثمار الأجنبي، والقانون الدولي العام بالتعاون مع كبرى كليات القانون العالمية.
+                </p>
+            </div>
+
+            <div id="biz-center" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-900 flex items-center justify-center font-bold">
+                    <i data-lucide="line-chart" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-black text-slate-900">مركز بحوث الاقتصاد المعرفي وسلاسل الإمداد</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    دراسات قطاعية حول تنويع مصادر الدخل، الابتكار في الخدمات المالية FinTech، والخدمات اللوجستية الإقليمية.
+                </p>
+            </div>
+        </div>
+
+        <!-- Lusail Scientific Journal -->
+        <div id="journal" class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-[#004876] text-[#be9c79] flex items-center justify-center font-bold">
+                    <i data-lucide="book-marked" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-slate-900">مجلة لوسيل للدراسات المحكمة (Lusail Law & Business Review)</h3>
+                    <p class="text-xs text-slate-500 font-medium">مجلة دورية علمية محكمة ومفهرسة دولياً تصدر عن عمادة البحث العلمي</p>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-3">
+                <p>
+                    تستقبل المجلة الأبحاث والدراسات الأصيلة باللغتين العربية والإنجليزية من كافة أساتذة الجامعات والباحثين حول العالم، وتخضع جميع الأبحاث للتحكيم الأعمى المزدوج (Double-Blind Peer Review).
+                </p>
+                <div class="flex gap-4 font-bold text-[#004876] pt-2">
+                    <span>الرقم المعياري ISSN: <strong>2789-5544</strong></span>
+                    <span>معامل التأثير العربي: <strong>معتمد</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publication Guidelines & Ethics -->
+        <div id="guidelines" class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#004876] flex items-center justify-center font-bold border border-amber-200">
+                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-slate-900">قواعد النشر والتحكيم العلمي المزدوج</h3>
+                    <p class="text-xs text-slate-500 font-medium">المعايير والأخلاقيات البحثية المعتمدة لعمادة البحث العلمي</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <h4 class="font-bold text-slate-900 flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> معايير الأصالة والنزاهة</h4>
+                    <p class="text-slate-600 leading-relaxed">ألا يكون البحث منشوراً أو مقدماً للنشر في أي جهة أخرى، مع نسبة استلال علمي لا تتجاوز 15% عبر نظام iThenticate.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <h4 class="font-bold text-slate-900 flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> إجراءات التحكيم المزدوج</h4>
+                    <p class="text-slate-600 leading-relaxed">يُقيّم كل بحث من قِبل محكّمين اثنين من ذوي الاختصاص بدرجة أستاذ مشارك أو أستاذ، مع حجب هوية الباحث والمحكّم.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Grants & Student Funds -->
+        <div id="grants" class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold border border-emerald-200">
+                    <i data-lucide="gift" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-slate-900">صندوق دعم البحوث والابتكارات الطلابية</h3>
+                    <p class="text-xs text-slate-500 font-medium">منح تمويلية لأبحاث الطلبة ومشاريع التخرج الرائدة</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-700">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-emerald-700 font-bold">منحة بحوث التخرج</span>
+                    <p class="text-lg font-black text-slate-900">حتى 25,000 ر.ق</p>
+                    <p class="text-slate-600 leading-relaxed">لدعم مشاريع الذكاء الاصطناعي، الأمن السيبراني، ونماذج المحاكاة الاقتصادية.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-[#004876] font-bold">تمويل المشاركة في المؤتمرات</span>
+                    <p class="text-lg font-black text-slate-900">تغطية كاملة</p>
+                    <p class="text-slate-600 leading-relaxed">للأوراق البحثية المقبولة في المؤتمرات الدولية المصنفة Scopus و IEEE.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-amber-700 font-bold">حاضنة براءات الاختراع</span>
+                    <p class="text-lg font-black text-slate-900">دعم قانوني وتقني</p>
+                    <p class="text-slate-600 leading-relaxed">تسجيل حقوق الملكية الفكرية وحماية الابتكارات البرمجية والصناعية.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+</body>
+</html>

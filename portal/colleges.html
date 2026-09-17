@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الكليات والبرامج الأكاديمية | جامعة لوسيل (Academic Colleges & Programs)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo, Outfit & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F1F5F9; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
+        
+        <!-- Breadcrumb Header -->
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] font-bold">الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">الكليات والبرامج الأكاديمية</span>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#004876] bg-[#004876]/10 px-3 py-1 rounded-full border border-[#004876]/20 w-max mb-2">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#004876]"></i>
+                        <span>برامج أكاديمية مصممة لاقتصاد المعرفة ورؤية قطر 2030</span>
+                    </div>
+                    <h1 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                        كليات جامعة لوسيل وبرامجها المعتمدة
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">تعليم جامعي بمعايير عالمية، تدريب مهني مكثف، وشراكات أكاديمية مع أرقى الجامعات الدولية</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-bold">
+                    <span class="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-xl border border-slate-200 flex items-center gap-1">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> معتمدة دولياً ومحلياً
+                    </span>
+                    <span class="px-3 py-1.5 bg-amber-50 text-amber-800 rounded-xl border border-amber-200 flex items-center gap-1">
+                        <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-600"></i> مسارات عربية وإنجليزية وفرنسية
+                    </span>
+                </div>
+            </div>
+
+            <!-- College Switcher Tabs -->
+            <div id="colleges-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
+                <template x-for="college in collegesList" :key="college.id">
+                    <button @click="activeCollegeId = college.id" 
+                            class="p-4 rounded-2xl text-right transition-all flex flex-col justify-between border relative overflow-hidden"
+                            :class="activeCollegeId === college.id 
+                                ? 'bg-gradient-to-br from-[#004876] to-[#003354] text-white border-[#004876] shadow-md scale-[1.02]' 
+                                : 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-200'">
+                        <div class="flex items-center justify-between w-full mb-3">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-base"
+                                 :class="activeCollegeId === college.id ? 'bg-white/20 text-[#be9c79]' : 'bg-white text-slate-700 shadow-sm border border-slate-200'">
+                                <i :data-lucide="college.icon" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-[10px] font-mono font-black px-2 py-0.5 rounded-full"
+                                  :class="activeCollegeId === college.id ? 'bg-[#be9c79] text-slate-950' : 'bg-slate-200 text-slate-600'"
+                                  x-text="college.programs.length + ' برامج'"></span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-sm" x-text="college.name"></h3>
+                            <p class="text-[11px] opacity-80 line-clamp-1 mt-0.5" x-text="college.tagline"></p>
+                        </div>
+                    </button>
+                </template>
+            </div>
+        </div>
+
+        <!-- Active College Detail Showcase -->
+        <template x-if="currentCollege">
+            <div class="space-y-6">
+                <!-- College Overview Banner -->
+                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+                        <div class="lg:col-span-2 space-y-4">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300" x-text="currentCollege.degreeLevel"></span>
+                                <span class="text-xs text-slate-500 font-bold" x-text="'لغة الدراسة: ' + currentCollege.language"></span>
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-black text-slate-900" x-text="currentCollege.name"></h2>
+                            <p class="text-sm text-slate-600 leading-relaxed" x-text="currentCollege.description"></p>
+                            
+                            <!-- Dean Quote -->
+                            <div class="bg-gradient-to-r from-amber-50/40 via-white to-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-sm">
+                                <img :src="currentCollege.image" :alt="currentCollege.name" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-[#be9c79] shadow-sm shrink-0">
+                                <div class="space-y-2 text-center sm:text-right flex-1">
+                                    <p class="text-xs text-slate-700 italic font-medium leading-relaxed" x-text="'«' + currentCollege.deanMessage + '»'"></p>
+                                    <div class="text-[11px] text-slate-500 font-bold border-t border-slate-100 pt-2 flex flex-wrap items-center justify-between gap-1">
+                                        <span class="text-slate-900 font-black text-xs" x-text="currentCollege.deanName"></span>
+                                        <span class="text-[#004876]" x-text="currentCollege.deanTitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- College Highlights Quick Card -->
+                        <div class="bg-slate-50 rounded-2xl p-6 space-y-4 border border-slate-200">
+                            <h4 class="text-xs font-bold text-[#004876] uppercase tracking-wider flex items-center gap-1.5">
+                                <i data-lucide="award" class="w-4 h-4 text-[#be9c79]"></i> مؤشرات الكلية والشراكات
+                            </h4>
+                            <div class="space-y-3 divide-y divide-slate-200 text-xs">
+                                <div class="pt-2 flex justify-between items-center">
+                                    <span class="text-slate-500">الساعات المعتمدة:</span>
+                                    <span class="font-mono font-bold text-[#004876]" x-text="currentCollege.totalCredits + ' ساعة'"></span>
+                                </div>
+                                <div class="pt-2 flex justify-between items-center">
+                                    <span class="text-slate-500">الشريك الأكاديمي الدولي:</span>
+                                    <span class="font-bold text-sky-800" x-text="currentCollege.partner"></span>
+                                </div>
+                            </div>
+                            <div class="pt-2 space-y-2">
+                                <a :href="currentCollege.pageUrl" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition border border-slate-300">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5 text-[#004876]"></i> صفحة الكلية والمعامل التخصصية
+                                </a>
+                                <a href="admissions.html" class="w-full py-2.5 bg-[#004876] hover:bg-[#003354] text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 transition shadow-sm">
+                                    <i data-lucide="send" class="w-3.5 h-3.5 text-[#be9c79]"></i> تقديم طلب الالتحاق بالكلية
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programs Grid -->
+                <div id="plans" class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                            <i data-lucide="book-open" class="w-5 h-5 text-[#004876]"></i>
+                            <span>البرامج والخطط الدراسية المعتمدة</span>
+                        </h3>
+                        <span class="text-xs text-slate-500 font-bold" x-text="'إجمالي ' + currentCollege.programs.length + ' برامج معتمدة'"></span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <template x-for="prog in currentCollege.programs" :key="prog.code">
+                            <div class="bg-white rounded-2xl border border-slate-200 hover:border-[#004876] hover:shadow-lg transition-all flex flex-col justify-between group overflow-hidden">
+                                <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[10px] font-mono font-black px-2 py-0.5 rounded-md bg-slate-100 text-[#004876]" x-text="prog.code"></span>
+                                            <span class="text-[11px] font-bold text-[#856545]" x-text="prog.degree"></span>
+                                        </div>
+                                        <h4 class="text-base font-black text-slate-900 group-hover:text-[#004876] transition" x-text="prog.title"></h4>
+                                        <p class="text-xs text-slate-600 leading-relaxed" x-text="prog.summary"></p>
+                                    </div>
+
+                                    <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                                        <span class="text-slate-500 font-bold flex items-center gap-1">
+                                            <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i>
+                                            <span x-text="prog.credits + ' ساعة'"></span>
+                                        </span>
+                                        <button @click="openPlanModal(prog)" class="text-[#004876] hover:text-[#003354] font-black flex items-center gap-1 transition">
+                                            <span>عرض الخطة الدراسية</span>
+                                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Emerging Programs & Innovation -->
+        <div id="new" class="bg-gradient-to-br from-amber-50/40 via-white to-sky-50/30 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#004876] text-white">البرامج الجديدة والمستحدثة (Emerging Degrees)</span>
+            <h3 class="text-lg font-black text-slate-900">تخصصات تلبي متطلبات الثورة الصناعية الرابعة وسوق العمل القطري</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                تشمل البرامج المستحدثة بكالوريوس هندسة الطائرات المسيرة (Drone Engineering)، تصميم وتطوير الألعاب الإلكترونية، وماجستير القانون الدولي وتسوية النزاعات بالشراكة مع UNITAR في جنيف.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Study Plan Modal -->
+    <div x-show="studyPlanModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
+        <div @click.away="studyPlanModal = false" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                    <span class="text-[10px] font-mono font-bold text-[#004876]" x-text="selectedProg?.code"></span>
+                    <h3 class="text-base font-black text-slate-900" x-text="selectedProg?.title"></h3>
+                </div>
+                <button @click="studyPlanModal = false" class="p-1 text-slate-400 hover:text-slate-800">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed" x-text="selectedProg?.summary"></p>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 text-xs">
+                <div class="flex justify-between font-bold">
+                    <span>عدد الساعات الإجمالي:</span>
+                    <span class="text-[#004876]" x-text="selectedProg?.credits + ' ساعة معتمدة'"></span>
+                </div>
+                <div class="flex justify-between font-bold">
+                    <span>الدرجة الأكاديمية:</span>
+                    <span class="text-slate-900" x-text="selectedProg?.degree"></span>
+                </div>
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <a href="admissions.html" class="px-4 py-2 bg-[#004876] text-white text-xs font-bold rounded-xl shadow-sm hover:bg-[#003354]">التقديم على هذا البرنامج</a>
+                <button @click="studyPlanModal = false" class="px-4 py-2 bg-slate-100 text-slate-700 text-xs font-bold rounded-xl hover:bg-slate-200">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+    <!-- Alpine Script -->
+    <script>
+        function collegesPageApp() {
+            return {
+                activeCollegeId: 'it',
+                studyPlanModal: false,
+                selectedProg: null,
+                collegesList: [
+                    {
+                        id: 'it',
+                        name: 'كلية تكنولوجيا المعلومات',
+                        tagline: 'الذكاء الاصطناعي، الأمن السيبراني، وهندسة الدرونز',
+                        icon: 'cpu',
+                        degreeLevel: 'بكالوريوس العلوم (B.Sc.) / ماجستير',
+                        language: 'الإنجليزية والعربية',
+                        totalCredits: 132,
+                        partner: 'شراكات دولية متخصصة',
+                        pageUrl: 'college-it.html',
+                        image: 'https://lu.edu.qa/img/col1.jpeg',
+                        deanName: 'عمادة كلية تكنولوجيا المعلومات',
+                        deanTitle: 'كلية تكنولوجيا المعلومات',
+                        deanMessage: 'نسعى لإعداد مهندسي ومطوري وقادة تكنولوجيا الغد القادرين على قيادة التحول الرقمي وحماية الفضاء السيبراني القطري.',
+                        description: 'تقدم الكلية تعليماً متطوراً يجمع بين الأساس النظري والتطبيق العملي في مختبرات الحوسبة والذكاء الاصطناعي والأمن السيبراني.',
+                        programs: [
+                            { code: 'IT-CYBER', title: 'الأمن السيبراني (Cybersecurity)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'تأهيل متخصصين في حماية البنية التحتية والتصدي للهجمات السيبرانية.' },
+                            { code: 'IT-AI', title: 'الذكاء الاصطناعي (Artificial Intelligence)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'الخوارزميات المتقدمة، التعلم العميق، ومعالجة اللغات الطبيعية والروبوتات.' },
+                            { code: 'IT-GAMES', title: 'تصميم وتطوير الألعاب الإلكترونية', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'برمجة محركات الألعاب، الرسومات الحاسوبية، والواقع الافتراضي والمعزز.' },
+                            { code: 'IT-DRONE', title: 'هندسة الطائرات بدون طيار (Drone Engineering)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'تصميم وبرمجة وملاحة أنظمة الطائرات المسيرة والتطبيقات الذكية.' },
+                            { code: 'IT-MSC', title: 'ماجستير الأمن السيبراني والحوسبة السحابية', degree: 'ماجستير (36 ساعة)', credits: 36, summary: 'دراسات عليا وبحوث تطبيقية متقدمة في حوكمة وأمن البيانات السحابية.' }
+                        ]
+                    },
+                    {
+                        id: 'law',
+                        name: 'كلية القانون',
+                        tagline: 'القانون العام والخاص والشراكة مع جامعة السوربون',
+                        icon: 'scale',
+                        degreeLevel: 'ليسانس الحقوق / ماجستير',
+                        language: 'العربية والفرنسية',
+                        totalCredits: 132,
+                        partner: 'جامعة السوربون - باريس 1 / UNITAR',
+                        pageUrl: 'college-law.html',
+                        image: 'https://lu.edu.qa/img/col2.jpeg',
+                        deanName: 'عمادة كلية القانون',
+                        deanTitle: 'كلية القانون',
+                        deanMessage: 'نلتزم بتخريج كوادر قانونية مؤهلة تمتلك مهارات المرافعة، الصياغة التشريعية، والتحكيم الدولي بكفاءة رفيعة.',
+                        description: 'تعتبر الكلية منارة للدراسات القانونية الرائدة، وتضم محكمة صورية وعيادة قانونية لتدريب الطلاب على واقع القضاء.',
+                        programs: [
+                            { code: 'LAW-PUB', title: 'القانون العام (Public Law)', degree: 'ليسانس (132 ساعة)', credits: 132, summary: 'القانون الدستوري، الإداري، المالي، والمنازعات الحكومية وحقوق الإنسان.' },
+                            { code: 'LAW-PRIV', title: 'القانون الخاص (Private Law)', degree: 'ليسانس (132 ساعة)', credits: 132, summary: 'القانون المدني، التجاري، الشركات، وحماية الملكية الفكرية والتحكيم.' },
+                            { code: 'LAW-SORB', title: 'برنامج القانون المشترك مع جامعة السوربون - باريس 1', degree: 'ليسانس فرنسي مزدوج', credits: 132, summary: 'دراسة القانون باللغة الفرنسية بالتوأمة المباشرة مع جامعة السوربون.' },
+                            { code: 'LAW-UNITAR', title: 'ماجستير القانون الدولي وتسوية النزاعات (UNITAR)', degree: 'ماجستير (36 ساعة)', credits: 36, summary: 'برنامج دولي بالتعاون مع معهد الأمم المتحدة للتدريب والبحوث بجنيف.' },
+                            { code: 'LAW-IP', title: 'ماجستير الملكية الفكرية والقانون الرقمي', degree: 'ماجستير (36 ساعة)', credits: 36, summary: 'تخصص دقيق في حماية الابتكارات وبراءات الاختراع والجرائم الإلكترونية.' }
+                        ]
+                    },
+                    {
+                        id: 'business',
+                        name: 'كلية التجارة والأعمال',
+                        tagline: 'الإدارة، التسويق، المحاسبة، وسلاسل الإمداد اللوجستية',
+                        icon: 'trending-up',
+                        degreeLevel: 'بكالوريوس إدارة الأعمال / ماجستير',
+                        language: 'العربية والإنجليزية',
+                        totalCredits: 132,
+                        partner: 'جامعة ساسكس / جامعة شبينزبرغ',
+                        pageUrl: 'college-business.html',
+                        image: 'https://lu.edu.qa/img/col4.jpeg',
+                        deanName: 'عمادة كلية التجارة والأعمال',
+                        deanTitle: 'كلية التجارة والأعمال',
+                        deanMessage: 'نبتكر حلول الأعمال المستدامة وندعم روح ريادة الأعمال لتمكين قادة المستقبل في قطاع المال والأعمال.',
+                        description: 'بيئة أكاديمية متكاملة تواكب التحولات المالية العالمية وسلاسل الإمداد الحديثة.',
+                        programs: [
+                            { code: 'BUS-MGT', title: 'إدارة الأعمال (Management)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'القيادة التنفيذية، إدارة المشاريع الاستراتيجية، وإطلاق المشاريع.' },
+                            { code: 'BUS-MKT', title: 'التسويق (Marketing)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'استراتيجيات التسويق الرقمي، سلوك المستهلك، وبناء العلامات التجارية.' },
+                            { code: 'BUS-ACC', title: 'المحاسبة والمالية (Accounting & Finance)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'المعايير الدولية لإعداد التقارير المالية والتدقيق والتحليل المالي.' },
+                            { code: 'BUS-HR', title: 'إدارة الموارد البشرية (Human Resources)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'استقطاب وتطوير الكفاءات البشرية والحوكمة المؤسسية.' },
+                            { code: 'BUS-SCM', title: 'إدارة سلاسل الإمداد واللوجستيات', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'إدارة العمليات اللوجستية بالشراكة مع جامعة شبينزبرغ وجامعة ساسكس.' },
+                            { code: 'BUS-INNO', title: 'الابتكار وريادة الأعمال (Entrepreneurship)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'تأسيس الشركات الناشئة وحاضنات الأعمال ونماذج الأعمال المبتكرة.' },
+                            { code: 'BUS-INS', title: 'التأمين وإدارة المخاطر (Risk Management)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'إدارة محافظ التأمين وتقييم المخاطر المالية والمؤسسية.' },
+                            { code: 'BUS-MSCDIG', title: 'ماجستير التسويق الرقمي وتحليلات الأعمال', degree: 'ماجستير (36 ساعة)', credits: 36, summary: 'دراسات عليا في استراتيجيات البيانات الضخمة والتسويق الإلكتروني.' }
+                        ]
+                    },
+                    {
+                        id: 'edu',
+                        name: 'كلية التربية والآداب',
+                        tagline: 'تدريس اللغة الإنجليزية TESOL، العلوم السياسية، والإرشاد النفسي',
+                        icon: 'book-marked',
+                        degreeLevel: 'بكالوريوس التربية والآداب / ماجستير',
+                        language: 'العربية والإنجليزية',
+                        totalCredits: 132,
+                        partner: 'شراكات أكاديمية مرموقة',
+                        pageUrl: 'college-education.html',
+                        image: 'https://lu.edu.qa/img/col3.jpeg',
+                        deanName: 'عمادة كلية التربية والآداب',
+                        deanTitle: 'كلية التربية والآداب',
+                        deanMessage: 'نربي أجيال المعلمين الملهمين ونعزز اللغة والهوية والتفكير النقدي التربوي والسياسي.',
+                        description: 'برامج تربوية وإنسانية متقدمة لإعداد معلمين ومربين وباحثين في العلوم الإنسانية والسياسية.',
+                        programs: [
+                            { code: 'EDU-TESOL', title: 'تدريس اللغة الإنجليزية (TESOL)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'إعداد معلمي وموجهي لغة إنجليزية وفق أحدث المناهج التفاعلية الدولية.' },
+                            { code: 'EDU-POL', title: 'العلوم السياسية (Political Science)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'العلاقات الدولية، الدبلوماسية، والسياسات العامة والاستراتيجية.' },
+                            { code: 'EDU-COUNS', title: 'الإرشاد والصحة النفسية (Counseling)', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'الدعم النفسي والتربوي للطلاب والإرشاد الأسري والمدرسي.' },
+                            { code: 'EDU-ARAB', title: 'اللغة العربية والإعلام', degree: 'بكالوريوس (132 ساعة)', credits: 132, summary: 'الدراسات اللغوية والأدبية وفنون الإعلام الرقمي وصناعة المحتوى.' },
+                            { code: 'EDU-EXEC', title: 'الماجستير التنفيذي في القيادة والإدارة التعليمية', degree: 'ماجستير (36 ساعة)', credits: 36, summary: 'تأهيل القيادات التربوية ومديري المدارس والمشرفين الأكاديميين.' }
+                        ]
+                    }
+                ],
+                get currentCollege() {
+                    return this.collegesList.find(c => c.id === this.activeCollegeId) || this.collegesList[0];
+                },
+                openPlanModal(prog) {
+                    this.selectedProg = prog;
+                    this.studyPlanModal = true;
+                    this.$nextTick(() => { lucide.createIcons(); });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

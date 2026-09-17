@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروط القبول ومعادلة الشهادات | جامعة لوسيل (Admission Requirements)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <a href="admissions.html" class="hover:text-[#004876]">القبول والتسجيل</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">شروط القبول ومعادلة الشهادات</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="bg-gradient-to-br from-[#004876] to-[#002840] text-white py-12 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#be9c79] text-slate-950 inline-block shadow-sm">
+                دليل الالتحاق والسياسات الرسمية لجامعة لوسيل
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-black">شروط القبول ومعادلة الشهادات الثانوية والدراسات العليا</h1>
+            <p class="text-slate-200 text-sm max-w-3xl leading-relaxed">
+                ترحب جامعة لوسيل بالطلبة من كافة المدارس القطرية والدولية. استعرض أدناه النسب المعتمدة رسمياً حسب نوع الشهادة الثانوية وبرامج الدراسات العليا ومتطلبات الكفاءة اللغوية.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="transfer" class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-10">
+
+        <!-- Certificate Selector Tabs -->
+        <div class="space-y-6">
+            <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+                <button @click="certType = 'qatari'" :class="certType === 'qatari' ? 'bg-[#004876] text-white font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                    <i data-lucide="award" class="w-4 h-4"></i> الثانوية العامة القطرية
+                </button>
+                <button @click="certType = 'british'" :class="certType === 'british' ? 'bg-[#004876] text-white font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                    <i data-lucide="globe" class="w-4 h-4"></i> الشهادة البريطانية (IGCSE / A-Level)
+                </button>
+                <button @click="certType = 'american'" :class="certType === 'american' ? 'bg-[#004876] text-white font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> الدبلومة الأمريكية (American Diploma / AP)
+                </button>
+                <button @click="certType = 'postgrad'" :class="certType === 'postgrad' ? 'bg-[#004876] text-white font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-4 h-4"></i> الدراسات العليا (برامج الماجستير)
+                </button>
+                <button @click="certType = 'scholarships'" :class="certType === 'scholarships' ? 'bg-[#004876] text-white font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2">
+                    <i data-lucide="star" class="w-4 h-4"></i> منح قطر للطلبة الدوليين
+                </button>
+            </div>
+
+            <!-- Tab 1: Qatari High School -->
+            <div id="qatari" x-show="certType === 'qatari'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#004876]/10 text-[#004876] flex items-center justify-center font-bold">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900">شهادة الثانوية العامة القطرية أو ما يعادلها</h3>
+                        <p class="text-xs text-slate-500">لخريجي المدارس الحكومية والخاصة المطبقة للمنهج القطري</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-xs font-bold text-[#004876]">شرط القبول العام الأساسي</span>
+                        <p class="text-lg font-black text-slate-900">65% كحد أدنى</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">في الشهادة الثانوية العامة القطرية أو ما يعادلها لكافة الكليات.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-amber-50/60 border border-[#be9c79]/40 space-y-2">
+                        <span class="text-xs font-bold text-[#856545]">الاستثناء الخاص باللغة العربية</span>
+                        <p class="text-lg font-black text-slate-900">70% في اللغة العربية</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">في حال كان المعدل العام أقل من 65%، يُقبل الطالب إذا حصل على 70% أو أعلى في مقرر اللغة العربية.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-xs font-bold text-[#004876]">كلية تكنولوجيا المعلومات</span>
+                        <p class="text-lg font-black text-slate-900">المسار العلمي أو التكنولوجي</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">مع كفاءة واجتياز متطلب الرياضيات واللغة الإنجليزية (IELTS 5.5 أو اختبار الجامعة).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: British -->
+            <div id="british" x-show="certType === 'british'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-900 flex items-center justify-center font-bold">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900">الشهادة الثانوية البريطانية (IGCSE / GCSE / A-Level)</h3>
+                        <p class="text-xs text-slate-500">متطلبات المعادلة المعتمدة في دولة قطر</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 text-xs font-bold text-slate-700 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> النجاح في 5 مواد IGCSE على الأقل بتقدير لا يقل عن C أو 4.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> النجاح في مادتين على مستوى المتقدم AS-Level أو مادة واحدة A-Level بتقدير لا يقل عن D.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> لكلية تكنولوجيا المعلومات: يجب أن تشمل المواد الرياضيات والفيزياء أو علوم الحاسب.</li>
+                </ul>
+            </div>
+
+            <!-- Tab 3: American -->
+            <div id="american" x-show="certType === 'american'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-900 flex items-center justify-center font-bold">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900">الدبلومة الأمريكية (American High School Diploma)</h3>
+                        <p class="text-xs text-slate-500">لخريجي المدارس الأمريكية المعتمدة</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 text-xs font-bold text-slate-700 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> معدل تراكمي (GPA) لا يقل عن 2.5 من 4.00 في الصفوف 10، 11، 12.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> اختبار SAT (درجة 500 في الرياضيات لتكنولوجيا المعلومات) أو اختبارات AP المعيارية.</li>
+                </ul>
+            </div>
+
+            <!-- Tab 4: Postgrad -->
+            <div id="postgrad" x-show="certType === 'postgrad'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900">شروط القبول لبرامج الدراسات العليا (الماجستير)</h3>
+                        <p class="text-xs text-slate-500">المعايير الرسمية المعتمدة لبرامج الماجستير الخمسة</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-bold text-slate-700">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-[#004876]">المعدل التراكمي في البكالوريوس:</span>
+                        <p class="text-base font-black text-slate-900">2.8 من 4.0 كحد أدنى</p>
+                        <p class="text-slate-500 font-normal">من جامعة معترف بها ومعتمدة من وزارة التعليم القطرية.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span class="text-[#004876]">القبول المشروط بالخبرة العملية:</span>
+                        <p class="text-base font-black text-slate-900">معدل بين (2.0 - 2.79)</p>
+                        <p class="text-slate-500 font-normal">بشرط استكمال خبرة مهنية لا تقل عن 3 سنوات في مجال التخصص.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: International Scholarships -->
+            <div id="scholarships" x-show="certType === 'scholarships'" x-cloak class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#be9c79]/20 text-[#004876] flex items-center justify-center font-bold">
+                        <i data-lucide="star" class="w-5 h-5 text-[#be9c79]"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-slate-900">شروط منحة قطر للطلبة الدوليين (Qatar Scholarships)</h3>
+                        <p class="text-xs text-slate-500">للمتقدمين من خارج دولة قطر</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 text-xs font-bold text-slate-700 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> معدل شهادة الثانوية العامة لا يقل عن 90% أو ما يعادلها.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> أن يكون عمر المتقدم بين 18 و 22 سنة عند بدء الدراسة.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> اجتياز المقابلة الشخصية واختبار الكفاءة اللغوية بنجاح.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> ألا يكون المتقدم مقيماً في دولة قطر أو حاصلاً على شهادة جامعية مسبقاً.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Language Proficiency / IELTS Section -->
+        <div id="ielts" class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                <i data-lucide="languages" class="w-5 h-5 text-[#004876]"></i>
+                <span>اختبارات الكفاءة اللغوية ومتطلبات اللغة الإنجليزية (IELTS / TOEFL)</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-bold text-slate-700">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-[#004876]">كلية تكنولوجيا المعلومات</span>
+                    <p class="text-base font-black text-slate-900">IELTS Academic 5.5 أو TOEFL iBT 61</p>
+                    <p class="text-slate-500 font-normal">أو اجتياز البرنامج التأسيسي للغة الإنجليزية بجامعة لوسيل.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-[#004876]">برامج الشراكة مع جامعة ساسكس</span>
+                    <p class="text-base font-black text-slate-900">IELTS Academic 6.0</p>
+                    <p class="text-slate-500 font-normal">مع درجة لا تقل عن 5.5 في كل مهارة فرعية.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span class="text-[#004876]">اختبار تحديد المستوى بجامعة لوسيل (LPT)</span>
+                    <p class="text-base font-black text-slate-900">رسوم 150 ر.ق</p>
+                    <p class="text-slate-500 font-normal">يُعقد أسبوعياً بمقر الجامعة لتحديد المستوى والإعفاء.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Required Documents Checklist -->
+        <div id="docs" class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                <i data-lucide="folder-check" class="w-5 h-5 text-[#004876]"></i>
+                <span>قائمة المستندات والوثائق الرسمية المطلوبة</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <span class="w-6 h-6 rounded-full bg-[#004876] text-white flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900">أصل أو صورة مصدقة من شهادة الثانوية العامة</h4>
+                        <p class="text-[11px] text-slate-500">مع كشف الدرجات ومختومة من وزارة التربية والتعليم والتعليم العالي.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <span class="w-6 h-6 rounded-full bg-[#004876] text-white flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900">صورة من البطاقة الشخصية القطرية أو جواز السفر</h4>
+                        <p class="text-[11px] text-slate-500">سارية المفعول للقطريين والمقيمين والطلبة الدوليين.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <span class="w-6 h-6 rounded-full bg-[#004876] text-white flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900">شهادة اختبار اللغة الإنجليزية (IELTS / TOEFL)</h4>
+                        <p class="text-[11px] text-slate-500">إن وجدت، أو يمكن الخضوع لاختبار تحديد المستوى داخل الجامعة (رسوم 150 ريال).</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <span class="w-6 h-6 rounded-full bg-[#004876] text-white flex items-center justify-center text-xs font-bold shrink-0">4</span>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900">شهادة اللياقة الطبية والفحص الطبي</h4>
+                        <p class="text-[11px] text-slate-500">صادرة من مركز صحي معتمد بدولة قطر.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+</body>
+</html>

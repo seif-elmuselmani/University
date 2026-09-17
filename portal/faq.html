@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة | جامعة لوسيل (Frequently Asked Questions - FAQ)</title>
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cairo & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="js/mega-menu.js"></script>
+    <script src="js/navigation-hub.js"></script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#be9c79]/30 selection:text-[#004876]">
+
+    <div id="lusail-header-mount"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-slate-50 border-b border-slate-200 py-2.5 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-medium text-slate-500">
+            <a href="index.html" class="hover:text-[#004876] flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i> الرئيسية</a>
+            <span>/</span>
+            <span class="text-slate-900 font-bold">الأسئلة الشائعة</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="bg-gradient-to-br from-[#004876] to-[#002840] text-white py-12 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto space-y-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950 inline-block">
+                دليل الإجابات الشامل
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-black">الأسئلة الأكثر شيوعاً</h1>
+            <p class="text-slate-200 text-sm max-w-2xl leading-relaxed">
+                جمعنا لك أبرز الاستفسارات المتعلقة بشروط القبول، الرسوم الدراسية، منح التفوق، ومعادلة الساعات الأكاديمية.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 space-y-8">
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+            <button @click="currentCat = 'all'" :class="currentCat === 'all' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">
+                كافة الأسئلة
+            </button>
+            <button @click="currentCat = 'admissions'" :class="currentCat === 'admissions' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">
+                القبول والتسجيل
+            </button>
+            <button @click="currentCat = 'fees'" :class="currentCat === 'fees' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">
+                الرسوم والمنح الدراسية
+            </button>
+            <button @click="currentCat = 'academic'" :class="currentCat === 'academic' ? 'bg-[#004876] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">
+                الدراسة ومعادلة الساعات
+            </button>
+        </div>
+
+        <!-- Accordion FAQs -->
+        <div class="space-y-4 max-w-4xl">
+            <!-- FAQ 1 -->
+            <div x-show="currentCat === 'all' || currentCat === 'admissions'" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <button @click="openFaq = (openFaq === 1 ? null : 1)" class="w-full p-5 text-right flex items-center justify-between font-bold text-slate-900 text-sm hover:bg-slate-50 transition">
+                    <span>هل جامعة لوسيل معتمدة رسمياً من وزارة التربية والتعليم والتعليم العالي بدولة قطر؟</span>
+                    <i data-lucide="chevron-down" :class="openFaq === 1 ? 'rotate-180 text-[#004876]' : 'text-slate-400'" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div x-show="openFaq === 1" x-cloak class="p-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                    نعم، جامعة لوسيل هي أول جامعة وطنية خاصة معتمدة ومعترف بكافة برامجها وشهاداتها الصادرة من قبل وزارة التربية والتعليم والتعليم العالي بدولة قطر، بالإضافة إلى اعتماد شراكاتها مع جامعات دولية مثل جامعة السوربون وساسكس.
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div x-show="currentCat === 'all' || currentCat === 'fees'" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <button @click="openFaq = (openFaq === 2 ? null : 2)" class="w-full p-5 text-right flex items-center justify-between font-bold text-slate-900 text-sm hover:bg-slate-50 transition">
+                    <span>ما هي شروط الحصول على منحة التفوق الأكاديمي (50% أو 100%)؟</span>
+                    <i data-lucide="chevron-down" :class="openFaq === 2 ? 'rotate-180 text-[#004876]' : 'text-slate-400'" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div x-show="openFaq === 2" x-cloak class="p-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                    تمنح الجامعة منحة تفوق بنسبة 100% للطلبة الحاصلين على 95% فأعلى في الثانوية العامة، ومنحة 50% للطلبة الحاصلين على 90% فأعلى، شريطة الحفاظ على معدل تراكمي لا يقل عن 3.50 في الفصول اللاحقة.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div x-show="currentCat === 'all' || currentCat === 'academic'" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <button @click="openFaq = (openFaq === 3 ? null : 3)" class="w-full p-5 text-right flex items-center justify-between font-bold text-slate-900 text-sm hover:bg-slate-50 transition">
+                    <span>هل يمكن تحويل ساعات معتمدة من جامعة أخرى درست بها سابقاً؟</span>
+                    <i data-lucide="chevron-down" :class="openFaq === 3 ? 'rotate-180 text-[#004876]' : 'text-slate-400'" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div x-show="openFaq === 3" x-cloak class="p-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                    نعم، تقبل لجنة المعادلات بالجامعة احتساب المقررات التي درسها الطالب في جامعة معترف بها بتقدير لا يقل عن جيد (C أو 2.0)، وبما لا يتجاوز 50% من إجمالي الساعات المطلوبة للتخرج في جامعة لوسيل.
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div x-show="currentCat === 'all' || currentCat === 'admissions'" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <button @click="openFaq = (openFaq === 4 ? null : 4)" class="w-full p-5 text-right flex items-center justify-between font-bold text-slate-900 text-sm hover:bg-slate-50 transition">
+                    <span>هل يشترط الحصول على شهادة IELTS قبل التقديم؟</span>
+                    <i data-lucide="chevron-down" :class="openFaq === 4 ? 'rotate-180 text-[#004876]' : 'text-slate-400'" class="w-4 h-4 transition-transform"></i>
+                </button>
+                <div x-show="openFaq === 4" x-cloak class="p-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                    للبرامج التي تدرس باللغة الإنجليزية (مثل الذكاء الاصطناعي وإدارة الأعمال بالإنجليزية)، يشترط IELTS 5.0 أو اجتياز اختبار تحديد المستوى الذي تعقده الجامعة في مركز اللغات.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <!-- Unified Institutional Footer Mount -->
+    <div id="lusail-footer-mount"></div>
+
+</body>
+</html>
