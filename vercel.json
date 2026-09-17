@@ -18,6 +18,14 @@
       "destination": "/presentation/deck.html"
     },
     {
+      "source": "/architecture",
+      "destination": "/portal/architecture.html"
+    },
+    {
+      "source": "/dossier",
+      "destination": "/portal/architecture.html"
+    },
+    {
       "source": "/:path*",
       "destination": "/portal/:path*"
     }

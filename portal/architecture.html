@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معمارية النظام الشاملة ومصفوفة المتطلبات | جامعة لوسيل OS</title>
+    <meta name="description" content="الدليل المعماري التفاعلي لمنظومة جامعة لوسيل الذكية - 34 نظاماً وموديولاً متكاملاً ومصفوفة متطلبات الإطلاق.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://lu.edu.qa/img/liglogo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lunavy: {
+                            DEFAULT: '#004876',
+                            light: '#005f9e',
+                            dark: '#003354'
+                        },
+                        lugold: {
+                            DEFAULT: '#be9c79',
+                            light: '#d4b595',
+                            dark: '#9a7b59',
+                            alpha: 'rgba(190, 156, 121, 0.1)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js & Lucide -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;900&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Cairo', 'Outfit', sans-serif; background-color: #0B132B; color: #E2E8F0; }
+        .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(190, 156, 121, 0.2); }
+        .glass-card:hover { border-color: rgba(190, 156, 121, 0.6); box-shadow: 0 10px 30px -10px rgba(0, 72, 118, 0.5); }
+        .gold-gradient-text { background: linear-gradient(135deg, #FFF 0%, #D4B595 50%, #BE9C79 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .navy-gradient-bg { background: radial-gradient(circle at 50% 0%, #004876 0%, #0B132B 70%); }
+    </style>
+</head>
+<body x-data="architectureApp()" class="min-h-screen">
+
+    <!-- Top Sticky Header -->
+    <header class="sticky top-0 z-50 glass-card border-b border-lugold/20 px-4 sm:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="https://lu.edu.qa/img/liglogo.png" alt="Lusail University Logo" class="h-10 w-auto bg-white/10 p-1 rounded-lg border border-lugold/30 group-hover:scale-105 transition">
+                <div>
+                    <span class="block text-sm font-black text-white tracking-wide">LUSAIL UNIVERSITY OS</span>
+                    <span class="block text-[10px] text-lugold font-semibold">المعمارية المؤسسية ومصفوفة الإطلاق</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <a href="/" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700 rounded-lg border border-slate-700 transition">
+                <i data-lucide="external-link" class="w-3.5 h-3.5 text-lugold"></i>
+                الموقع الحي (MVP v1.0)
+            </a>
+            <a href="/presentation" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700 rounded-lg border border-slate-700 transition">
+                <i data-lucide="presentation" class="w-3.5 h-3.5 text-lugold"></i>
+                العرض التقديمي
+            </a>
+            <a href="Lusail_University_System_Architecture_and_Requirements.pdf" download class="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-bold text-slate-950 bg-gradient-to-r from-lugold to-lugold-light hover:brightness-110 rounded-lg shadow-lg shadow-lugold/20 transition">
+                <i data-lucide="file-down" class="w-4 h-4"></i>
+                تحميل الملف التنفيذي (PDF)
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="navy-gradient-bg px-4 sm:px-8 pt-12 pb-16 text-center relative overflow-hidden border-b border-lugold/20">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-lunavy/80 border border-lugold/40 text-lugold text-xs font-bold mb-4 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>الإصدار الأولي التفاعلي 1.0 — Lusail University OS Ecosystem</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl font-extrabold gold-gradient-text leading-tight mb-4">
+                المعمارية المؤسسية الشاملة ومصفوفة المتطلبات
+            </h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+                خارطة الطريق التقنية الشاملة لـ <strong class="text-lugold font-bold">34 منظومة ونظاماً فرعياً</strong> تغطي الهوية الرقمية، النواة الأكاديمية، القبول والتسجيل، إدارة التعلم، شؤون الطلاب، والتكاملات المؤسسية مع متطلبات البيانات للتشغيل النهائي.
+            </p>
+
+            <!-- Prototype Notice Banner -->
+            <div class="p-4 rounded-xl bg-lunavy/40 border border-lugold/30 text-right max-w-3xl mx-auto flex items-start gap-3.5 shadow-xl">
+                <div class="p-2 rounded-lg bg-lugold/20 text-lugold mt-0.5 shrink-0">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-lugold mb-1">تنويه هندسي وتنفيذي للجامعة:</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        النسخة المرفوعة حالياً عبر الرابط الحي تمثل <strong class="text-white">النموذج الأولي الفعّال (Interactive MVP v1.0)</strong> والتي تحتوي بالفعل على <strong class="text-emerald-400">21 صفحة ونظاماً نشطاً</strong> (البوابة، برامج الكليات الـ 17، القبول الذكي، دليل الرسوم، 16 خدمة طلابية، والمظهر المؤسسي). الأنظمة المتبقية مدرجة أدناه كجزء من بنية النظام الكامل وجاهزة للربط فور تزويدنا بالبيانات والربط السحابي.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 Strategic Pillars Grid -->
+    <section class="px-4 sm:px-8 -mt-8 relative z-20 max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="w-10 h-10 mx-auto rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-2">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xs font-bold text-white mb-0.5">البنية والأمان</h4>
+                <p class="text-[10px] text-slate-400">3 موديولات أساسية</p>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="w-10 h-10 mx-auto rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-2">
+                    <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xs font-bold text-white mb-0.5">النواة الأكاديمية</h4>
+                <p class="text-[10px] text-slate-400">7 موديولات تخصصية</p>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="w-10 h-10 mx-auto rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xs font-bold text-white mb-0.5">الطلبة والقبول</h4>
+                <p class="text-[10px] text-slate-400">6 موديولات و 16 خدمة</p>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="w-10 h-10 mx-auto rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-2">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xs font-bold text-white mb-0.5">ERP & المالية</h4>
+                <p class="text-[10px] text-slate-400">6 موديولات مؤسسية</p>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="w-10 h-10 mx-auto rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-2">
+                    <i data-lucide="cloud-cog" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xs font-bold text-white mb-0.5">الربط والتكامل</h4>
+                <p class="text-[10px] text-slate-400">M365, Google, Research</p>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="w-10 h-10 mx-auto rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center mb-2">
+                    <i data-lucide="building-2" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xs font-bold text-white mb-0.5">الحرم والجودة</h4>
+                <p class="text-[10px] text-slate-400">6 موديولات تشغيلية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Tabs & Filter Section -->
+    <section class="px-4 sm:px-8 py-12 max-w-7xl mx-auto">
+        
+        <!-- View Mode Switcher -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-slate-900/90 p-3 rounded-2xl border border-lugold/20">
+            
+            <!-- Tab Buttons -->
+            <div class="flex items-center gap-2 w-full md:w-auto">
+                <button @click="activeTab = 'modules'" :class="activeTab === 'modules' ? 'bg-lunavy text-white shadow-md border-lugold/40' : 'text-slate-400 hover:text-white bg-slate-800/50'" class="flex-1 md:flex-none px-4 py-2 rounded-xl text-xs font-bold border border-transparent transition flex items-center justify-center gap-2">
+                    <i data-lucide="layout-grid" class="w-4 h-4 text-lugold"></i>
+                    مستكشف الموديولات (34 موديولاً)
+                </button>
+                <button @click="activeTab = 'tree'" :class="activeTab === 'tree' ? 'bg-lunavy text-white shadow-md border-lugold/40' : 'text-slate-400 hover:text-white bg-slate-800/50'" class="flex-1 md:flex-none px-4 py-2 rounded-xl text-xs font-bold border border-transparent transition flex items-center justify-center gap-2">
+                    <i data-lucide="git-fork" class="w-4 h-4 text-lugold"></i>
+                    الشجرة المعمارية التفصيلية
+                </button>
+                <button @click="activeTab = 'checklist'" :class="activeTab === 'checklist' ? 'bg-lunavy text-white shadow-md border-lugold/40' : 'text-slate-400 hover:text-white bg-slate-800/50'" class="flex-1 md:flex-none px-4 py-2 rounded-xl text-xs font-bold border border-transparent transition flex items-center justify-center gap-2">
+                    <i data-lucide="check-square" class="w-4 h-4 text-lugold"></i>
+                    مصفوفة متطلبات الإدارات
+                </button>
+                <button @click="activeTab = 'requests'" :class="activeTab === 'requests' ? 'bg-lunavy text-white shadow-md border-lugold/40' : 'text-slate-400 hover:text-white bg-slate-800/50'" class="flex-1 md:flex-none px-4 py-2 rounded-xl text-xs font-bold border border-transparent transition flex items-center justify-center gap-2">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-lugold"></i>
+                    طلب ميزة / صفحة خاصة
+                </button>
+            </div>
+
+            <!-- Search & Status Filter (Visible in modules tab) -->
+            <div x-show="activeTab === 'modules'" class="flex items-center gap-2 w-full md:w-auto">
+                <div class="relative flex-1 md:w-64">
+                    <input type="text" x-model="searchQuery" placeholder="بحث في الموديولات والأنظمة..." class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-1.5 pr-8 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-lugold">
+                    <i data-lucide="search" class="w-3.5 h-3.5 text-slate-500 absolute top-2.5 right-2.5"></i>
+                </div>
+                <select x-model="categoryFilter" class="bg-slate-950/80 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-lugold">
+                    <option value="all">كل الفئات</option>
+                    <option value="core">البنية والأمان</option>
+                    <option value="academic">الأكاديمي و LMS</option>
+                    <option value="student">الطلبة والتسجيل</option>
+                    <option value="erp">ERP والموارد</option>
+                    <option value="integration">التكاملات</option>
+                    <option value="campus">الحرم والخدمات</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- TAB 1: MODULES GRID -->
+        <div x-show="activeTab === 'modules'" x-cloak>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <template x-for="mod in filteredModules" :key="mod.id">
+                    <div class="glass-card rounded-2xl p-5 flex flex-col justify-between transition hover:-translate-y-1">
+                        <div>
+                            <!-- Card Header -->
+                            <div class="flex items-start justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-8 h-8 rounded-lg bg-lunavy flex items-center justify-center text-xs font-black text-lugold border border-lugold/30" x-text="mod.id"></span>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-white" x-text="mod.titleAr"></h3>
+                                        <span class="text-[11px] font-mono text-slate-400" x-text="mod.titleEn"></span>
+                                    </div>
+                                </div>
+                                <span :class="mod.statusClass" class="px-2 py-0.5 rounded-full text-[10px] font-bold shrink-0" x-text="mod.statusText"></span>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-xs text-slate-300 mb-4 leading-relaxed" x-text="mod.description"></p>
+
+                            <!-- Sub features tags -->
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <template x-for="tag in mod.features" :key="tag">
+                                    <span class="px-2 py-0.5 rounded-md bg-slate-800/80 text-[10px] font-mono text-slate-300 border border-slate-700/50" x-text="tag"></span>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                            <span class="text-[10px] text-slate-400 font-mono" x-text="mod.techStack"></span>
+                            <template x-if="mod.portalLink">
+                                <a :href="mod.portalLink" class="inline-flex items-center gap-1 text-[11px] font-bold text-lugold hover:underline">
+                                    معاينة في الموقع الحي
+                                    <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- TAB 2: DETAILED TREE VIEW -->
+        <div x-show="activeTab === 'tree'" x-cloak class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="folder-tree" class="w-5 h-5 text-lugold"></i>
+                        الهيكلية البرمجية المعمارية الكاملة (Lusail University OS Tree)
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">تفريعات الـ 34 موديولاً ونظاماً فرعياً ومكوناتها التشغيلية</p>
+                </div>
+                <button @click="expandAllTree = !expandAllTree" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700">
+                    <span x-text="expandAllTree ? 'طي الكل' : 'توسيع الكل'"></span>
+                </button>
+            </div>
+
+            <div class="space-y-3 font-mono text-xs text-slate-300">
+                <template x-for="treeMod in allModules" :key="treeMod.id">
+                    <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-950/40">
+                        <button @click="treeMod.open = !treeMod.open" class="w-full px-4 py-3 bg-slate-900/60 hover:bg-slate-900 flex items-center justify-between text-right">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="folder" class="w-4 h-4 text-lugold"></i>
+                                <span class="font-bold text-white" x-text="treeMod.id + '. ' + treeMod.titleEn + ' — ' + treeMod.titleAr"></span>
+                                <span :class="treeMod.statusClass" class="text-[9px] px-2 py-0.2 rounded-full" x-text="treeMod.statusText"></span>
+                            </div>
+                            <i data-lucide="chevron-down" :class="treeMod.open || expandAllTree ? 'rotate-180' : ''" class="w-4 h-4 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div x-show="treeMod.open || expandAllTree" class="p-4 bg-slate-950/80 border-t border-slate-800/80 space-y-2">
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                                <template x-for="item in treeMod.features" :key="item">
+                                    <div class="flex items-center gap-2 p-2 rounded bg-slate-900/80 text-[11px] text-slate-300 border border-slate-800">
+                                        <i data-lucide="file-code" class="w-3 h-3 text-lugold/70 shrink-0"></i>
+                                        <span x-text="item"></span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- TAB 3: DATA INTAKE CHECKLIST -->
+        <div x-show="activeTab === 'checklist'" x-cloak class="space-y-6">
+            <div class="glass-card rounded-2xl p-6 border-l-4 border-l-lugold">
+                <h3 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="clipboard-list" class="w-5 h-5 text-lugold"></i>
+                    مصفوفة تسليم البيانات والملفات المطلوبة من إدارات جامعة لوسيل
+                </h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    لتغذية النظام بالبيانات الرسمية النهائية والاعتماد التشغيلي الكامل، يرجى تزويدنا بالملفات والشيتات المبينة أدناه بحسب الإدارة المعنية:
+                </p>
+            </div>
+
+            <!-- Department 1: Admissions -->
+            <div class="glass-card rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-xl bg-blue-500/20 text-blue-400">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">1. عمادة القبول والتسجيل (Admissions & Registration)</h4>
+                            <span class="text-[11px] text-slate-400">الخطط الأكاديمية واللوائح ورسوم البرامج</span>
+                        </div>
+                    </div>
+                    <a href="Lusail_University_Academic_Programs_Data.csv" download class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-lugold border border-lugold/30 flex items-center gap-1.5">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        تحميل نموذج شيت البرامج (CSV)
+                    </a>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400">
+                            <tr>
+                                <th class="p-3 rounded-r-lg">المادة / البيان المطلوب</th>
+                                <th class="p-3">الصيغة المفضلة</th>
+                                <th class="p-3">الحالة في النسخة الحالية</th>
+                                <th class="p-3 rounded-l-lg">ملاحظات تقنية</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr>
+                                <td class="p-3 font-semibold text-white">الخطط الدراسية الكاملة للـ 17 تخصصاً مع رموز المقررات وساعاتها</td>
+                                <td class="p-3 font-mono text-lugold">Excel / CSV</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">مدمج بالكامل</span></td>
+                                <td class="p-3 text-slate-400">تم بناء جدول كامل بـ 17 برنامجاً وجاهز للمراجعة والاعتماد</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">جدول الرسوم الدراسية المعتمد للساعة ونسب المنح</td>
+                                <td class="p-3 font-mono text-lugold">PDF رسمي</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">مدمج وحاسبة نشطة</span></td>
+                                <td class="p-3 text-slate-400">الحاسبة التفاعلية تعمل برسم 1,600 ر.ق للساعة والمنح 10%-50%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">سلم الدرجات وحساب المعدل التراكمي (GPA Scale)</td>
+                                <td class="p-3 font-mono text-lugold">PDF / Excel</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">نموذج قياسي معد</span></td>
+                                <td class="p-3 text-slate-400">تم تجهيز سلم درجات معياري (A إلى F مع نقاط 4.0)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Department 2: Colleges -->
+            <div class="glass-card rounded-2xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-amber-500/20 text-amber-400">
+                        <i data-lucide="school" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">2. الكليات الأكاديمية الأربع (The 4 Colleges)</h4>
+                        <span class="text-[11px] text-slate-400">التجارة، القانون، تكنولوجيا المعلومات، والتربية والآداب</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400">
+                            <tr>
+                                <th class="p-3 rounded-r-lg">المادة / البيان المطلوب</th>
+                                <th class="p-3">الصيغة المفضلة</th>
+                                <th class="p-3">الحالة في النسخة الحالية</th>
+                                <th class="p-3 rounded-l-lg">ملاحظات تقنية</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr>
+                                <td class="p-3 font-semibold text-white">قائمة أعضاء هيئة التدريس (الاسم، الرتبة، القسم، البريد)</td>
+                                <td class="p-3 font-mono text-lugold">Excel Sheet</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">قيد الانتظار</span></td>
+                                <td class="p-3 text-slate-400">لإنشاء صفحات البروفايل الأكاديمي ودليل التواصل</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">كلمة عمداء الكليات المحدثة والسيرة الذاتية الرسمية</td>
+                                <td class="p-3 font-mono text-lugold">Word / Text</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">صيغ نموذجية مفعلة</span></td>
+                                <td class="p-3 text-slate-400">تم وضع نصوص تأسيسية فاخرة لكل عمادة قابلة للاستبدال</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Department 3: Student Affairs & Services -->
+            <div class="glass-card rounded-2xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">3. عمادة شؤون الطلاب (Student Affairs & E-Services)</h4>
+                        <span class="text-[11px] text-slate-400">نماذج الخدمات الإلكترونية الـ 16 والأنشطة والأندية</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400">
+                            <tr>
+                                <th class="p-3 rounded-r-lg">المادة / البيان المطلوب</th>
+                                <th class="p-3">الصيغة المفضلة</th>
+                                <th class="p-3">الحالة في النسخة الحالية</th>
+                                <th class="p-3 rounded-l-lg">ملاحظات تقنية</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr>
+                                <td class="p-3 font-semibold text-white">الترويسة الرسمية المعتمدة لشهادات القيد والإفادات (Letterhead)</td>
+                                <td class="p-3 font-mono text-lugold">Vector / PDF</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">توليد رقمي نشط</span></td>
+                                <td class="p-3 text-slate-400">النظام يولد شهادات رقمية بـ QR Code مطابق للهوية المؤسسية</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">قائمة الأندية الطلابية المعتمدة وضوابط التسجيل</td>
+                                <td class="p-3 font-mono text-lugold">Word / PDF</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">مدمج في الموقع</span></td>
+                                <td class="p-3 text-slate-400">صفحة الحياة الجامعية تضم 6 أندية نموذجية مع استمارات انضمام</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Department 4: IT & Infrastructure -->
+            <div class="glass-card rounded-2xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-purple-500/20 text-purple-400">
+                        <i data-lucide="server" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">4. إدارة تقنية المعلومات (IT & Infrastructure)</h4>
+                        <span class="text-[11px] text-slate-400">الربط بالنطاق الرسمي lu.edu.qa والهوية الموحدة Microsoft Entra</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400">
+                            <tr>
+                                <th class="p-3 rounded-r-lg">المادة / البيان المطلوب</th>
+                                <th class="p-3">الصيغة المفضلة</th>
+                                <th class="p-3">الحالة في النسخة الحالية</th>
+                                <th class="p-3 rounded-l-lg">ملاحظات تقنية</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr>
+                                <td class="p-3 font-semibold text-white">إعداد سجلات DNS (CNAME / A Records) للنطاق lu.edu.qa</td>
+                                <td class="p-3 font-mono text-lugold">DNS Records</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">جاهز للربط الفوري</span></td>
+                                <td class="p-3 text-slate-400">سيتم تزويد الـ IT بسجلات الـ CNAME فور رغبتهم بربط الدومين الرسمي</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">بيانات تطبيق Microsoft Entra ID (Client ID / Tenant ID) للدخول الموحد</td>
+                                <td class="p-3 font-mono text-lugold">Azure App Reg</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">مهيأ برمجياً</span></td>
+                                <td class="p-3 text-slate-400">كود الدخول الموحد SSO مكتمل ومجهز للربط بالـ Tenant الجامعي</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: CUSTOMIZATION REQUESTS BUILDER -->
+        <div x-show="activeTab === 'requests'" x-cloak class="glass-card rounded-2xl p-6 sm:p-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-6">
+                    <span class="px-3 py-1 rounded-full bg-lugold/20 text-lugold text-xs font-bold inline-block mb-2">تخصيص متطلبات الجامعة</span>
+                    <h3 class="text-xl font-bold text-white mb-2">طلب إضافة صفحة جديدة أو ميزة مخصصة</h3>
+                    <p class="text-xs text-slate-300">
+                        إذا كانت الجامعة ترغب بإضافة ميزات إضافية، صفحات مخصصة، أو تقارير خاصة لم يتم تضمينها في الـ 34 موديولاً، يمكن تدوينها هنا لتضمينها في خطة التنفيذ المباشرة.
+                    </p>
+                </div>
+
+                <form @submit.prevent="submitRequest" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">نوع الميزة أو الطلب</label>
+                        <select x-model="requestForm.type" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-lugold">
+                            <option value="page">صفحة جديدة مخصصة (Custom Page)</option>
+                            <option value="service">خدمة إلكترونية إضافية للطلبة أو الموظفين</option>
+                            <option value="integration">تكامل مع نظام طرف ثالث (Integration / API)</option>
+                            <option value="report">تقرير أو داشبورد إحصائي خاص</option>
+                            <option value="workflow">مسار موافقات أو سير عمل إداري</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">اسم الميزة / الصفحة المطلوبة</label>
+                        <input type="text" x-model="requestForm.title" placeholder="مثال: نظام حجز المختبرات البحثية المتقدمة..." class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-lugold">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">الإدارة أو الكلية المستفيدة</label>
+                        <input type="text" x-model="requestForm.department" placeholder="مثال: كلية تكنولوجيا المعلومات / مركز البحوث..." class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-lugold">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">التفاصيل والمدخلات والمخرجات المطلوبة</label>
+                        <textarea x-model="requestForm.details" rows="4" placeholder="اشرح بالتفصيل الحقول المطلوبة، شروط الاستخدام، وصلاحيات المستخدمين..." class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-lugold"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-lugold to-lugold-light text-slate-950 font-bold text-xs shadow-lg shadow-lugold/20 hover:brightness-110 transition flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span>إرسال الطلب وإضافته لجدول التطوير</span>
+                    </button>
+
+                    <div x-show="requestSubmitted" class="p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs text-center font-bold">
+                        تم تسجيل الطلب بنجاح وسيتم إدراجه ضمن جدول المهام التنفيذية!
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Bottom Footer -->
+    <footer class="glass-card border-t border-lugold/20 px-4 sm:px-8 py-6 text-center text-xs text-slate-400">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-lugold"></span>
+                <span>منظومة جامعة لوسيل الذكية — Lusail University OS v1.0</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="/" class="hover:text-lugold">البوابة الرئيسية</a>
+                <a href="/presentation" class="hover:text-lugold">العرض التقديمي</a>
+                <a href="Lusail_University_System_Architecture_and_Requirements.pdf" download class="hover:text-lugold">تحميل PDF</a>
+            </div>
+            <span>جميع الحقوق محفوظة © 2026 جامعة لوسيل</span>
+        </div>
+    </footer>
+
+    <script>
+        function architectureApp() {
+            return {
+                activeTab: 'modules',
+                searchQuery: '',
+                categoryFilter: 'all',
+                expandAllTree: false,
+                requestSubmitted: false,
+                requestForm: { type: 'page', title: '', department: '', details: '' },
+                submitRequest() {
+                    this.requestSubmitted = true;
+                    setTimeout(() => { this.requestSubmitted = false; }, 5000);
+                },
+                allModules: [
+                    {
+                        id: '00', category: 'core', titleAr: 'البنية الأساسية والحوسبة السحابية', titleEn: 'FOUNDATION & CLOUD INFRASTRUCTURE',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'البيئة السحابية الآمنة وقواعد البيانات عالية التوافر ومحرك الـ REST/GraphQL APIs والمراقبة المستمرة.',
+                        features: ['Frappe Core Framework', 'MariaDB / PostgreSQL', 'Redis Cache & Queues', 'REST & GraphQL APIs', 'Docker / Nginx Microservices', 'SSL/TLS & Backup System'],
+                        techStack: 'Cloud Microservices & API Engine', portalLink: '/'
+                    },
+                    {
+                        id: '01', category: 'core', titleAr: 'الهوية والدخول الموحد', titleEn: 'IDENTITY & ACCESS MANAGEMENT',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'بوابة النفاذ الموحد للأكاديميين والطلبة والموظفين مع دعم Microsoft 365 Entra ID و 2FA.',
+                        features: ['Single Sign-On (SSO)', 'Microsoft Entra ID', 'Google Workspace SSO', 'Role-Based Permissions (RBAC)', '2FA Authentication', 'Unified Access Portals'],
+                        techStack: 'OAuth 2.0 / SAML / Entra ID', portalLink: '/student-portal.html'
+                    },
+                    {
+                        id: '02', category: 'academic', titleAr: 'النواة الجامعية والهيكل الأكاديمي', titleEn: 'UNIVERSITY CORE & HIERARCHY',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'هيكلة الكليات الأربع والأقسام والبرامج الـ 17 والساعات المعتمدة والخطط الدراسية.',
+                        features: ['4 Academic Colleges', '17 Degree Programs', 'Credit Hour System', 'Curriculum Versioning', 'Prerequisites Logic', 'Academic Calendar'],
+                        techStack: 'Academic Hierarchy Engine', portalLink: '/colleges.html'
+                    },
+                    {
+                        id: '03', category: 'student', titleAr: 'نظام معلومات الطلبة', titleEn: 'STUDENT INFORMATION SYSTEM (SIS)',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'دورة حياة الطالب، السجل الأكاديمي، كشف الدرجات الرقمي، وتدقيق التخرج.',
+                        features: ['Student Lifecycle', 'Course Registration', 'Digital Transcripts', 'GPA Calculation', 'Degree Audit', 'Student Holds Management'],
+                        techStack: 'SIS Real-Time Engine', portalLink: '/student-portal.html'
+                    },
+                    {
+                        id: '04', category: 'student', titleAr: 'القبول والتسجيل الذكي', titleEn: 'ADMISSIONS & REGISTRATION',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'استمارة التقديم الإلكترونية، تدقيق الوثائق، واختبارات القبول والتحويل.',
+                        features: ['Online Application Portal', 'Document Verification', 'Admission Analytics', 'Transfer Admissions', 'Scholarship Admissions', 'Acceptance Letters'],
+                        techStack: 'Admissions Pipeline Engine', portalLink: '/admissions.html'
+                    },
+                    {
+                        id: '05', category: 'academic', titleAr: 'الإدارة الأكاديمية والجداول', titleEn: 'ACADEMIC MANAGEMENT & SCHEDULING',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'إدارة وتوزيع القاعات، الجداول الدراسية، والعبء الأكاديمي للأساتذة.',
+                        features: ['Curriculum Mapping', 'Faculty Workload', 'Classroom Scheduling', 'Exam Scheduling', 'Academic Advising Notes', 'Study Plans Tracking'],
+                        techStack: 'Scheduling & Workload Engine', portalLink: '/colleges.html'
+                    },
+                    {
+                        id: '06', category: 'academic', titleAr: 'إدارة التعلم الإلكتروني', titleEn: 'LEARNING MANAGEMENT SYSTEM (LMS)',
+                        statusText: 'مجهز للربط', statusClass: 'bg-blue-500/20 text-blue-400 border border-blue-500/40',
+                        description: 'المقررات الرقمية، الفصول التفاعلية عبر Teams/Zoom، بنك الأسئلة والشهادات.',
+                        features: ['Interactive Lessons', 'SCORM & Video Lectures', 'Quizzes & Question Banks', 'MS Teams Integration', 'Attendance & Progress', 'Digital Certificates'],
+                        techStack: 'Frappe Learning & Teams API', portalLink: null
+                    },
+                    {
+                        id: '07', category: 'academic', titleAr: 'الاختبارات والتقييم الإلكتروني', titleEn: 'EXAMS & ASSESSMENT',
+                        statusText: 'مجهز للربط', statusClass: 'bg-blue-500/20 text-blue-400 border border-blue-500/40',
+                        description: 'إدارة بنوك الأسئلة، الاختبارات الإلكترونية والميدانية، ورصد الدرجات والطعون.',
+                        features: ['Online & Offline Exams', 'Randomized Questions', 'Gradebook & Approvals', 'Grade Appeals & Regrading', 'Academic Integrity Checks', 'Exam Analytics'],
+                        techStack: 'Assessment Engine', portalLink: null
+                    },
+                    {
+                        id: '08', category: 'student', titleAr: 'الحضور والغياب الذكي', titleEn: 'ATTENDANCE MANAGEMENT',
+                        statusText: 'مجهز للربط', statusClass: 'bg-blue-500/20 text-blue-400 border border-blue-500/40',
+                        description: 'تسجيل الحضور عبر الـ QR Code، البصمة، وتنبيهات الغياب الآلية.',
+                        features: ['QR Attendance Scanner', 'Biometric Integration', 'Course Absence Warnings', 'Student Excuse Requests', 'Faculty Attendance', 'Attendance Analytics'],
+                        techStack: 'QR Code & Mobile Attendance', portalLink: null
+                    },
+                    {
+                        id: '09', category: 'erp', titleAr: 'هيئة التدريس والموظفون', titleEn: 'FACULTY & STAFF MANAGEMENT',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'الملف الأكاديمي، الأبحاث، الساعات المكتبية، وتقييم الأداء والترقيات.',
+                        features: ['Faculty Profiles', 'Office Hours Scheduler', 'Research Publications', 'Academic Rank Tracking', 'Performance Appraisals', 'Contract Management'],
+                        techStack: 'Faculty Lifecycle System', portalLink: '/about.html'
+                    },
+                    {
+                        id: '10', category: 'erp', titleAr: 'الموارد البشرية والرواتب', titleEn: 'HRMS & PAYROLL',
+                        statusText: 'مجهز للربط', statusClass: 'bg-purple-500/20 text-purple-400 border border-purple-500/40',
+                        description: 'التوظيف، مسيرات الرواتب، الإجازات، والخدمة الذاتية للموظف.',
+                        features: ['Frappe HRMS Core', 'Recruitment Pipeline', 'Payroll & Salary Slips', 'Leave & Shift Management', 'Benefits & Claims', 'Employee Self Service (ESS)'],
+                        techStack: 'Frappe HRMS Module', portalLink: null
+                    },
+                    {
+                        id: '11', category: 'erp', titleAr: 'الإدارة المالية والرسوم', titleEn: 'ERP & STUDENT FINANCE',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'حساب الرسوم الدراسية، الخصومات والمنح، الفواتير، والقيود المحاسبية.',
+                        features: ['Interactive Tuition Calculator', 'Tuition & Housing Fees', 'Scholarships & Discounts', 'General Ledger & Accounts', 'Invoices & Receipts', 'Procurement & Assets'],
+                        techStack: 'ERPNext & Financial Ledger', portalLink: '/tuition.html'
+                    },
+                    {
+                        id: '12', category: 'erp', titleAr: 'المنح والمساعدات المالية', titleEn: 'SCHOLARSHIPS & FINANCIAL AID',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'منح التفوق، المنح الجزئية 10%-50%، برامج الرعاية والشراكات.',
+                        features: ['Merit Scholarships', 'Need-Based Grants', 'Partner Sponsorships', 'Renewal Eligibility Logic', 'Financial Aid Awards', 'Scholarship Analytics'],
+                        techStack: 'Scholarship Eligibility Engine', portalLink: '/tuition.html'
+                    },
+                    {
+                        id: '13', category: 'academic', titleAr: 'المكتبة الجامعية الرقمية', titleEn: 'LIBRARY MANAGEMENT & OPAC',
+                        statusText: 'مجهز للربط', statusClass: 'bg-blue-500/20 text-blue-400 border border-blue-500/40',
+                        description: 'فهرسة الكتب، الإعارة الرقمية، والربط مع قواعد البيانات الأكاديمية العالمية.',
+                        features: ['OPAC Search Engine', 'Barcode / RFID Tracking', 'Scopus & IEEE Integrations', 'E-Books & Journals Repo', 'Circulation & Fines', 'Reservations System'],
+                        techStack: 'Digital Library & OpenAlex API', portalLink: null
+                    },
+                    {
+                        id: '14', category: 'academic', titleAr: 'إدارة البحث العلمي', titleEn: 'RESEARCH MANAGEMENT & ORCID',
+                        statusText: 'مجهز للربط', statusClass: 'bg-blue-500/20 text-blue-400 border border-blue-500/40',
+                        description: 'مشاريع البحوث، المنح التمويلية، أبحاث الكليات، والربط مع ORCID و Crossref.',
+                        features: ['Research Projects Tracking', 'Grants & Budgets', 'ORCID & DOI Sync', 'Ethics & IRB Approvals', 'Publication Repository', 'Research Analytics'],
+                        techStack: 'ORCID / Crossref / Research API', portalLink: null
+                    },
+                    {
+                        id: '15', category: 'student', titleAr: 'الخدمات الطلابية الإلكترونية', titleEn: 'STUDENT E-SERVICES HUB',
+                        statusText: 'جاهز ومفعل (16 خدمة)', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: '16 خدمة ذاتية إلكترونية فورية للطلبة مع توليد مستندات رقمية رسمية بـ QR Code.',
+                        features: ['16 Online E-Services', 'Enrollment Certificates', 'Official Transcripts', 'Major/Course Change', 'Clearance Requests', 'Digital QR Verification'],
+                        techStack: 'Automated E-Service Workflow', portalLink: '/services.html'
+                    },
+                    {
+                        id: '16', category: 'student', titleAr: 'الإرشاد الأكاديمي ومتابعة التعثر', titleEn: 'ACADEMIC ADVISING & EARLY WARNING',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'توزيع المرشدين، خطط التخرج، ونظام الإنذار المبكر للطلبة المتعثرين.',
+                        features: ['Advisor Assignment', 'Advising Appointments', 'Degree Progress Tracking', 'Early Warning Alerts', 'Intervention Plans', 'Student Success Metrics'],
+                        techStack: 'Advising & Alert Logic', portalLink: '/student-portal.html'
+                    },
+                    {
+                        id: '17', category: 'student', titleAr: 'التوظيف والمسار المهني', titleEn: 'CAREER SERVICES & INTERNSHIPS',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'معارض التوظيف، التدريب الميداني بالتعاون مع جهات العمل، وبناء السيرة الذاتية.',
+                        features: ['Career Portal', 'Student CV Builder', 'Internship & Co-op Tracking', 'Employer Network', 'Job Fairs & Events', 'Placement Analytics'],
+                        techStack: 'Career Connect Portal', portalLink: '/campus-life.html'
+                    },
+                    {
+                        id: '18', category: 'student', titleAr: 'بوابة وشبكة الخريجين', titleEn: 'ALUMNI ENGAGEMENT & PORTAL',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'دليل الخريجين، التحقق من الشهادات الرقمية، وفعاليات رابطة الخريجين.',
+                        features: ['Alumni Directory', 'Digital Degree Verification', 'Alumni Events & Mentorship', 'Fundraising & Giving', 'Career Tracking', 'Alumni Association Hub'],
+                        techStack: 'Alumni Network & Verification API', portalLink: '/campus-life.html'
+                    },
+                    {
+                        id: '19', category: 'core', titleAr: 'الدعم الفني وتذاكر المساعدة', titleEn: 'HELPDESK & TICKETING SYSTEM',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'نظام تذاكر الدعم للطلبة وأعضاء هيئة التدريس مع تصعيد آلي ومتابعة SLA.',
+                        features: ['Ticket Categories & SLA', 'Automated Assignment', 'IT, SIS & Finance Queues', 'Email & Portal Ticketing', 'Knowledge Base Sync', 'Support Analytics'],
+                        techStack: 'Frappe Helpdesk Engine', portalLink: '/services.html'
+                    },
+                    {
+                        id: '20', category: 'core', titleAr: 'قاعدة المعرفة واللوائح', titleEn: 'KNOWLEDGE BASE & UNIVERSITY WIKI',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'اللوائح الأكاديمية، دليل الطالب، سياسات الجامعة، والأسئلة الشائعة الذكية.',
+                        features: ['Frappe Wiki Engine', 'Academic Regulations', 'Student & Faculty Handbooks', 'Interactive FAQs', 'How-to Video Tutorials', 'Full-Text Search'],
+                        techStack: 'Wiki & Knowledge Search', portalLink: '/about.html'
+                    },
+                    {
+                        id: '21', category: 'student', titleAr: 'علاقات القبول والتسويق', titleEn: 'ADMISSIONS CRM & MARKETING',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'متابعة المتقدمين والمهتمين بالالتحاق، الحملات التسويقية، وقنوات التواصل.',
+                        features: ['Prospective Student Pipeline', 'Admissions Campaigns', 'WhatsApp & Email Connect', 'Follow-up Automation', 'Lead Source Tracking', 'Conversion Analytics'],
+                        techStack: 'Frappe CRM Engine', portalLink: '/admissions.html'
+                    },
+                    {
+                        id: '22', category: 'core', titleAr: 'الاتصالات والإشعارات الجامعية', titleEn: 'COMMUNICATION & NOTIFICATION HUB',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'التعاميم الرسمية، الإشعارات الفورية SMS/Email، وتنبيهات الطوارئ.',
+                        features: ['Notification Center', 'SMS & Push Notifications', 'Emergency Broadcasts', 'Email Templates', 'Targeted Mailing Lists', 'In-App Alerts'],
+                        techStack: 'Multi-Channel Push & SMS Gateway', portalLink: '/'
+                    },
+                    {
+                        id: '23', category: 'integration', titleAr: 'تكامل Microsoft 365 & Teams', titleEn: 'MICROSOFT 365 INTEGRATION',
+                        statusText: 'مجهز للربط السحابي', statusClass: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40',
+                        description: 'المزامنة مع Microsoft Graph API لإنشاء حسابات Outlook و Teams و OneDrive للطلبة.',
+                        features: ['Microsoft Entra SSO', 'Teams Virtual Classes', 'Outlook Calendar Sync', 'OneDrive Storage', 'SharePoint Document Repo', 'MS Graph API Engine'],
+                        techStack: 'Microsoft Graph REST API', portalLink: null
+                    },
+                    {
+                        id: '24', category: 'integration', titleAr: 'تكامل Google Workspace', titleEn: 'GOOGLE WORKSPACE INTEGRATION',
+                        statusText: 'مجهز للربط السحابي', statusClass: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40',
+                        description: 'تسجيل الدخول بحسابات Google والمزامنة مع Google Drive و Meet و Calendar.',
+                        features: ['Google OAuth 2.0', 'Google Drive Integration', 'Google Meet Classroom Links', 'Google Calendar Sync', 'Google Classroom Export', 'Gmail SMTP Relay'],
+                        techStack: 'Google APIs & OAuth 2.0', portalLink: null
+                    },
+                    {
+                        id: '25', category: 'core', titleAr: 'إدارة الوثائق والأرشفة الرقمية', titleEn: 'DOCUMENT MANAGEMENT SYSTEM (DMS)',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'الأرشفة المركزية للشهادات والعقود والمراسلات مع التوقيع الإلكتروني والتحقق.',
+                        features: ['Document Versioning', 'Electronic Signatures', 'Encrypted Archiving', 'Incoming / Outgoing Tracking', 'Retention Policy Rules', 'Document QR Verification'],
+                        techStack: 'Digital DMS & E-Signature', portalLink: '/services.html'
+                    },
+                    {
+                        id: '26', category: 'erp', titleAr: 'سير العمل الإداري والموافقات', titleEn: 'ADMINISTRATIVE WORKFLOW & APPROVALS',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'المعاملات الإلكترونية وسلاسل الموافقات متعددة المستويات (رئيس قسم -> عميد -> مدير).',
+                        features: ['Multi-Level Approvals', 'Delegation of Authority', 'Approval Escalation Logic', 'Digital Sign-off', 'Comprehensive Audit Trail', 'Transaction Tracking'],
+                        techStack: 'Workflow & Audit Engine', portalLink: '/services.html'
+                    },
+                    {
+                        id: '27', category: 'campus', titleAr: 'إدارة الحرم الجامعي والمرافق', titleEn: 'CAMPUS FACILITIES & SPACE MANAGEMENT',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'حجز القاعات والمعامل، طلبات الصيانة، وإدارة الطاقة والمساحات بالحرم.',
+                        features: ['Classroom & Lab Booking', 'Maintenance Work Orders', 'Preventive Maintenance', 'Space Utilization Analytics', 'Utility Management', 'Asset Tracking'],
+                        techStack: 'Facility Operations Engine', portalLink: '/campus-life.html'
+                    },
+                    {
+                        id: '28', category: 'campus', titleAr: 'إدارة النقل والمواصلات', titleEn: 'CAMPUS TRANSPORTATION & BUS FLEET',
+                        statusText: 'مجهز للربط', statusClass: 'bg-rose-500/20 text-rose-400 border border-rose-500/40',
+                        description: 'خطوط حافلات الجامعة، تتبع الرحلات، وجداول النقل للطلبة وأعضاء التدريس.',
+                        features: ['Bus Routes & Stops', 'Student Bus Registration', 'Real-Time Bus Tracking', 'Driver Schedules', 'Vehicle Maintenance Logs', 'Transport Analytics'],
+                        techStack: 'Fleet & Route Manager', portalLink: null
+                    },
+                    {
+                        id: '29', category: 'campus', titleAr: 'السكن الجامعي والإقامة', titleEn: 'STUDENT HOUSING & RESIDENCE LIFE',
+                        statusText: 'مجهز للربط', statusClass: 'bg-rose-500/20 text-rose-400 border border-rose-500/40',
+                        description: 'طلبات السكن، توزيع الغرف والأسرّة، رسوم الإقامة، وإجراءات الدخول والخروج.',
+                        features: ['Housing Applications', 'Room & Bed Allocation', 'Housing Contracts & Fees', 'Check-in / Check-out', 'Maintenance Requests', 'Residence Analytics'],
+                        techStack: 'Housing & Space Allocation', portalLink: null
+                    },
+                    {
+                        id: '30', category: 'campus', titleAr: 'إدارة الفعاليات والمؤتمرات', titleEn: 'UNIVERSITY EVENTS & CONFERENCES',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'تنظيم المؤتمرات وورش العمل، حجز التذاكر، وتسجيل الحضور وإصدار الشهادات.',
+                        features: ['Event Registration', 'Ticketing & Badging', 'Speaker Directory', 'Venue Booking', 'Attendance Scanner', 'Automated Certificates'],
+                        techStack: 'Events & Ticketing Hub', portalLink: '/campus-life.html'
+                    },
+                    {
+                        id: '31', category: 'campus', titleAr: 'الحياة الطلابية والأنشطة', titleEn: 'STUDENT LIFE & CLUBS',
+                        statusText: 'جاهز ومفعل', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'الأندية الطلابية، المجلس الطلابي، الفعاليات الثقافية والرياضية والجوائز.',
+                        features: ['Student Clubs & Councils', 'Volunteering Tracking', 'Competitions & Awards', 'Student Achievements Repo', 'Election Portals', 'Engagement Metrics'],
+                        techStack: 'Student Life Ecosystem', portalLink: '/campus-life.html'
+                    },
+                    {
+                        id: '32', category: 'campus', titleAr: 'الإرشاد النفسي والرعاية', titleEn: 'COUNSELING & WELLBEING',
+                        statusText: 'مجهز للربط', statusClass: 'bg-rose-500/20 text-rose-400 border border-rose-500/40',
+                        description: 'حجز الجلسات الإرشادية الخاصة، برامج الصحة النفسية، وخدمات ذوي الاحتياجات.',
+                        features: ['Confidential Appointments', 'Case Management', 'Student Wellbeing Programs', 'Accessibility Services', 'Referrals & Follow-ups', 'Counseling Analytics'],
+                        techStack: 'Confidential Care System', portalLink: null
+                    },
+                    {
+                        id: '33', category: 'core', titleAr: 'الجودة والاعتماد الأكاديمي', titleEn: 'QUALITY ASSURANCE & ACCREDITATION',
+                        statusText: 'مدمج ومجهز', statusClass: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+                        description: 'مخرجات التعلم، استبانات تقييم المقررات، مستودع أدلة الاعتماد المؤسسي.',
+                        features: ['Accreditation Evidence Repo', 'Program & Course Review', 'Learning Outcomes Mapping', 'Student & Faculty Surveys', 'Quality Audits', 'Compliance Analytics'],
+                        techStack: 'Quality & Accreditation Suite', portalLink: '/about.html'
+                    }
+                ],
+                get filteredModules() {
+                    return this.allModules.filter(m => {
+                        const matchesCat = this.categoryFilter === 'all' || m.category === this.categoryFilter;
+                        const q = this.searchQuery.toLowerCase().trim();
+                        const matchesQuery = !q || m.titleAr.toLowerCase().includes(q) || m.titleEn.toLowerCase().includes(q) || m.description.toLowerCase().includes(q) || m.id.includes(q);
+                        return matchesCat && matchesQuery;
+                    });
+                }
+            }
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
