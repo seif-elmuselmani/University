@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1920, initial-scale=1.0">
-    <title>شرائح العرض التقديمي الفاخر | جامعة لوسيل</title>
+    <title>العرض التقديمي الاستراتيجي الفاخر | جامعة لوسيل</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -45,7 +45,7 @@
         }
         body {
             font-family: 'Cairo', 'Tajawal', sans-serif;
-            background-color: #0F172A;
+            background-color: #0B132B;
             margin: 0;
             padding: 0;
         }
@@ -77,14 +77,16 @@
         }
         .dot { width: 10px; height: 10px; border-radius: 50%; }
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
             border: 1px solid #E2E8F0;
             border-radius: 20px;
             box-shadow: 0 15px 30px -8px rgba(0, 72, 118, 0.08);
         }
-        .gold-border {
-            border-color: #be9c79;
+        .prototype-badge {
+            background: rgba(234, 179, 8, 0.15);
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            color: #854d0e;
         }
     </style>
 </head>
@@ -92,24 +94,29 @@
 
     <!-- ==================== SLIDE 1: ULTRA-LUXURY EXECUTIVE COVER ==================== -->
     <section id="slide-1" class="slide-canvas bg-gradient-to-br from-[#002D4A] via-[#004876] to-[#00243C] text-white p-20 relative select-none">
-        <!-- Decorative Ambient Lights -->
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#be9c79]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#be9c79]/15 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
 
-        <!-- Top Row -->
+        <!-- Top Header with University Logo -->
         <div class="flex items-center justify-between z-10">
-            <div class="flex items-center gap-4">
-                <div class="w-16 h-16 rounded-2xl bg-white/10 border-2 border-lugold text-white flex items-center justify-center font-black text-2xl shadow-lg backdrop-blur-md">
-                    LU
+            <div class="flex items-center gap-5">
+                <div class="p-2 bg-white/10 rounded-2xl border-2 border-lugold backdrop-blur-md shadow-xl flex items-center justify-center">
+                    <img src="img/lu_logo.png" alt="شعار جامعة لوسيل" class="h-14 w-auto object-contain">
                 </div>
                 <div>
-                    <span class="text-xl font-black text-white block tracking-wide">جامعة لوسيل | Lusail University</span>
+                    <span class="text-2xl font-black text-white block tracking-wide">جامعة لوسيل | Lusail University</span>
                     <span class="text-sm font-bold text-lugold">صرح أكاديمي رائد في مدينة لوسيل - دولة قطر</span>
                 </div>
             </div>
-            <div class="px-6 py-2.5 rounded-full bg-white/10 border border-lugold/40 text-lugold text-sm font-bold backdrop-blur-md shadow-sm">
-                المقترح المؤسسي المعتمد للتحول الرقمي الأكاديمي 2026/2027
+            
+            <div class="flex items-center gap-3">
+                <span class="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/40 text-xs font-bold">
+                    ⚠️ نسخة أولية تجريبية (Prototype v1.0)
+                </span>
+                <span class="px-5 py-2 rounded-full bg-white/10 border border-lugold/40 text-lugold text-xs font-bold backdrop-blur-md">
+                    المقترح المؤسسي للتحول الأكاديمي 2026/2027
+                </span>
             </div>
         </div>
 
@@ -157,7 +164,7 @@
                         <span class="dot bg-emerald-500"></span>
                         <span class="text-xs text-slate-400 font-mono mr-3">🔒 https://lu.edu.qa</span>
                     </div>
-                    <img src="img/screen_home.png" alt="بوابة جامعة لوسيل" class="w-full h-[440px] object-cover object-top">
+                    <img src="img/screen_home.png" alt="بوابة جامعة لوسيل" class="w-full h-[430px] object-cover object-top">
                 </div>
             </div>
         </div>
@@ -174,20 +181,18 @@
     <section id="slide-2" class="slide-canvas p-16 relative select-none">
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
-        <!-- Header -->
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الهيكل التشغيلي الشامل للمنظومة</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">الركائز الاستراتيجية الـ 4 لمنظومة جامعة لوسيل</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الهيكل التشغيلي الشامل للمنظومة</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">الركائز الاستراتيجية الـ 4 لمنظومة جامعة لوسيل</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                02 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">02 / 14</div>
         </div>
 
-        <!-- 4 Pillars Cards Grid -->
         <div class="grid grid-cols-4 gap-6 my-auto">
-            <!-- Pillar 1 -->
             <div class="glass-card p-6 border-t-4 border-t-lunavy space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-lunavy/10 text-lunavy flex items-center justify-center">
                     <i data-lucide="layout" class="w-6 h-6"></i>
@@ -202,7 +207,6 @@
                 </div>
             </div>
 
-            <!-- Pillar 2 -->
             <div class="glass-card p-6 border-t-4 border-t-colLaw space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-colLaw/10 text-colLaw flex items-center justify-center">
                     <i data-lucide="graduation-cap" class="w-6 h-6"></i>
@@ -217,7 +221,6 @@
                 </div>
             </div>
 
-            <!-- Pillar 3 -->
             <div class="glass-card p-6 border-t-4 border-t-lugold space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-lugold/10 text-lugold-dark flex items-center justify-center">
                     <i data-lucide="qr-code" class="w-6 h-6"></i>
@@ -232,7 +235,6 @@
                 </div>
             </div>
 
-            <!-- Pillar 4 -->
             <div class="glass-card p-6 border-t-4 border-t-colIT space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-colIT/10 text-colIT flex items-center justify-center">
                     <i data-lucide="layout-grid" class="w-6 h-6"></i>
@@ -248,7 +250,6 @@
             </div>
         </div>
 
-        <!-- Bottom Stat Highlights -->
         <div class="grid grid-cols-4 gap-6 pt-4 border-t border-slate-200">
             <div class="p-4 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
                 <div class="text-3xl font-black text-lunavy font-mono">21 / 21</div>
@@ -268,9 +269,8 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="pt-4 flex items-center justify-between text-xs text-slate-500">
-            <span>جامعة لوسيل - المقترح التنفيذي الرسمي للتحول الرقمي 2026/2027</span>
+            <span>جامعة لوسيل - المقترح التنفيذي الرسمي 2026/2027</span>
             <span>وثيقة سرية موجهة لمجلس الأمناء والرئاسة</span>
         </div>
     </section>
@@ -280,23 +280,22 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">استعراض البوابة الرئيسية الحية</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">البوابة الرسمية الموحدة: تجربة رقمية ترتقي بمكانة جامعة لوسيل</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">استعراض البوابة الرئيسية الحية</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">البوابة الرسمية الموحدة: تجربة رقمية ترتقي بمكانة جامعة لوسيل</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                03 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">03 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
             <div class="col-span-7">
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
-                        <span class="dot bg-rose-400"></span>
-                        <span class="dot bg-amber-400"></span>
-                        <span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/index.html</span>
+                        <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/</span>
                     </div>
                     <img src="img/screen_home.png" alt="الرئيسية" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -336,7 +335,7 @@
         </div>
 
         <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-            <span>جامعة لوسيل - المقترح التنفيذي الرسمي للتحول الرقمي 2026/2027</span>
+            <span>جامعة لوسيل - المقترح التنفيذي الرسمي 2026/2027</span>
             <span>بوابة موحدة معتمدة</span>
         </div>
     </section>
@@ -346,13 +345,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">البرامج الأكاديمية والخطط الدراسية</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">دليل الكليات الأكاديمية الـ 4 والبرامج الـ 17 المعتمدة</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">البرامج الأكاديمية والخطط الدراسية</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">دليل الكليات الأكاديمية الـ 4 والبرامج الـ 17 المعتمدة</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                04 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">04 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -360,7 +360,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/colleges.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/colleges.html</span>
                     </div>
                     <img src="img/screen_colleges.png" alt="الكليات" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -412,13 +412,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">المرافق والمختبرات التطبيقية</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">تخصيص كامل لصفحات الكليات والمرافق الذكية</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">المرافق والمختبرات التطبيقية</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">تخصيص كامل لصفحات الكليات والمرافق الذكية</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                05 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">05 / 14</div>
         </div>
 
         <div class="grid grid-cols-2 gap-8 my-auto">
@@ -460,13 +461,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (1/4) | القبول واستقطاب المواهب</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">رحلة الطالب المتقدم: شروط القبول وحاسبة الرسوم التفاعلية</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (1/4) | القبول واستقطاب المواهب</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">رحلة الطالب المتقدم: شروط القبول وحاسبة الرسوم التفاعلية</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                06 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">06 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -474,7 +476,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/tuition-fees.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/tuition-fees.html</span>
                     </div>
                     <img src="img/screen_tuition.png" alt="حاسبة الرسوم" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -522,13 +524,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (2/4) | الخدمات الأكاديمية اليومية للطالب</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">بوابة الطالب الذاتية: الجدول، كشف الحضور، والمعدل التراكمي</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (2/4) | الخدمات الأكاديمية اليومية للطالب</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">بوابة الطالب الذاتية: الجدول، كشف الحضور، والمعدل التراكمي</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                07 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">07 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -536,7 +539,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/student-portal.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/student-portal.html</span>
                     </div>
                     <img src="img/screen_student_portal.png" alt="بوابة الطالب" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -586,13 +589,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">أتمتة المعاملات والتوثيق الرقمي المباشر</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">منظومة الـ 16 خدمة إلكترونية بالختم والـ QR المعتمد</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">أتمتة المعاملات والتوثيق الرقمي المباشر</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">منظومة الـ 16 خدمة إلكترونية بالختم والـ QR المعتمد</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                08 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">08 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -600,7 +604,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/services.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/services.html</span>
                     </div>
                     <img src="img/screen_services.png" alt="الخدمات" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -661,13 +665,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (3/4) | الرقابة والتشغيل الأكاديمي</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">لوحة تحكم المسجل العام (Desk OS): إدارة العمليات والقيود</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (3/4) | الرقابة والتشغيل الأكاديمي</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">لوحة تحكم المسجل العام (Desk OS): إدارة العمليات والقيود</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                09 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">09 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -675,7 +680,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/desk.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/desk.html</span>
                     </div>
                     <img src="img/screen_desk.png" alt="لوحة المسجل" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -716,13 +721,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">البيئة الجامعية في مدينة لوسيل</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">الحياة الجامعية والمرافق: الأندية، المكتبة، والأنشطة الرياضية</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">البيئة الجامعية في مدينة لوسيل</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">الحياة الجامعية والمرافق: الأندية، المكتبة، والأنشطة الرياضية</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                10 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">10 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -730,7 +736,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/campus-life.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/campus-life.html</span>
                     </div>
                     <img src="img/screen_campus_life.png" alt="الحياة الجامعية" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -771,13 +777,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (4/4) | القيادة والرؤية الوطنية</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">القيادة المؤسسية والرؤية الأكاديمية: مجلس الأمناء والرئاسة</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">رحلة المستخدم (4/4) | القيادة والرؤية الوطنية</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">القيادة المؤسسية والرؤية الأكاديمية: مجلس الأمناء والرئاسة</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                11 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">11 / 14</div>
         </div>
 
         <div class="grid grid-cols-12 gap-8 items-center my-auto">
@@ -785,7 +792,7 @@
                 <div class="browser-mockup shadow-2xl">
                     <div class="browser-topbar">
                         <span class="dot bg-rose-400"></span><span class="dot bg-amber-400"></span><span class="dot bg-emerald-400"></span>
-                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://lu.edu.qa/about.html</span>
+                        <span class="text-xs text-slate-500 font-mono mr-3">🔒 https://university-kohl-eight.vercel.app/about.html</span>
                     </div>
                     <img src="img/screen_about.png" alt="عن الجامعة" class="w-full h-[460px] object-cover object-top">
                 </div>
@@ -826,13 +833,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الهيكل البرمجي والتشغيلي المعتمد</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">المعمارية التقنية الواقعية: استقرار، أمان، وأداء فائق</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الهيكل البرمجي والتشغيلي المعتمد</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">المعمارية التقنية الواقعية: استقرار، أمان، وأداء فائق</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                12 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">12 / 14</div>
         </div>
 
         <div class="grid grid-cols-4 gap-6 my-auto">
@@ -880,13 +888,14 @@
         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
         
         <div class="flex items-center justify-between border-b border-slate-200 pb-5">
-            <div>
-                <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الكفاءة التشغيلية الملموسة</span>
-                <h2 class="text-4xl font-black text-lunavy mt-1">الأثر التشغيلي الواقعي للمنظومة الجديدة على الجامعة</h2>
+            <div class="flex items-center gap-4">
+                <img src="img/lu_logo.png" alt="شعار" class="h-10 w-auto">
+                <div>
+                    <span class="text-xs font-bold text-lugold uppercase tracking-widest block">الكفاءة التشغيلية الملموسة</span>
+                    <h2 class="text-4xl font-black text-lunavy mt-1">الأثر التشغيلي الواقعي للمنظومة الجديدة على الجامعة</h2>
+                </div>
             </div>
-            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">
-                13 / 14
-            </div>
+            <div class="px-5 py-2 rounded-xl bg-lunavy text-white text-xs font-bold font-mono">13 / 14</div>
         </div>
 
         <div class="grid grid-cols-3 gap-8 my-auto">
@@ -920,57 +929,91 @@
         </div>
     </section>
 
-    <!-- ==================== SLIDE 14: EXECUTIVE SUMMARY & CALL TO ACTION ==================== -->
-    <section id="slide-14" class="slide-canvas bg-gradient-to-br from-[#002D4A] via-[#004876] to-[#00243C] text-white p-20 relative select-none flex flex-col justify-between">
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#be9c79]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- ==================== SLIDE 14: MASTER FINAL SLIDE WITH LIVE QR CODE & DISCLAIMER ==================== -->
+    <section id="slide-14" class="slide-canvas bg-gradient-to-br from-[#002D4A] via-[#004876] to-[#00243C] text-white p-16 relative select-none flex flex-col justify-between">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#be9c79]/15 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-lunavy via-lugold to-lunavy"></div>
 
-        <!-- Header -->
+        <!-- Top Header with Logo -->
         <div class="flex items-center justify-between z-10">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-xl bg-white/10 border border-lugold text-white flex items-center justify-center font-black text-xl">
-                    LU
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-white/10 rounded-2xl border border-lugold backdrop-blur-md">
+                    <img src="img/lu_logo.png" alt="شعار جامعة لوسيل" class="h-12 w-auto object-contain">
                 </div>
-                <span class="text-lg font-black text-white">جامعة لوسيل | Lusail University</span>
+                <span class="text-xl font-black text-white">جامعة لوسيل | Lusail University</span>
             </div>
-            <span class="text-lugold text-sm font-bold">الخاتمة والتوصيات التنفيذية</span>
+            <span class="px-4 py-1.5 rounded-full bg-lugold/20 border border-lugold text-lugold text-xs font-bold">
+                الخاتمة والتجربة الحية المباشرة
+            </span>
         </div>
 
-        <!-- Center Content Box -->
-        <div class="max-w-4xl mx-auto text-center space-y-8 my-auto z-10">
-            <div class="w-20 h-20 mx-auto rounded-3xl bg-white/10 border-2 border-lugold text-lugold flex items-center justify-center shadow-2xl backdrop-blur-md">
-                <i data-lucide="check-circle" class="w-10 h-10"></i>
+        <!-- Center 2-Column Showcase (Text & Decisions + Live QR Code) -->
+        <div class="grid grid-cols-12 gap-10 items-center my-auto z-10">
+            <!-- Left 7 Cols: Summary & Decisions -->
+            <div class="col-span-7 space-y-5 text-right">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-bold">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                    <span>جاهزية كاملة للتشغيل التجريبي</span>
+                </div>
+
+                <h2 class="text-4xl font-black text-white leading-tight">
+                    جامعة لوسيل: منصة أكاديمية ذكية جاهزة للتشغيل الفوري
+                </h2>
+
+                <!-- Board Decisions Box -->
+                <div class="p-5 bg-white/10 border border-white/20 rounded-2xl text-right space-y-2.5 backdrop-blur-md text-xs">
+                    <div class="font-black text-lugold text-sm">الخطوات التنفيذية المقترحة لمجلس الأمناء والرئاسة:</div>
+                    <div class="space-y-1.5 text-slate-200 leading-relaxed">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">1</span>
+                            <span>اعتماد التصميم والهوية البصرية الموحدة وتدشين البوابة الإلكترونية رسمياً.</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">2</span>
+                            <span>تفعيل منظومة الخدمات الذاتية الـ 16 بالـ QR Code للطلبة للفصل الدراسي القادم.</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">3</span>
+                            <span>بدء استقبال طلبات الالتحاق الإلكترونية عبر صفحة القبول وحاسبة الرسوم التفاعلية.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prototype Notice Box (Requested by User) -->
+                <div class="p-4 bg-amber-500/15 border border-amber-400/40 rounded-2xl text-amber-200 text-xs flex items-start gap-3">
+                    <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                    <div>
+                        <strong class="text-amber-300 block font-black mb-0.5">تنويه هام للإدارة العليا:</strong>
+                        هذه النسخة المعروضة تمثل <strong>نموذجاً أولياً تجريبياً (Prototype & MVP Release 1.0)</strong> لتجسيد الرؤية والتجربة الرقمية الموحدة لجامعة لوسيل، وتخضع للتوسع والتكامل المستمر مع أنظمة الجامعة المعتمدة.
+                    </div>
+                </div>
             </div>
 
-            <h2 class="text-5xl font-black text-white leading-tight">
-                جامعة لوسيل: منصة أكاديمية ذكية جاهزة للتشغيل الفوري
-            </h2>
+            <!-- Right 5 Cols: Real Functional Live QR Code Box -->
+            <div class="col-span-5 flex flex-col items-center justify-center text-center space-y-4">
+                <div class="p-6 bg-white rounded-3xl shadow-2xl border-4 border-lugold text-slate-900 flex flex-col items-center space-y-3">
+                    <div class="text-xs font-black text-lunavy uppercase tracking-wider">
+                        📱 امسح الباركود لتجربة الموقع الحي الآن
+                    </div>
+                    
+                    <!-- Real Functional QR Code Image -->
+                    <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                        <img src="img/qrcode_live_site.png" alt="QR Code Live Website" class="w-52 h-52 object-contain">
+                    </div>
+                    
+                    <div class="text-xs font-mono font-bold text-lugold-dark bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">
+                        university-kohl-eight.vercel.app
+                    </div>
+                </div>
 
-            <p class="text-base text-slate-200 leading-relaxed max-w-2xl mx-auto">
-                إن اعتماد هذه المنظومة يضع جامعة لوسيل في طليعة الجامعات الذكية، ويضمن تجربة استثنائية لكافة الطلبة وأعضاء هيئة التدريس والإدارة.
-            </p>
-
-            <div class="p-6 bg-white/10 border border-white/20 rounded-2xl text-right space-y-3 backdrop-blur-md max-w-3xl mx-auto text-sm">
-                <div class="font-black text-lugold">الخطوات التنفيذية المقترحة لمجلس الأمناء والرئاسة:</div>
-                <div class="space-y-2 text-slate-200 text-xs leading-relaxed">
-                    <div class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">1</span>
-                        <span>اعتماد التصميم والهوية البصرية الموحدة وتدشين البوابة الإلكترونية رسمياً.</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">2</span>
-                        <span>تفعيل منظومة الخدمات الذاتية الـ 16 بالـ QR Code للطلبة للفصل الدراسي القادم.</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-lugold text-lunavy-dark font-black flex items-center justify-center text-[10px]">3</span>
-                        <span>بدء استقبال طلبات الالتحاق الإلكترونية عبر صفحة القبول وحاسبة الرسوم التفاعلية.</span>
-                    </div>
+                <div class="text-[11px] text-slate-300 font-medium">
+                    يعمل فوراً بكاميرا أي هاتف ذكي (iOS / Android)
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
-        <div class="pt-6 border-t border-white/15 flex items-center justify-between text-xs text-slate-300 z-10">
+        <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-slate-300 z-10">
             <span>جامعة لوسيل - صرح أكاديمي رائد في دولة قطر</span>
             <span class="text-lugold font-bold">شكراً لكم | Thank You</span>
             <span>2026/2027</span>
