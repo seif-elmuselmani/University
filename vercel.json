@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/portal/index.html"
+    },
+    {
+      "source": "/presentation",
+      "destination": "/presentation/render_slides.html"
+    },
+    {
+      "source": "/slides",
+      "destination": "/presentation/render_slides.html"
+    },
+    {
+      "source": "/deck",
+      "destination": "/presentation/deck.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/portal/:path*"
+    }
+  ]
+}
